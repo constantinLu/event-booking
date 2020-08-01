@@ -37,8 +37,6 @@ public class RegisterController {
                 e.printStackTrace();
             }
         }
-
-
     }
 
     public void onClose(ActionEvent actionEvent) {
