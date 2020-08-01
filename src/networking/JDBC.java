@@ -8,8 +8,8 @@
 //import java.util.logging.Level;
 //import java.util.logging.Logger;
 //import main.Entities.Entity;
-//import main.Utils.WriteLog;
-//import main.View.NotificationPane;
+//import main.utils.WriteLog;
+//import main.view.NotificationPane;
 //
 //public class JDBC {
 //

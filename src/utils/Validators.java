@@ -1,6 +1,6 @@
-package Utils;
+package utils;
 
-import View.NotificationPane;
+import view.NotificationPane;
 import javafx.scene.control.TextField;
 
 public class Validators {

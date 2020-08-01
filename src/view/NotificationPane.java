@@ -1,6 +1,6 @@
-package View;
+package view;
 
-import Utils.WriteLog;
+import utils.WriteLog;
 import java.time.LocalTime;
 import java.util.Objects;
 import java.util.logging.Level;

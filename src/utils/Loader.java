@@ -1,4 +1,4 @@
-package Utils;
+package utils;
 
 import entities.User;
 import java.io.IOException;
@@ -13,7 +13,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
-import main.Controller;
+import controller.Controller;
 
 public class Loader {
 
