@@ -1,74 +1,103 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.text.*?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.effect.ColorAdjust?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
-
-<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginController">
-    <columnConstraints>
-        <ColumnConstraints />
-    </columnConstraints>
-    <rowConstraints>
-        <RowConstraints />
-    </rowConstraints>
+<?import javafx.scene.text.*?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0"
+            prefWidth="1366.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controller.MainPageController">
     <children>
-        <BorderPane prefHeight="720.0" prefWidth="1366.0">
-         <top>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1397d5;" BorderPane.alignment="CENTER">
-               <children>
-                  <ImageView fitHeight="192.0" fitWidth="195.0" layoutX="82.0" layoutY="5.0">
-                     <image>
-                        <Image url="@../resources/logo_size_invert.jpg" />
-                     </image>
-                  </ImageView>
-                  <Text fill="WHITE" layoutX="1077.0" layoutY="181.0" strokeType="OUTSIDE" strokeWidth="0.0" text="BOOKING MADE EASY" wrappingWidth="188.13671875">
-                     <font>
-                        <Font name="Lucida Sans Regular" size="17.0" />
-                     </font>
-                  </Text>
-               </children>
-            </AnchorPane>
-         </top>
-         <left>
-            <AnchorPane prefHeight="824.0" prefWidth="222.0" BorderPane.alignment="CENTER">
-               <children>
-                  <Button layoutX="13.0" layoutY="189.0" minHeight="100.0" minWidth="200.0" mnemonicParsing="false" onAction="#onLogin" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: transparent;" text="Add Event" textFill="#1397d5" AnchorPane.bottomAnchor="300.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="200.0">
-                     <font>
-                        <Font name="Lucida Console" size="28.0" />
-                     </font>
-                  </Button>
-                  <Button layoutX="10.0" layoutY="300.0" minHeight="200.0" minWidth="100.0" mnemonicParsing="false" onAction="#onLogin" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: transparent;" text="Booked" textFill="#1397d5" AnchorPane.bottomAnchor="200.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="300.0">
-                     <font>
-                        <Font name="Lucida Console" size="28.0" />
-                     </font>
-                  </Button>
-                  <Button layoutX="10.0" layoutY="314.0" minHeight="100.0" minWidth="200.0" mnemonicParsing="false" onAction="#onLogin" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: transparent;" text="Events" textFill="#1397d5" AnchorPane.bottomAnchor="500.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
-                     <font>
-                        <Font name="Lucida Console" size="28.0" />
-                     </font>
-                  </Button>
-                  <Button layoutX="10.0" layoutY="100.0" minHeight="100.0" minWidth="200.0" mnemonicParsing="false" onAction="#onLogin" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: transparent;" text="My Event" textFill="#1397d5" AnchorPane.bottomAnchor="400.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="100.0">
-                     <font>
-                        <Font name="Lucida Console" size="28.0" />
-                     </font>
-                  </Button>
-                  <Button layoutX="10.0" layoutY="400.0" minHeight="100.0" minWidth="200.0" mnemonicParsing="false" onAction="#onLogin" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: transparent;" text="Admin" textFill="#1397d5" AnchorPane.bottomAnchor="94.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="400.0">
-                     <font>
-                        <Font name="Lucida Console" size="28.0" />
-                     </font>
-                  </Button>
-               </children>
-            </AnchorPane>
-         </left>
-        </BorderPane>
+        <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0"
+              prefWidth="200.0">
+            <children>
+                <ImageView fitHeight="112.0" fitWidth="116.0" pickOnBounds="true" preserveRatio="true"
+                           VBox.vgrow="NEVER">
+                    <image>
+                        <Image url="@../resources/images/user1.png"/>
+                    </image>
+                    <effect>
+                        <Blend/>
+                    </effect>
+                    <VBox.margin>
+                        <Insets bottom="5.0" left="44.0" right="5.0" top="10.0"/>
+                    </VBox.margin>
+                </ImageView>
+                <Label fx:id="userField" alignment="CENTER" prefHeight="17.0" prefWidth="199.0">
+                    <font>
+                        <Font name="System Bold" size="15.0"/>
+                    </font>
+                </Label>
+                <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+                        mnemonicParsing="false" onAction="#onLogin" prefHeight="100.0" prefWidth="200.0"
+                        style="-fx-background-color: transparent;" text="Add Event" textFill="#1397d5">
+                    <font>
+                        <Font name="Lucida Console" size="28.0"/>
+                    </font>
+                </Button>
+                <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+                        mnemonicParsing="false" onAction="#onLogin" prefHeight="100.0" prefWidth="200.0"
+                        style="-fx-background-color: transparent;" text="Booked" textFill="#1397d5">
+                    <font>
+                        <Font name="Lucida Console" size="28.0"/>
+                    </font>
+                </Button>
+                <Button maxWidth="-Infinity" minHeight="100.0" minWidth="200.0" mnemonicParsing="false"
+                        onAction="#onLogin" prefHeight="100.0" prefWidth="200.0"
+                        style="-fx-background-color: transparent;" text="Events" textFill="#1397d5">
+                    <font>
+                        <Font name="Lucida Console" size="28.0"/>
+                    </font>
+                </Button>
+                <Button maxWidth="-Infinity" minHeight="100.0" minWidth="200.0" mnemonicParsing="false"
+                        onAction="#onEventsAction" prefHeight="100.0" prefWidth="200.0"
+                        style="-fx-background-color: transparent;" text="My Event" textFill="#1397d5">
+                    <font>
+                        <Font name="Lucida Console" size="28.0"/>
+                    </font>
+                </Button>
+                <Button maxWidth="-Infinity" minHeight="100.0" minWidth="200.0" mnemonicParsing="false"
+                        onAction="#onLogin" prefHeight="121.0" prefWidth="200.0"
+                        style="-fx-background-color: transparent;" text="Admin" textFill="#1397d5">
+                    <font>
+                        <Font name="Lucida Console" size="28.0"/>
+                    </font>
+                </Button>
+            </children>
+            <effect>
+                <ColorAdjust/>
+            </effect>
+        </VBox>
+        <VBox layoutX="204.0" layoutY="-11.0" prefHeight="731.0" prefWidth="1170.0">
+            <children>
+                <StackPane prefHeight="11.0" prefWidth="1160.0">
+                    <children>
+                        <Pane fx:id="pnlCustomer" prefHeight="200.0" prefWidth="200.0"/>
+                        <Pane fx:id="pnlOrders" prefHeight="673.0" prefWidth="862.0"/>
+                    </children>
+                </StackPane>
+                <Pane fx:id="pnlOverview" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+                      minWidth="-Infinity" prefHeight="146.0" prefWidth="1162.0" snapToPixel="false"
+                      style="-fx-background-color: #1397d5;">
+                    <children>
+                        <Label layoutX="901.0" layoutY="14.0" maxHeight="-Infinity" maxWidth="-Infinity"
+                               minHeight="-Infinity" minWidth="-Infinity" text="BOOKING MADE EASY" textFill="#e7e5e5">
+                            <font>
+                                <Font size="24.0"/>
+                            </font>
+                        </Label>
+                        <ImageView fitHeight="134.0" fitWidth="144.0" layoutX="14.0" layoutY="6.0">
+                            <image>
+                                <Image url="@../resources/logo_size_invert.jpg"/>
+                            </image>
+                        </ImageView>
+                    </children>
+                </Pane>
+            </children>
+        </VBox>
     </children>
-</GridPane>
+</AnchorPane>

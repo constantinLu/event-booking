@@ -32,7 +32,7 @@ public class RegisterController {
         if(isRegistered) {
             System.out.println("Registration sucessfull for " + studentId.getText());
             try {
-                new Redirect().redirect(actionEvent, LOGIN);
+                new Redirect().redirectToParent(actionEvent, LOGIN);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -46,7 +46,7 @@ public class RegisterController {
 
     public void redirectToLogin(ActionEvent actionEvent) {
         try {
-            new Redirect().redirect(actionEvent, LOGIN);
+            new Redirect().redirectToParent(actionEvent, LOGIN);
         } catch (IOException e) {
             e.printStackTrace();
         }

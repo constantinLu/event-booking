@@ -22,7 +22,9 @@ public class LoginController {
     @FXML
     private TextField studentIdField;
 
-    private boolean isSuccefulLogin;
+    private User loggedUser;
+
+    private Boolean isUserLogged;
 
     AuthenticationService authenticationService = new AuthenticationServiceImpl();
 
@@ -71,7 +73,7 @@ public class LoginController {
         if (user != null) {
             System.out.println("Successful login for : " + user);
             try {
-                new Redirect().redirect(event, MAIN_PAGE);
+                new Redirect().redirectToMainPage(event, MAIN_PAGE, user);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -83,9 +85,25 @@ public class LoginController {
 
     public void redirectToRegister(ActionEvent actionEvent) {
         try {
-            new Redirect().redirect(actionEvent, REGISTER);
+            new Redirect().redirectToParent(actionEvent, REGISTER);
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public TextField getStudentIdField() {
+        return studentIdField;
+    }
+
+    public void setStudentIdField(TextField studentIdField) {
+        this.studentIdField = studentIdField;
+    }
+
+    public User getLoggedUser() {
+        return loggedUser;
+    }
+
+    public void setLoggedUser(User loggedUser) {
+        this.loggedUser = loggedUser;
     }
 }
