@@ -46,4 +46,11 @@ public class RegisterController {
     }
 
 
+    public void redirectToLogin(ActionEvent actionEvent) {
+        try {
+            new Redirect().redirect(actionEvent, LOGIN);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

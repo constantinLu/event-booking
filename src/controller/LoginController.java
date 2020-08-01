@@ -18,9 +18,9 @@ import utils.Redirect;
 public class LoginController {
 
     @FXML
-    public PasswordField password;
+    public PasswordField passwordField;
     @FXML
-    private TextField studentId;
+    private TextField studentIdField;
 
     private boolean isSuccefulLogin;
 
@@ -67,25 +67,19 @@ public class LoginController {
 
     @FXML
     public void onLogin(ActionEvent event) {
-        String username = studentId.getText();
-        String passwordString = password.getText();
-        User user = authenticationService.login(username, passwordString);
+        User user = authenticationService.login(studentIdField.getText(), passwordField.getText());
         if (user != null) {
             System.out.println("Successful login for : " + user);
-        } else {
-            System.out.println("Unable to login");
-        }
-        String test = studentId.getText();
-        String passw = password.getText();
-        if (test.equals("gizet")) {
             try {
                 new Redirect().redirect(event, MAIN_PAGE);
             } catch (IOException e) {
                 e.printStackTrace();
             }
+        } else {
+            System.out.println("Unable to login");
         }
-        System.out.println("LogggedIn");
     }
+
 
     public void redirectToRegister(ActionEvent actionEvent) {
         try {
