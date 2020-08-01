@@ -16,6 +16,9 @@ public class User extends Entity<User>{
     String email;
     Roles role;
 
+    public User(){
+
+    }
 
     User(Builder builder){
         this.username = builder.username;
