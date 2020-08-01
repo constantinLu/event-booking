@@ -1,6 +1,7 @@
 package entities;
 
-import main.Interfaces.Dao;
+
+import interfaces.Dao;
 
 public abstract class Entity<T> implements Dao<T> {
 
