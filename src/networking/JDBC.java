@@ -59,7 +59,7 @@ public class JDBC {
     public static boolean isConnected() {
         LOGGER.log(Level.INFO, "Checking network connection at: {0}; result: {1}\n",
                 new Object[]{LocalTime.now(), (connection != null)});
-        if (connection == null) NotificationPane.show("No network connection");
+//        if (connection == null) NotificationPane.show("No network connection");
         return connection != null;
     }
 

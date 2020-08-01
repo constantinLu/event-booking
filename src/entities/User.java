@@ -1,16 +1,30 @@
 package entities;
 
 
+import networking.DBTables;
+
+import javax.management.relation.Role;
 import java.util.HashMap;
 
 public class User extends Entity<User>{
     private int userId;
 
     String username;
+    String password;
     String firstName;
     String lastName;
     String email;
+    Roles role;
 
+
+    User(Builder builder){
+        this.username = builder.username;
+        this.password = builder.password;
+        this.firstName = builder.firstName;
+        this.lastName= builder.lastName;
+        this.email = builder.email;
+        this.role = builder.role;
+    }
     @Override
     public User getObject() {
         return this;
@@ -22,7 +36,11 @@ public class User extends Entity<User>{
     }
     @Override
     public String getInsertQuery() {
-        return null;
+        //    @Override
+//    public String getInsertQuery() {
+        return String.format("INSERT INTO %s VALUES (null, '%s', '%s', '%s', '%s', '%s')", DBTables.USER_TABLE,
+                 getFirstName(), getLastName(), getEmail(), getUsername(), getPassword(),Roles.STUDENT.name() );
+//    }
     }
 
     public int getUserId() {
@@ -36,20 +54,6 @@ public class User extends Entity<User>{
         setEmail(object.get("email"));
         setFirstName(object.get("first_name"));
         setLastName(object.get("last_name"));
-//        setUserID(Integer.parseInt(object.get("User_ID")));
-//        setAccountType(object.get("Account_Type"));
-//        setUserName(object.get("User_Name"));
-//        setUserPassword(object.get("User_Password"));
-//        setTown(object.get("User_City"));
-//        setPostCode(object.get("User_Post_Code"));
-//        setAddress1(object.get("User_Street"));
-//        setAddress2(object.get("User_Street2"));
-//        setEmail(object.get("User_Email"));
-//        setPhoneNumber(object.get("User_Phone_No"));
-//        setFirstName(object.get("User_First_Name"));
-//        setLastName(object.get("User_Last_Name"));
-//        setOrganisationName(object.get("Org_Name"));
-//        setWebAddress(object.get("Org_WebAdress"));
     }
 
     @Override
@@ -60,6 +64,14 @@ public class User extends Entity<User>{
         sb.append("Last Name").append(lastName).append("\n");
         sb.append("Email:").append(email).append("\n");
         return sb.toString();
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public void setEmail(String email) {
@@ -97,6 +109,55 @@ public class User extends Entity<User>{
         this.username = username;
     }
 
+
+    public static class Builder{
+        private int userId;
+
+        String username;
+        String password;
+        String firstName;
+        String lastName;
+        String email;
+        Roles role;
+
+        public Builder(String username, String password){
+            this.username = username;
+            this.password= password;
+        }
+
+        public Builder withUsername(String username){
+            this.username = username;
+            return this;
+        }
+        public Builder withPassword(String password){
+            this.password = password;
+            return this;
+        }
+
+        public Builder withFirstName(String firstName){
+            this.firstName = firstName;
+            return this;
+        }
+
+        public Builder withLastName(String lastName){
+            this.lastName= lastName;
+            return this;
+        }
+
+        public Builder withEmail(String email){
+            this.email= email;
+            return this;
+        }
+
+        public Builder withRole(Roles role){
+            this.role = role;
+            return this;
+        }
+
+        public User createUser(){
+            return new User(this);
+        }
+    }
     //
 //    // Mandatory
 //    private int userID = -1;

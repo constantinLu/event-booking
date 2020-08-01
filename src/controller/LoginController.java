@@ -1,6 +1,8 @@
 package controller;
 
 import java.io.IOException;
+
+import entities.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,6 +12,8 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import service.AuthenticationService;
+import service.AuthenticationServiceImpl;
 import static utils.Path.*;
 import utils.Redirect;
 
@@ -21,6 +25,8 @@ public class LoginController {
     private TextField studentId;
 
     private boolean isSuccefulLogin;
+
+    AuthenticationService authenticationService =new AuthenticationServiceImpl();
 
 
     public void login(Stage primaryStage) {
@@ -65,6 +71,15 @@ public class LoginController {
 
     @FXML
     public void onLogin(ActionEvent event) {
+        String username = studentId.getText();
+        String passwordString = password.getText();
+        User user = authenticationService.login(username,passwordString);
+        if(user!=null){
+            System.out.println("Successful login for : "+user);
+        }else{
+            System.out.println("Unable to login");
+        }
+//        System.out.println("LogggedIn");
         String test = studentId.getText();
         String passw = password.getText();
         if (test.equals("gizet")) {
