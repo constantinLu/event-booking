@@ -53,6 +53,7 @@
                   <PasswordField fx:id="confirmPassword" layoutX="101.0" layoutY="344.0" promptText="Cofirm Password" style="-fx-background-color: transparent; -fx-border-color: #1397d5; -fx-border-width: 0px 0px 2px 0px;" />
                   <TextField fx:id="firstName" layoutX="101.0" layoutY="152.0" promptText="First Name" style="-fx-background-color: transparent; -fx-border-color: #1397d5; -fx-border-width: 0px 0px 2px 0px;" />
                   <TextField fx:id="email" layoutX="101.0" layoutY="250.0" promptText="Email" style="-fx-background-color: transparent; -fx-border-color: #1397d5; -fx-border-width: 0px 0px 2px 0px;" />
+                  <Hyperlink layoutX="14.0" layoutY="463.0" onAction="#redirectToLogin" text="Back to Login" />
                     </children>
                 </AnchorPane>
             </right>
