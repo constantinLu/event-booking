@@ -1,28 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="819e36bc-3a49-46d3-a573-77944a5465dc" name="EB-3 Added script sql and adapted the user class" comment="EB-3 Added script sql and adapted the user class">
-      <change afterPath="$PROJECT_DIR$/src/entities/Roles.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/service/AuthenticationService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/service/AuthenticationServiceImpl.java" afterDir="false" />
+    <list default="true" id="819e36bc-3a49-46d3-a573-77944a5465dc" name="EB-3 Added script sql and adapted the user class" comment="EB-4 Added service for login and register. &#10;&#10;- For the moment the register method is not working">
+      <change afterPath="$PROJECT_DIR$/src/resources/sql/data.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/event-booking.iml" beforeDir="false" afterPath="$PROJECT_DIR$/event-booking.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/event-booking/Utils/Loader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/event-booking/Utils/Loader.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/event-booking/Utils/Redirect.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/event-booking/Utils/Redirect.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/event-booking/Utils/Validators.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/event-booking/Utils/Validators.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/event-booking/Utils/WriteLog.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/event-booking/Utils/WriteLog.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/event-booking/View/LogoView$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/event-booking/View/LogoView$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/event-booking/View/LogoView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/event-booking/View/LogoView.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/event-booking/View/NotificationPane$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/event-booking/View/NotificationPane$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/event-booking/View/NotificationPane.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/event-booking/View/NotificationPane.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/event-booking/controller/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/event-booking/controller/LoginController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/event-booking/controller/RegisterController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/event-booking/controller/RegisterController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/event-booking/entities/User$Builder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/event-booking/entities/User$Builder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/event-booking/entities/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/event-booking/entities/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/RegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/RegisterController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/networking/JDBC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/networking/JDBC.java" afterDir="false" />
     </list>
     <list id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="EB-2- ExampleData -fix #2" />
     <ignored path="JavaFxApplication.iws" />
@@ -86,8 +67,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/controller/RegisterController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="23" column="186" selection-start-line="23" selection-start-column="186" selection-end-line="23" selection-end-column="186" />
+            <state relative-caret-position="476">
+              <caret line="29" column="186" selection-start-line="29" selection-start-column="186" selection-end-line="29" selection-end-column="186" />
             </state>
           </provider>
         </entry>
@@ -95,11 +76,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/networking/JDBC.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="125" column="25" selection-start-line="125" selection-start-column="25" selection-end-line="125" selection-end-column="25" />
+            <state relative-caret-position="323">
+              <caret line="19" column="49" lean-forward="true" selection-start-line="19" selection-start-column="49" selection-end-line="19" selection-end-column="49" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/resources/sql/data.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="8" selection-start-line="8" selection-end-line="8" />
             </state>
           </provider>
         </entry>
@@ -116,8 +106,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/controller/LoginController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
-              <caret line="73" column="33" selection-start-line="73" selection-start-column="33" selection-end-line="73" selection-end-column="33" />
+            <state relative-caret-position="1032">
+              <caret line="92" column="33" selection-start-line="92" selection-start-column="33" selection-end-line="92" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -126,20 +116,7 @@
         <entry file="file://$PROJECT_DIR$/src/entities/Roles.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="102">
-              <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/view/NotificationPane.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="27" column="35" selection-start-line="27" selection-start-column="35" selection-end-line="27" selection-end-column="35" />
-              <folding>
-                <element signature="e#838#839#0" expanded="true" />
-                <element signature="e#869#870#0" expanded="true" />
-              </folding>
+              <caret line="6" column="17" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -157,7 +134,7 @@
         <entry file="file://$PROJECT_DIR$/src/service/AuthenticationServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="374">
-              <caret line="22" column="33" lean-forward="true" selection-start-line="22" selection-start-column="33" selection-end-line="22" selection-end-column="33" />
+              <caret line="22" column="33" selection-start-line="22" selection-start-column="33" selection-end-line="22" selection-end-column="33" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -165,11 +142,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/entities/User.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-756">
-              <caret line="58" column="13" lean-forward="true" selection-start-line="58" selection-start-column="13" selection-end-line="58" selection-end-column="13" />
+            <state relative-caret-position="1462">
+              <caret line="131" column="53" selection-start-line="131" selection-start-column="53" selection-end-line="131" selection-end-column="53" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2417#2418#0" expanded="true" />
@@ -259,6 +236,7 @@
         <option value="$PROJECT_DIR$/src/controller/RegisterController.java" />
         <option value="$PROJECT_DIR$/src/entities/Roles.java" />
         <option value="$PROJECT_DIR$/src/entities/User.java" />
+        <option value="$PROJECT_DIR$/src/resources/sql/data.sql" />
       </list>
     </option>
   </component>
@@ -507,7 +485,7 @@
       <updated>1359379246138</updated>
       <workItem from="1359379250712" duration="1302000" />
       <workItem from="1596266315017" duration="10899000" />
-      <workItem from="1596281525599" duration="4457000" />
+      <workItem from="1596281525599" duration="6080000" />
     </task>
     <task id="LOCAL-00001" summary="EB-1-FirstCommit">
       <created>1596266435121</created>
@@ -544,11 +522,18 @@
       <option name="project" value="LOCAL" />
       <updated>1596281860969</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="EB-4 Added service for login and register. &#10;&#10;- For the moment the register method is not working">
+      <created>1596286406729</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1596286406729</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16658000" />
+    <option name="totallyTimeSpent" value="18281000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
@@ -564,13 +549,13 @@
       <window_info id="Capture Tool" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32969603" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.41603467" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.41603467" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3997833" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Application Servers" order="7" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32936078" />
+      <window_info anchor="bottom" id="Version Control" order="8" visible="true" weight="0.32936078" />
       <window_info anchor="bottom" id="Problems" order="9" />
       <window_info anchor="bottom" id="Changes" order="10" />
       <window_info anchor="bottom" id="Profiler" order="11" />
@@ -636,7 +621,8 @@
     <MESSAGE value="EB-2- ExampleData -fix" />
     <MESSAGE value="EB-2- ExampleData -fix #2" />
     <MESSAGE value="EB-3 Added script sql and adapted the user class" />
-    <option name="LAST_COMMIT_MESSAGE" value="EB-3 Added script sql and adapted the user class" />
+    <MESSAGE value="EB-4 Added service for login and register. &#10;&#10;- For the moment the register method is not working" />
+    <option name="LAST_COMMIT_MESSAGE" value="EB-4 Added service for login and register. &#10;&#10;- For the moment the register method is not working" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -644,25 +630,25 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/controller/LoginController.java</url>
-          <line>54</line>
+          <line>69</line>
           <properties />
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/controller/LoginController.java</url>
-          <line>62</line>
+          <line>65</line>
           <properties />
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/controller/LoginController.java</url>
-          <line>69</line>
+          <line>72</line>
           <properties />
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/controller/LoginController.java</url>
-          <line>67</line>
+          <line>70</line>
           <properties />
           <option name="timeStamp" value="8" />
         </line-breakpoint>
@@ -856,13 +842,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/resources/sql/script.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="10" selection-start-line="5" selection-end-line="5" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/service/AuthenticationService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
@@ -870,20 +849,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/networking/JDBC.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="125" column="25" selection-start-line="125" selection-start-column="25" selection-end-line="125" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/controller/RegisterController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="23" column="186" selection-start-line="23" selection-start-column="186" selection-end-line="23" selection-end-column="186" />
+        <state relative-caret-position="476">
+          <caret line="29" column="186" selection-start-line="29" selection-start-column="186" selection-end-line="29" selection-end-column="186" />
         </state>
       </provider>
     </entry>
@@ -894,24 +863,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/entities/Roles.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/controller/LoginController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="73" column="33" selection-start-line="73" selection-start-column="33" selection-end-line="73" selection-end-column="33" />
+        <state relative-caret-position="1032">
+          <caret line="92" column="33" selection-start-line="92" selection-start-column="33" selection-end-line="92" selection-end-column="33" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/service/AuthenticationServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
-          <caret line="22" column="33" lean-forward="true" selection-start-line="22" selection-start-column="33" selection-end-line="22" selection-end-column="33" />
+          <caret line="22" column="33" selection-start-line="22" selection-start-column="33" selection-end-line="22" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -920,8 +882,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/entities/User.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-756">
-          <caret line="58" column="13" lean-forward="true" selection-start-line="58" selection-start-column="13" selection-end-line="58" selection-end-column="13" />
+        <state relative-caret-position="1462">
+          <caret line="131" column="53" selection-start-line="131" selection-start-column="53" selection-end-line="131" selection-end-column="53" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2417#2418#0" expanded="true" />
@@ -931,6 +893,37 @@
             <element signature="e#3897#3898#0" expanded="true" />
             <element signature="e#3937#3938#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/resources/sql/script.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="10" selection-start-line="5" selection-end-line="5" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/networking/JDBC.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="49" lean-forward="true" selection-start-line="19" selection-start-column="49" selection-end-line="19" selection-end-column="49" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/entities/Roles.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="17" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/resources/sql/data.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
         </state>
       </provider>
     </entry>
