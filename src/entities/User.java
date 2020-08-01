@@ -62,7 +62,8 @@ public class User extends Entity<User>{
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Username:").append(userId).append("\n");
+        sb.append("User Id: "). append(userId).append("\n");
+        sb.append("Username:").append(username).append("\n");
         sb.append("FirstName:").append(firstName).append("\n");
         sb.append("Last Name").append(lastName).append("\n");
         sb.append("Email:").append(email).append("\n");
