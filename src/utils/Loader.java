@@ -23,7 +23,7 @@ public class Loader {
 
     private Loader() {
         instance = this;
-        WriteLog.addHandler(LOGGER);
+        //WriteLog.addHandler(LOGGER);
         LOGGER.log(Level.INFO, "Creating Loader instance from constructor at: {0}\n", LocalTime.now());
     }
 

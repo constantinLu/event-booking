@@ -4,13 +4,14 @@ import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import static utils.Path.*;
+import utils.Redirect;
 
 public class LoginController {
 
@@ -22,20 +23,38 @@ public class LoginController {
     private boolean isSuccefulLogin;
 
 
-    public void login(Stage primaryStage)  {
+    public void login(Stage primaryStage) {
         Parent root = null;
         try {
-            root = FXMLLoader.load(getClass().getResource("../userinterface/login.fxml"));
+            root = FXMLLoader.load(getClass().getResource(LOGIN));
         } catch (IOException e) {
             e.printStackTrace();
         }
         //Scene scene = new Scene(root);
-        primaryStage.initStyle(StageStyle.UNDECORATED);
+       // primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.setTitle("Event Booking");
         primaryStage.setScene(new Scene(root, 700, 500));
         primaryStage.setResizable(false);
         primaryStage.show();
     }
+
+
+    /*
+            Scene scene = new Scene(root);
+        primaryStage.initStyle(StageStyle.UNDECORATED);
+        primaryStage.setTitle("Event Booking");
+        primaryStage.setScene(scene);
+        root.setOnMousePressed(event -> {
+                xOffset = event.getSceneX();
+                yOffset = event.getSceneY();
+
+        });
+        root.setOnMouseDragged(event -> {
+            primaryStage.setX(event.getSceneX() - xOffset);
+            primaryStage.setY(event.getSceneY() - yOffset);
+
+        });
+     */
 
 
     @FXML
@@ -48,20 +67,21 @@ public class LoginController {
     public void onLogin(ActionEvent event) {
         String test = studentId.getText();
         String passw = password.getText();
+        if (test.equals("gizet")) {
+            try {
+                new Redirect().redirect(event, MAIN_PAGE);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
         System.out.println("LogggedIn");
     }
 
     public void redirectToRegister(ActionEvent actionEvent) {
         try {
-            Parent registerPage = FXMLLoader.load(getClass().getResource("/userinterface/register.fxml"));
-            Scene registerPageScene = new Scene(registerPage);
-            Stage appStage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
-            appStage.setScene(registerPageScene);
-            appStage.show();
-
+            new Redirect().redirect(actionEvent, REGISTER);
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 }
