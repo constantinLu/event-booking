@@ -33,6 +33,7 @@ public class EventServiceImpl implements EventService {
 
     @Override
     public boolean updateEvent(Event event) {
-        return false;
+        String query = event.getUpdateQuery();
+        return JDBC.update(query);
     }
 }

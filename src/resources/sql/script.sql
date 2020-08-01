@@ -26,8 +26,9 @@ is_online char,
 location varchar(100),
 start_date datetime,
 end_date datetime,
-limitations varchar(2000),
-is_booking_allowed char
+constraints varchar(2000),
+is_booking_allowed char,
+organiser_id bigint
 );
 
 create table booking(

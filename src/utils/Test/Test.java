@@ -18,12 +18,22 @@ import service.EventServiceImpl;
 public class Test {
     public static void main(String[] args) {
         JDBC.createConnection();
-        getAllEvents();
+//        getAllEvents();
+        createEvent();
+        createEvent();
+        updateEvent();
 //        createEvent();
 //        printTable(DBTables.EVENT_TABLE, Event.class.getName());
 //        printTable(DBTables.USER_TABLE, Event.class.getName());
     }
+    public static void updateEvent(){
+        EventService eventService = new EventServiceImpl();
+        Event.Builder builder = new Event.Builder();
+        builder.eventId(2);
+        builder.title("Test event updated").description("Description updated").isOnline(true).location("London NEW").startDate(LocalDateTime.now()).endDate(LocalDateTime.now()).constraints("COVID constraints 2").isBookingAllowed(true);
 
+        eventService.updateEvent(builder.createEvent());
+    }
     public static void getAllEvents(){
         EventService eventService = new EventServiceImpl();
         List<Event> events=eventService.getAllEvents();
@@ -32,7 +42,7 @@ public class Test {
     public static void createEvent(){
         EventService eventService = new EventServiceImpl();
         Event.Builder builder = new Event.Builder();
-        builder.title("Test event").description("Description test").isOnline(false).location("London").startDate(LocalDateTime.now()).endDate(LocalDateTime.now()).constraints("COVID constraints").isBookingAllowed(true);
+        builder.title("Test event").description("Description test").isOnline(false).location("London").startDate(LocalDateTime.now()).endDate(LocalDateTime.now()).constraints("COVID constraints").isBookingAllowed(true).organiserId(2);
 
 
         eventService.addEvent(builder.createEvent());

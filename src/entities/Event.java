@@ -23,6 +23,7 @@ public class Event extends Entity<Event> {
     private LocalDateTime endDate;
     private String constraints;
     private boolean isBookingAllowed;
+    private int organiserId;
 
     public Event () {}
 
@@ -36,6 +37,7 @@ public class Event extends Entity<Event> {
         this.endDate= builder.endDate;
         this.isBookingAllowed = builder.isBookingAllowed;
         this.isOnline = builder.isOnline;
+        this.organiserId = builder.organiserId;
     }
 
     @Override
@@ -63,6 +65,7 @@ public class Event extends Entity<Event> {
         private String constraints;
         private boolean isBookingAllowed;
         private String description;
+        private int organiserId;
 
         public Builder eventId(int eventId){
             this.eventId = eventId;
@@ -105,6 +108,11 @@ public class Event extends Entity<Event> {
             return this;
         }
 
+        public Builder organiserId(int organiserId){
+            this.organiserId = organiserId;
+            return this;
+        }
+
         public Event createEvent(){
             return new Event(this);
         }
@@ -113,13 +121,16 @@ public class Event extends Entity<Event> {
 
     @Override
     public String getInsertQuery() {
-        return String.format("INSERT INTO %s VALUES (null, '%s', '%s', '%s', '%s', '%s','%s','%s','%s')", DBTables.EVENT_TABLE,
-                getTitle(), getDescription(), BooleanMapper.map(isOnline()), getLocation(), getStartDate(), getEndDate(), getConstraints(), BooleanMapper.map(isBookingAllowed()));
+        return String.format("INSERT INTO %s VALUES (null, '%s', '%s', '%s', '%s', '%s','%s','%s','%s','%s')", DBTables.EVENT_TABLE,
+                getTitle(), getDescription(), BooleanMapper.map(isOnline()), getLocation(), getStartDate(), getEndDate(), getConstraints(), BooleanMapper.map(isBookingAllowed()),getOrganiserId());
     }
+
+
 
     @Override
     public String getUpdateQuery() {
-        return null;
+        return String.format("UPDATE %s SET title = '%s', description = '%s', is_online = '%s', location = '%s', start_date = '%s', end_date='%s', constraints = '%s', is_booking_allowed = '%s' WHERE id = '%s'",DBTables.EVENT_TABLE,
+                getTitle(), getDescription(),BooleanMapper.map(isOnline()), getLocation(), getStartDate(), getEndDate(), getConstraints(), BooleanMapper.map(isBookingAllowed()),getEventId());
     }
 
     @Override
@@ -142,6 +153,10 @@ public class Event extends Entity<Event> {
 
     public void setEventId(int eventId) {
         this.eventId = eventId;
+    }
+
+    public int getOrganiserId() {
+        return organiserId;
     }
 
     public void setEndDate(LocalDateTime endDate) {
