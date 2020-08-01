@@ -1,30 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="819e36bc-3a49-46d3-a573-77944a5465dc" name="EB-3 Added script sql and adapted the user class" comment="EB-3 Added script sql and adapted the user class">
-      <change afterPath="$PROJECT_DIR$/src/entities/Roles.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/service/AuthenticationService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/service/AuthenticationServiceImpl.java" afterDir="false" />
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="EB-5- Added MainPage">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/event-booking.iml" beforeDir="false" afterPath="$PROJECT_DIR$/event-booking.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/event-booking/Utils/Loader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/event-booking/Utils/Loader.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/event-booking/Utils/Redirect.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/event-booking/Utils/Redirect.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/event-booking/Utils/Validators.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/event-booking/Utils/Validators.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/event-booking/Utils/WriteLog.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/event-booking/Utils/WriteLog.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/event-booking/View/LogoView$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/event-booking/View/LogoView$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/event-booking/View/LogoView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/event-booking/View/LogoView.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/event-booking/View/NotificationPane$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/event-booking/View/NotificationPane$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/event-booking/View/NotificationPane.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/event-booking/View/NotificationPane.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/event-booking/controller/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/event-booking/controller/LoginController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/event-booking/controller/RegisterController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/event-booking/controller/RegisterController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/event-booking/entities/User$Builder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/event-booking/entities/User$Builder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/event-booking/entities/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/event-booking/entities/User.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/RegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/RegisterController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/networking/JDBC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/networking/JDBC.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/sql/script.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/sql/script.sql" afterDir="false" />
     </list>
-    <list id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="EB-2- ExampleData -fix #2" />
+    <list id="8c0d06c8-4047-4519-a686-69ae62031346" name="nocommit" comment="" />
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -86,29 +68,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/controller/RegisterController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="23" column="186" selection-start-line="23" selection-start-column="186" selection-end-line="23" selection-end-column="186" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/networking/JDBC.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="125" column="25" selection-start-line="125" selection-start-column="25" selection-end-line="125" selection-end-column="25" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/controller/Controller.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+            <state relative-caret-position="247">
+              <caret line="22" column="31" selection-start-line="22" selection-start-column="31" selection-end-line="22" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -116,78 +77,60 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/controller/LoginController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
-              <caret line="73" column="33" selection-start-line="73" selection-start-column="33" selection-end-line="73" selection-end-column="33" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/entities/Roles.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/view/NotificationPane.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="27" column="35" selection-start-line="27" selection-start-column="35" selection-end-line="27" selection-end-column="35" />
-              <folding>
-                <element signature="e#838#839#0" expanded="true" />
-                <element signature="e#869#870#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/service/AuthenticationService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="20" column="1" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/service/AuthenticationServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="22" column="33" lean-forward="true" selection-start-line="22" selection-start-column="33" selection-end-line="22" selection-end-column="33" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="280">
+              <caret line="63" column="13" selection-start-line="63" selection-start-column="13" selection-end-line="63" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/entities/User.java">
+        <entry file="file://$PROJECT_DIR$/src/resources/sql/script.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-756">
-              <caret line="58" column="13" lean-forward="true" selection-start-line="58" selection-start-column="13" selection-end-line="58" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#2417#2418#0" expanded="true" />
-                <element signature="e#2448#2449#0" expanded="true" />
-                <element signature="e#2496#2497#0" expanded="true" />
-                <element signature="e#2536#2537#0" expanded="true" />
-                <element signature="e#3897#3898#0" expanded="true" />
-                <element signature="e#3937#3938#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="76">
+              <caret line="4" column="18" lean-forward="true" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/resources/sql/script.sql">
+        <entry file="file://$PROJECT_DIR$/src/utils/Path.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="10" selection-start-line="5" selection-end-line="5" selection-end-column="10" />
+            <state relative-caret-position="152">
+              <caret line="8" column="40" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="40" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/userinterface/register.fxml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="723">
+              <caret line="54" column="40" selection-start-line="54" selection-start-column="40" selection-end-line="54" selection-end-column="40" />
+            </state>
+          </provider>
+          <provider editor-type-id="JavaFX-Scene-Builder" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/userinterface/mainpage.fxml">
+          <provider selected="true" editor-type-id="text-editor" />
+          <provider editor-type-id="JavaFX-Scene-Builder" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/networking/JDBC.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="228">
+              <caret line="12" column="12" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/utils/Loader.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="437">
+              <caret line="23" column="22" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -252,13 +195,14 @@
         <option value="$PROJECT_DIR$/src/service/LoginService.java" />
         <option value="$PROJECT_DIR$/src/utils/Test/Test.java" />
         <option value="$PROJECT_DIR$/src/service/LoginServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/controller/LoginController.java" />
         <option value="$PROJECT_DIR$/src/networking/JDBC.java" />
         <option value="$PROJECT_DIR$/src/service/AuthenticationService.java" />
         <option value="$PROJECT_DIR$/src/service/AuthenticationServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/controller/RegisterController.java" />
         <option value="$PROJECT_DIR$/src/entities/Roles.java" />
         <option value="$PROJECT_DIR$/src/entities/User.java" />
+        <option value="$PROJECT_DIR$/src/controller/LoginController.java" />
+        <option value="$PROJECT_DIR$/src/resources/sql/script.sql" />
       </list>
     </option>
   </component>
@@ -270,15 +214,13 @@
     <option name="height" value="1416" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
-  <component name="ProjectReloadState">
-    <option name="STATE" value="0" />
-  </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -295,63 +237,24 @@
               <item name="event-booking" type="b2602c69:ProjectViewProjectNode" />
               <item name="event-booking" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="event-booking" type="b2602c69:ProjectViewProjectNode" />
-              <item name="event-booking" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="entities" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="event-booking" type="b2602c69:ProjectViewProjectNode" />
-              <item name="event-booking" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="interfaces" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="event-booking" type="b2602c69:ProjectViewProjectNode" />
-              <item name="event-booking" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="networking" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="event-booking" type="b2602c69:ProjectViewProjectNode" />
-              <item name="event-booking" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="event-booking" type="b2602c69:ProjectViewProjectNode" />
               <item name="event-booking" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="sql" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="event-booking" type="b2602c69:ProjectViewProjectNode" />
-              <item name="event-booking" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
+              <item name="userinterface" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="event-booking" type="b2602c69:ProjectViewProjectNode" />
               <item name="event-booking" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="utils" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="event-booking" type="b2602c69:ProjectViewProjectNode" />
-              <item name="event-booking" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
-              <item name="Test" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -411,6 +314,18 @@
       <option name="testName" />
       <method />
     </configuration>
+    <configuration default="true" type="TestNG">
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
       <Host>localhost</Host>
       <Port>5050</Port>
@@ -463,18 +378,6 @@
       <option name="TEST_SEARCH_SCOPE">
         <value defaultName="moduleWithDependencies" />
       </option>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="TestNG">
-      <option name="TEST_OBJECT" value="CLASS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <properties />
-      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -544,27 +447,34 @@
       <option name="project" value="LOCAL" />
       <updated>1596281860969</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="EB-5- Added MainPage">
+      <created>1596286643813</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1596286643813</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16658000" />
+    <option name="totallyTimeSpent" value="16961000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="2576" height="1416" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="UI Designer" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.16791044" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.16891892" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="Learn" order="4" />
       <window_info id="Image Layers" order="5" />
       <window_info id="Capture Tool" order="6" />
+      <window_info id="UI Designer" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32969603" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.41603467" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.248636" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3997833" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -625,6 +535,20 @@
         </entry>
       </map>
     </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
@@ -636,7 +560,8 @@
     <MESSAGE value="EB-2- ExampleData -fix" />
     <MESSAGE value="EB-2- ExampleData -fix #2" />
     <MESSAGE value="EB-3 Added script sql and adapted the user class" />
-    <option name="LAST_COMMIT_MESSAGE" value="EB-3 Added script sql and adapted the user class" />
+    <MESSAGE value="EB-5- Added MainPage" />
+    <option name="LAST_COMMIT_MESSAGE" value="EB-5- Added MainPage" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -644,25 +569,19 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/controller/LoginController.java</url>
-          <line>54</line>
-          <properties />
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/controller/LoginController.java</url>
-          <line>62</line>
+          <line>58</line>
           <properties />
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/controller/LoginController.java</url>
-          <line>69</line>
+          <line>65</line>
           <properties />
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/controller/LoginController.java</url>
-          <line>67</line>
+          <line>63</line>
           <properties />
           <option name="timeStamp" value="8" />
         </line-breakpoint>
@@ -771,7 +690,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/userinterface/register.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="918">
+        <state relative-caret-position="723">
           <caret line="54" column="40" selection-start-line="54" selection-start-column="40" selection-end-line="54" selection-end-column="40" />
         </state>
       </provider>
@@ -779,8 +698,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/utils/Loader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1190">
-          <caret line="83" column="13" selection-start-line="83" selection-start-column="13" selection-end-line="83" selection-end-column="13" />
+        <state relative-caret-position="437">
+          <caret line="23" column="22" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="22" />
         </state>
       </provider>
     </entry>
@@ -856,13 +775,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/resources/sql/script.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="10" selection-start-line="5" selection-end-line="5" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/service/AuthenticationService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
@@ -872,18 +784,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/networking/JDBC.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="125" column="25" selection-start-line="125" selection-start-column="25" selection-end-line="125" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="228">
+          <caret line="12" column="12" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/controller/RegisterController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="23" column="186" selection-start-line="23" selection-start-column="186" selection-end-line="23" selection-end-column="186" />
+        <state relative-caret-position="247">
+          <caret line="22" column="31" selection-start-line="22" selection-start-column="31" selection-end-line="22" selection-end-column="31" />
         </state>
       </provider>
     </entry>
@@ -903,8 +812,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/controller/LoginController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="73" column="33" selection-start-line="73" selection-start-column="33" selection-end-line="73" selection-end-column="33" />
+        <state relative-caret-position="280">
+          <caret line="63" column="13" selection-start-line="63" selection-start-column="13" selection-end-line="63" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -931,6 +840,13 @@
             <element signature="e#3897#3898#0" expanded="true" />
             <element signature="e#3937#3938#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/resources/sql/script.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="4" column="18" lean-forward="true" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
         </state>
       </provider>
     </entry>

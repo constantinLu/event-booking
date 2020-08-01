@@ -34,8 +34,6 @@ public class LoginController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        //Scene scene = new Scene(root);
-        // primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.setTitle("Event Booking");
         primaryStage.setScene(new Scene(root, 700, 500));
         primaryStage.setResizable(false);
@@ -44,6 +42,8 @@ public class LoginController {
 
 
     /*
+      //Scene scene = new Scene(root);
+        // primaryStage.initStyle(StageStyle.UNDECORATED);
             Scene scene = new Scene(root);
         primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.setTitle("Event Booking");
