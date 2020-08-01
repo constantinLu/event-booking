@@ -7,4 +7,6 @@ public class Path {
     public static final String REGISTER = "/userinterface/register.fxml";
 
     public static final String MAIN_PAGE = "/userinterface/mainpage.fxml";
+
+    public static final String HOME = "/userinterface/home.fxml";
 }

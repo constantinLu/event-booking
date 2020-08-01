@@ -1,45 +1,55 @@
 package controller;
 
+import entities.User;
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
-import javafx.stage.Stage;
-import javafx.stage.StageStyle;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 
-public class MainPageController {
+public class MainPageController implements Initializable {
 
     @FXML
-    public PasswordField password;
+    private Label userField;
+
     @FXML
-    private TextField studentId;
+    private User loggedUser;
+
+    EventsController eventsController;
 
 
-    public void login(Stage primaryStage) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("../userinterface/login.fxml"));
-        //Scene scene = new Scene(root);
-        primaryStage.initStyle(StageStyle.UNDECORATED);
-        primaryStage.setTitle("Event Booking");
-        primaryStage.setScene(new Scene(root, 700, 500));
-        primaryStage.setResizable(false);
-        primaryStage.show();
+    @FXML
+    private EventsController appBarController; // injected via <fx:include fx:id="child" ... />
+
+    @FXML
+    public void initialize() {
+//        eventsController.se(this);
+//        navMenuController.setScreenParent(this);
+//        mainContentController.setScreenParent(this);
     }
 
+
+    public void initData(User user) {
+        loggedUser = user;
+        userField.setText(loggedUser.getFirstName() + " " + loggedUser.getLastName());
+    }
 
     @FXML
     public void onClose(ActionEvent event) {
         System.exit(0);
     }
 
+    //action for buttons // DELETE THIS
+    public void onLogin(ActionEvent actionEvent) {
+    }
 
-    @FXML
-    public void onLogin(ActionEvent event) {
-        String test = studentId.getText();
-        String passw = password.getText();
-        System.out.println("LogggedIn");
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
+    }
+
+    public void onEventsAction(ActionEvent actionEvent) throws IOException {
     }
 }
