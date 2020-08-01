@@ -1,8 +1,7 @@
 package controller;
 
-import java.io.IOException;
-
 import entities.User;
+import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,7 +10,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 import service.AuthenticationService;
 import service.AuthenticationServiceImpl;
 import static utils.Path.*;
@@ -26,7 +24,7 @@ public class LoginController {
 
     private boolean isSuccefulLogin;
 
-    AuthenticationService authenticationService =new AuthenticationServiceImpl();
+    AuthenticationService authenticationService = new AuthenticationServiceImpl();
 
 
     public void login(Stage primaryStage) {
@@ -37,7 +35,7 @@ public class LoginController {
             e.printStackTrace();
         }
         //Scene scene = new Scene(root);
-       // primaryStage.initStyle(StageStyle.UNDECORATED);
+        // primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.setTitle("Event Booking");
         primaryStage.setScene(new Scene(root, 700, 500));
         primaryStage.setResizable(false);
@@ -53,12 +51,10 @@ public class LoginController {
         root.setOnMousePressed(event -> {
                 xOffset = event.getSceneX();
                 yOffset = event.getSceneY();
-
         });
         root.setOnMouseDragged(event -> {
             primaryStage.setX(event.getSceneX() - xOffset);
             primaryStage.setY(event.getSceneY() - yOffset);
-
         });
      */
 
@@ -73,13 +69,12 @@ public class LoginController {
     public void onLogin(ActionEvent event) {
         String username = studentId.getText();
         String passwordString = password.getText();
-        User user = authenticationService.login(username,passwordString);
-        if(user!=null){
-            System.out.println("Successful login for : "+user);
-        }else{
+        User user = authenticationService.login(username, passwordString);
+        if (user != null) {
+            System.out.println("Successful login for : " + user);
+        } else {
             System.out.println("Unable to login");
         }
-//        System.out.println("LogggedIn");
         String test = studentId.getText();
         String passw = password.getText();
         if (test.equals("gizet")) {
