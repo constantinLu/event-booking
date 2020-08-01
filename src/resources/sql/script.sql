@@ -1,5 +1,6 @@
 create database event_booking;
 
+use event_booking;
 
 create table user(
 id BIGINT PRIMARY KEY auto_increment,
