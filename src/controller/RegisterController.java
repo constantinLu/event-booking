@@ -25,17 +25,19 @@ public class RegisterController {
 
     AuthenticationService authenticationService = new AuthenticationServiceImpl();
 
-
     public void onRegister(ActionEvent actionEvent) {
         User.Builder userBuilder = new User.Builder(studentId.getText(),password.getText()).withEmail(email.getText()).withFirstName(firstName.getText()).withLastName(lastName.getText());
         User user = userBuilder.createUser();
-        User registeredUser = authenticationService.register(user);
-        try {
-            new Redirect().redirect(actionEvent,LOGIN);
-        } catch (IOException e) {
-            e.printStackTrace();
+        boolean isRegistered = authenticationService.register(user);
+        if(isRegistered) {
+            System.out.println("Registration sucessfull for " + studentId.getText());
+            try {
+                new Redirect().redirect(actionEvent, LOGIN);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
-        System.out.println("Registration sucessfull for " + registeredUser);
+
 
     }
 

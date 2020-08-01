@@ -15,7 +15,7 @@ public interface AuthenticationService {
     /**
      * Register a user
      * @param user - user object that needs to be stored in DB
-     * @return - the stored user
+     * @return - true if succesfull registration
      */
-    User register(User user);
+    boolean register(User user);
 }

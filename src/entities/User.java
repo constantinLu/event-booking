@@ -41,7 +41,7 @@ public class User extends Entity<User>{
     public String getInsertQuery() {
         //    @Override
 //    public String getInsertQuery() {
-        return String.format("INSERT INTO %s VALUES (null, '%s', '%s', '%s', '%s', '%s')", DBTables.USER_TABLE,
+        return String.format("INSERT INTO %s VALUES (null, '%s', '%s', '%s', '%s', '%s','%s')", DBTables.USER_TABLE,
                  getFirstName(), getLastName(), getEmail(), getUsername(), getPassword(),Roles.STUDENT.name() );
 //    }
     }

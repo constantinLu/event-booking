@@ -16,12 +16,11 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     }
 
     @Override
-    public User register(User user) {
+    public boolean register(User user) {
         if(!JDBC.isConnected()){
             JDBC.createConnection();
         }
         String query = user.getInsertQuery();
-        User createdUser = (User) JDBC.get(query,User.class.getName());
-        return createdUser;
+        return JDBC.insert(query);
     }
 }
