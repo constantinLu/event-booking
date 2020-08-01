@@ -1,6 +1,6 @@
-package View;
+package view;
 
-import Utils.WriteLog;
+import utils.WriteLog;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.time.LocalTime;
