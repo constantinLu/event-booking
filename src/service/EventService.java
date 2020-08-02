@@ -12,6 +12,8 @@ public interface EventService {
 
     Event getEventById(int id);
 
+    List<Event> getEventsOrganisedByUser(int userId);
+
     boolean isEventAlreadyBooked(int eventId, int userId);
 
 }

@@ -21,16 +21,25 @@ import service.UserServiceImpl;
 public class Test {
     public static void main(String[] args) {
         JDBC.createConnection();
+getMyEvents();
 //        getAllUsers();
-        updateUserRole();
+//        updateUserRole();
 
 //        getUserById();
 //        getAllEvents();
 //        createEvent();
 //        updateEvent();
 //        createEvent();
+//        createEvent();
+//        createEvent();
 //        printTable(DBTables.EVENT_TABLE, Event.class.getName());
 //        printTable(DBTables.USER_TABLE, Event.class.getName());
+    }
+
+    public static void getMyEvents(){
+        EventService eventService = new EventServiceImpl();
+        List<Event> events = eventService.getEventsOrganisedByUser(2);
+        printResultList(events);
     }
     public static void getAllUsers(){
         UserService userService = new UserServiceImpl();
