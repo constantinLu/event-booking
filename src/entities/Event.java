@@ -1,16 +1,10 @@
 package entities;
 
+import java.time.LocalDateTime;
+import java.util.HashMap;
 import networking.DBTables;
 import utils.BooleanMapper;
 import utils.LocalDateTimeMapper;
-
-import java.sql.Timestamp;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.HashMap;
 
 public class Event extends Entity<Event> {
 
@@ -25,16 +19,17 @@ public class Event extends Entity<Event> {
     private boolean isBookingAllowed; // if booking btn is allowed
     private int organiserId; // userul care a creat
 
-    public Event () {}
+    public Event() {
+    }
 
-     Event(Builder builder){
+    Event(Builder builder) {
         this.eventId = builder.eventId;
-        this.title=builder.title;
-        this.location=builder.location;
+        this.title = builder.title;
+        this.location = builder.location;
         this.description = builder.description;
         this.constraints = builder.constraints;
         this.startDate = builder.startDate;
-        this.endDate= builder.endDate;
+        this.endDate = builder.endDate;
         this.isBookingAllowed = builder.isBookingAllowed;
         this.isOnline = builder.isOnline;
         this.organiserId = builder.organiserId;
@@ -55,7 +50,7 @@ public class Event extends Entity<Event> {
                 '}';
     }
 
-    public static class Builder{
+    public static class Builder {
         private int eventId;
         private String title;
         private boolean isOnline;
@@ -67,24 +62,27 @@ public class Event extends Entity<Event> {
         private String description;
         private int organiserId;
 
-        public Builder eventId(int eventId){
+        public Builder eventId(int eventId) {
             this.eventId = eventId;
             return this;
         }
-        public Builder title(String title){
-            this.title=title;
-            return this;
-        }
-        public Builder location(String location){
-            this.location = location;
-            return this;
-        }
-        public Builder startDate(LocalDateTime startDate){
-            this.startDate=startDate;
+
+        public Builder title(String title) {
+            this.title = title;
             return this;
         }
 
-        public Builder description(String description){
+        public Builder location(String location) {
+            this.location = location;
+            return this;
+        }
+
+        public Builder startDate(LocalDateTime startDate) {
+            this.startDate = startDate;
+            return this;
+        }
+
+        public Builder description(String description) {
             this.description = description;
             return this;
         }
@@ -94,26 +92,27 @@ public class Event extends Entity<Event> {
             return this;
         }
 
-        public Builder endDate(LocalDateTime endDate){
-            this.endDate=endDate;
+        public Builder endDate(LocalDateTime endDate) {
+            this.endDate = endDate;
             return this;
         }
 
-        public Builder constraints(String constraints){
+        public Builder constraints(String constraints) {
             this.constraints = constraints;
             return this;
         }
-        public Builder isBookingAllowed(boolean isBookingAllowed){
+
+        public Builder isBookingAllowed(boolean isBookingAllowed) {
             this.isBookingAllowed = isBookingAllowed;
             return this;
         }
 
-        public Builder organiserId(int organiserId){
+        public Builder organiserId(int organiserId) {
             this.organiserId = organiserId;
             return this;
         }
 
-        public Event createEvent(){
+        public Event createEvent() {
             return new Event(this);
         }
 
@@ -122,15 +121,14 @@ public class Event extends Entity<Event> {
     @Override
     public String getInsertQuery() {
         return String.format("INSERT INTO %s VALUES (null, '%s', '%s', '%s', '%s', '%s','%s','%s','%s','%s')", DBTables.EVENT_TABLE,
-                getTitle(), getDescription(), BooleanMapper.map(isOnline()), getLocation(), getStartDate(), getEndDate(), getConstraints(), BooleanMapper.map(isBookingAllowed()),getOrganiserId());
+                getTitle(), getDescription(), BooleanMapper.map(isOnline()), getLocation(), getStartDate(), getEndDate(), getConstraints(), BooleanMapper.map(isBookingAllowed()), getOrganiserId());
     }
-
 
 
     @Override
     public String getUpdateQuery() {
-        return String.format("UPDATE %s SET title = '%s', description = '%s', is_online = '%s', location = '%s', start_date = '%s', end_date='%s', constraints = '%s', is_booking_allowed = '%s' WHERE id = '%s'",DBTables.EVENT_TABLE,
-                getTitle(), getDescription(),BooleanMapper.map(isOnline()), getLocation(), getStartDate(), getEndDate(), getConstraints(), BooleanMapper.map(isBookingAllowed()),getEventId());
+        return String.format("UPDATE %s SET title = '%s', description = '%s', is_online = '%s', location = '%s', start_date = '%s', end_date='%s', constraints = '%s', is_booking_allowed = '%s' WHERE id = '%s'", DBTables.EVENT_TABLE,
+                getTitle(), getDescription(), BooleanMapper.map(isOnline()), getLocation(), getStartDate(), getEndDate(), getConstraints(), BooleanMapper.map(isBookingAllowed()), getEventId());
     }
 
     @Override

@@ -53,13 +53,9 @@ public class MainPageController implements Initializable {
     //OTHER
     private EventsController eventsController;
 
-    private EventService eventService;
-
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        eventsController = new EventsController(eventVbox, bookEventButton);
-        eventService = new EventServiceImpl();
+        eventsController = new EventsController();
     }
 
     public void initData(User user) {
@@ -76,7 +72,7 @@ public class MainPageController implements Initializable {
     @FXML
     public void onEventAction(ActionEvent actionEvent) {
         openView(PageView.ALL_EVENTS);
-        eventsController.getEvents();
+        eventsController.getEvents(eventVbox);
     }
 
     public void onAddEventAction(ActionEvent actionEvent) {
