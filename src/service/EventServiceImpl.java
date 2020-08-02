@@ -49,11 +49,11 @@ public class EventServiceImpl implements EventService {
 
     public boolean isEventAlreadyBooked(int eventId, int userId){
         BookingService bookingService = new BookingServiceImpl();
-        Booking booking = bookingService.getValidBookingByEventIdAndUserId(eventId,userId);
-        if(booking==null){
+        Booking booking = bookingService.getValidBookingByEventIdAndUserId(eventId, userId);
+        if (booking == null) {
             return false;
-        }else{
-            return false;
+        } else {
+            return true;
         }
     }
 }
