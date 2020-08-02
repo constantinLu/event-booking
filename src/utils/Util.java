@@ -1,3 +1,5 @@
+package utils;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -10,7 +12,9 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
-public class Controller implements Initializable {
+public class Util implements Initializable {
+
+    //TODO DELETE THIS AFTER IMP
 
     @FXML
     private VBox pnItems = null;

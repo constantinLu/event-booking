@@ -1,31 +1,30 @@
 package controller;
 
 import entities.Event;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import service.EventService;
 import service.EventServiceImpl;
-import utils.PageView;
+import service.UserService;
+import service.UserServiceImpl;
+import static utils.DateHelper.formatLocalDateTime;
 import static utils.Style.*;
 
 public class EventsController {
 
     private EventService eventService = new EventServiceImpl();
+
+    private UserService userService = new UserServiceImpl();
 
     public EventsController() {
     }
@@ -224,7 +223,14 @@ public class EventsController {
 
 
         Label organiser = new Label();
-        organiser.setText(String.valueOf(eventEntity.getOrganiserId()));
+        String oraniserName = null;
+        try {
+            userService.getOrganiserName(eventEntity.getOrganiserId());
+        } catch (Exception e) {
+            System.out.println("Organiser is null");
+            oraniserName = "Administrator";
+        }
+        organiser.setText(oraniserName);
         styleLabel(organiser, false);
 
         Button button = new Button();
@@ -233,10 +239,10 @@ public class EventsController {
         button.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
+                //TODO: ADD TO BOOKED EVENTS LIST
                 System.out.println(eventEntity.getEventId());
             }
         });
-
 
 
         hBox.getChildren().addAll(
@@ -252,12 +258,6 @@ public class EventsController {
                 button);
 
         return hBox;
-
-    }
-
-    private String formatLocalDateTime(LocalDateTime localDateTime) {
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd-MMM-yyyy");
-        return localDateTime.format(dtf);
     }
 }
 
