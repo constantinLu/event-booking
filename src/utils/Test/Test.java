@@ -1,4 +1,4 @@
-package Utils.Test;
+package utils.Test;
 
 
 import entities.Entity;
@@ -14,17 +14,28 @@ import networking.DBTables;
 import networking.JDBC;
 import service.EventService;
 import service.EventServiceImpl;
+import service.UserService;
+import service.UserServiceImpl;
 
 public class Test {
     public static void main(String[] args) {
         JDBC.createConnection();
+        getUserById();
 //        getAllEvents();
-        createEvent();
-        createEvent();
-        updateEvent();
+//        createEvent();
+//        createEvent();
+//        updateEvent();
 //        createEvent();
 //        printTable(DBTables.EVENT_TABLE, Event.class.getName());
 //        printTable(DBTables.USER_TABLE, Event.class.getName());
+    }
+
+    public static void getUserById() {
+        UserService userService = new UserServiceImpl();
+        User user = userService.getUserById(2);
+        System.out.println("user with id 2  is "+ user);
+        String name = userService.getOrganiserName(2);
+        System.out.println("Organiser name " +name);
     }
     public static void updateEvent(){
         EventService eventService = new EventServiceImpl();
