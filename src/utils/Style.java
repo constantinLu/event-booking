@@ -19,6 +19,10 @@ public class Style {
      * -fx-border-width
      * -fx-border-color
      *
+     * if -1 is a header yellow
+     * if odd - white
+     * if even - grey
+     * if
      * @param hbox
      * @param value
      */
@@ -36,6 +40,19 @@ public class Style {
         if (value == -1) {
             hbox.setStyle("-fx-background-color:#febb02");
         }
+    }
+
+    /**
+     * style box for addEvent
+     * @param hbox
+     * @param value
+     * 1.0 - default color
+     */
+    public static void styleHBox(HBox hbox, double value) {
+            hbox.setSpacing(20);
+            hbox.setAlignment(Pos.CENTER_LEFT);
+            HBox.setMargin(hbox, new Insets(5, 20, 5, 5));
+            hbox.setPadding(new Insets(20, 20, 20, 10));
     }
 
 
