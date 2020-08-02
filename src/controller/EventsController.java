@@ -6,9 +6,8 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.ResourceBundle;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.fxml.FXML;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -16,6 +15,7 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
@@ -35,8 +35,10 @@ public class EventsController implements Initializable {
     private CheckBox eventCheckbox;
 
 
-
     private EventService eventService = new EventServiceImpl();
+
+    public EventsController() {
+    }
 
     public EventsController(VBox eventVbox, Button bookEventButton) {
         this.eventVbox = eventVbox;
@@ -53,16 +55,68 @@ public class EventsController implements Initializable {
 
     }
 
+    public void addEvents(VBox addEventVBox) {
+
+        Label label = new Label("Text");
+        addEventVBox.getChildren().add(label);
+        addEventVBox.setVisible(true);
+//        Event eventEntity = new Event();
+//        HBox titleHbox = new HBox();
+//
+//        Label titleLabel = new Label();
+//        titleLabel.setText("Title");
+//        styleLabel(titleLabel, false);
+//        TextField titleFiled = new TextField();
+//
+//        titleHbox.getChildren().addAll(titleLabel, titleFiled);
+//
+//        HBox descriptionHbox = new HBox();
+//        Label descriptionLabel = new Label();
+//        descriptionLabel.setText("Description");
+//        styleLabel(descriptionLabel, false);
+//        TextField descriptionField = new TextField();
+//        descriptionField.setOnAction(new EventHandler<ActionEvent>() {
+//            @Override
+//            public void handle(ActionEvent event) {
+//                eventEntity.setTitle(event.getTarget().toString());
+//            }
+//        });
+//
+//
+//        descriptionHbox.getChildren().addAll(descriptionLabel, descriptionField);
+//
+//
+//        addEventVBox.getChildren().addAll(titleHbox, descriptionHbox);
+//
+//
+//        //redirectPane(actionEvent, CARD);
+//
+//        eventEntity.setEventId(1);
+//        eventEntity.setLocation("Roman");
+//        eventEntity.setTitle("Teatru");
+//        eventEntity.setBookingAllowed(true);
+//        eventEntity.setOnline(true);
+//        eventEntity.setConstraints("10");
+//        eventEntity.setDescription("Testing an event");
+//        eventEntity.setStartDate(LocalDateTime.now());
+//        eventEntity.setEndDate(LocalDateTime.of(2020, 10, 21, 9, 15, 0));
+//        if (eventService.addEvent(eventEntity)) {
+//            //use a notification and a button
+//            System.out.println("Event created");
+//        }
+    }
+
 
     void getEvents() {
         addHeader(eventVbox);
         //get all events
         List<Event> events = eventService.getAllEvents();
         for (int i = 0; i < events.size(); i++) {
-            Event event = events.get(i);
+            Event eventEntity = events.get(i);
 
-            HBox hbox = createHbox(event);
+            HBox hbox = createHbox(eventEntity);
             styleHBox(hbox, i);
+
 
 
             eventVbox.getChildren().add(hbox);
@@ -132,12 +186,19 @@ public class EventsController implements Initializable {
     }
 
 
-    private HBox createHbox(Event event) {
+    private HBox createHbox(Event eventEntity) {
         HBox hBox = new HBox();
 
-        eventCheckbox = new CheckBox();
-        eventCheckbox.setSelected(false);
-        eventCheckbox.setAlignment(Pos.CENTER_LEFT);
+//        CheckBox checkBox = new CheckBox();
+//        checkBox.setSelected(false);
+//        checkBox.setAlignment(Pos.CENTER_LEFT);
+        Button button = new Button();
+        button.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                System.out.println(eventEntity.getEventId());
+            }
+        });
 
 
         ImageView imageView = new ImageView();
@@ -153,33 +214,33 @@ public class EventsController implements Initializable {
 
 
         Label title = new Label();
-        title.setText(event.getTitle());
+        title.setText(eventEntity.getTitle());
         styleLabel(title, false);
 
         Text description = new Text();
-        description.setText(event.getDescription());
+        description.setText(eventEntity.getDescription());
         styleText(description);
 
         Label location = new Label();
-        location.setText(event.getLocation());
+        location.setText(eventEntity.getLocation());
         styleLabel(location, false);
 
         Label startDate = new Label();
-        startDate.setText(formatLocalDateTime(event.getStartDate()));
+        startDate.setText(formatLocalDateTime(eventEntity.getStartDate()));
         styleLabel(startDate, false);
 
 
         Label endDate = new Label();
-        endDate.setText(formatLocalDateTime(event.getEndDate()));
+        endDate.setText(formatLocalDateTime(eventEntity.getEndDate()));
         styleLabel(endDate, false);
 
 
         Label numberOfSeats = new Label();
-        numberOfSeats.setText(String.valueOf(event.getConstraints()));
+        numberOfSeats.setText(String.valueOf(eventEntity.getConstraints()));
         styleLabel(numberOfSeats, false);
 
 
-        hBox.getChildren().add(eventCheckbox);
+        hBox.getChildren().add(button);
         hBox.getChildren().add(imageView);
         hBox.getChildren().add(title);
         hBox.getChildren().add(description);

@@ -17,13 +17,13 @@ public class Event extends Entity<Event> {
     private int eventId;
     private String title;
     private String description;
-    private boolean isOnline;
+    private boolean isOnline; //
     private String location;
     private LocalDateTime startDate;
     private LocalDateTime endDate;
     private String constraints;
-    private boolean isBookingAllowed;
-    private int organiserId;
+    private boolean isBookingAllowed; // if booking btn is allowed
+    private int organiserId; // userul care a creat
 
     public Event () {}
 
