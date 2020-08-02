@@ -18,7 +18,7 @@
     <children>
         <VBox fx:id="navVbox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="1166.0" AnchorPane.topAnchor="0.0">
             <children>
-                <ImageView fx:id="imageView" fitHeight="112.0" fitWidth="116.0" pickOnBounds="true" preserveRatio="true" VBox.vgrow="NEVER">
+                <ImageView fx:id="imageView" fitHeight="112.0" fitWidth="116.0" opacity="0.4" pickOnBounds="true" VBox.vgrow="NEVER">
                     <image>
                         <Image url="@../resources/images/user1.png" />
                     </image>
@@ -90,9 +90,9 @@
                 </Pane>
             <AnchorPane fx:id="dashboardAncorPane" prefHeight="568.0" prefWidth="1160.0" style="-fx-background-color: white; -fx-border-width: 0 0 0 0;">
                <children>
-                  <ScrollPane fx:id="scrollEvents" fitToWidth="true" layoutY="-4.0" prefHeight="575.0" prefViewportHeight="530.0" prefViewportWidth="1160.0" prefWidth="1160.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-4.0">
+                  <ScrollPane fx:id="scrollEvents" fitToWidth="true" layoutY="-4.0" prefHeight="570.0" prefViewportHeight="530.0" prefViewportWidth="1160.0" prefWidth="1160.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <content>
-                        <VBox fx:id="eventVbox" layoutX="-1.0" layoutY="1.0" prefHeight="529.0" prefWidth="1158.0" style="-fx-background-color: white; -fx-border-width: 0 0 0 0;" />
+                        <VBox fx:id="eventVbox" layoutX="-1.0" layoutY="1.0" prefHeight="570.0" prefWidth="1158.0" style="-fx-background-color: white; -fx-border-width: 0 0 0 0;" />
                      </content>
                   </ScrollPane>
                   <Button fx:id="bookEventButton" layoutX="1014.0" layoutY="533.0" mnemonicParsing="false" onAction="#onBookAction" prefHeight="29.0" prefWidth="120.0" style="-fx-background-color: #febb02;" text="Book Event" textFill="WHITE">
@@ -105,7 +105,7 @@
                         <Image url="@../resources/images/event_booking.jpg" />
                      </image>
                   </ImageView>
-                  <VBox fx:id="addEventVBox" prefHeight="575.0" prefWidth="1162.0" />
+                  <VBox fx:id="addEventVBox" prefHeight="570.0" prefWidth="1162.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                </children></AnchorPane>
             </children>
         </VBox>
