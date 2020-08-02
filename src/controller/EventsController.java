@@ -211,7 +211,7 @@ public class EventsController implements Initializable {
         if (value % 2 == 0) {
             hbox.setStyle("-fx-background-color: #e4e7ed");
         } else {
-            hbox.setStyle("-fx-background-color: #00000");
+            hbox.setStyle("-fx-background-color: #FFFFFF");
         }
         // if hbox is header change to yellow
         if (value == -1) {

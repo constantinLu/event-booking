@@ -19,6 +19,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import service.EventService;
 import service.EventServiceImpl;
+import utils.PageView;
 
 public class MainPageController implements Initializable {
 
@@ -73,8 +74,7 @@ public class MainPageController implements Initializable {
 
     @FXML
     public void onEventAction(ActionEvent actionEvent) {
-        dashboardImage.setVisible(false);
-        eventVbox.getChildren().clear();
+        openView(PageView.ALL_EVENTS);
         eventsController.getEvents();
         isEventActionPressed = true;
     }
@@ -142,5 +142,15 @@ public class MainPageController implements Initializable {
     public void backHome(ActionEvent actionEvent) {
         dashboardImage.setVisible(true);
         eventVbox.getChildren().clear();
+    }
+
+    private void openView(PageView pageView) {
+        switch (pageView) {
+            case ALL_EVENTS:
+                eventVbox.getChildren().clear();
+                dashboardImage.setVisible(false);
+                eventVbox.setVisible(true);
+                break;
+        }
     }
 }
