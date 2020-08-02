@@ -78,6 +78,11 @@
                                 <Image url="@../resources/logo_size_invert.jpg" />
                             </image>
                         </ImageView>
+                  <Hyperlink fx:id="homeButton" layoutX="1090.0" layoutY="71.0" onAction="#backHome" text="Home" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Hyperlink>
                     </children>
                <VBox.margin>
                   <Insets />
@@ -87,15 +92,21 @@
                <children>
                   <ScrollPane fx:id="scrollEvents" fitToWidth="true" layoutY="-4.0" prefHeight="575.0" prefViewportHeight="530.0" prefViewportWidth="1160.0" prefWidth="1160.0" style="-fx-background-color: white;">
                      <content>
-                        <VBox fx:id="eventVbox" layoutX="-1.0" layoutY="1.0" prefHeight="529.0" prefWidth="1158.0" style="-fx-background-color: white; -fx-border-width: 0 0 0 0;" />
+                        <VBox fx:id="eventVbox" layoutX="-1.0" layoutY="1.0" onMouseClicked="#onMouseClicked" onMousePressed="#onMouseClicked1" prefHeight="529.0" prefWidth="1158.0" style="-fx-background-color: white; -fx-border-width: 0 0 0 0;" />
                      </content>
                   </ScrollPane>
-                  <Button fx:id="bookEventButton" layoutX="1014.0" layoutY="533.0" mnemonicParsing="false" onAction="#onLogin" prefHeight="29.0" prefWidth="120.0" style="-fx-background-color: #febb02;" text="Book Event" textFill="WHITE">
+                  <Button fx:id="bookEventButton" layoutX="1014.0" layoutY="533.0" mnemonicParsing="false" onAction="#onBookAction" prefHeight="29.0" prefWidth="120.0" style="-fx-background-color: #febb02;" text="Book Event" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </Button>
+                  <ImageView fx:id="dashboardImage" blendMode="SRC_ATOP" fitHeight="613.0" fitWidth="1160.0" layoutY="-39.0" pickOnBounds="true" smooth="false" AnchorPane.bottomAnchor="-3.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-39.0">
+                     <image>
+                        <Image url="@../resources/images/event_booking.jpg" />
+                     </image>
+                  </ImageView>
                </children></AnchorPane>
+            <VBox fx:id="addEventVBox" prefHeight="200.0" prefWidth="100.0" />
             </children>
         </VBox>
     </children>

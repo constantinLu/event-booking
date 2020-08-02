@@ -6,6 +6,9 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.ResourceBundle;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -25,12 +28,12 @@ import service.EventServiceImpl;
 
 public class EventsController implements Initializable {
 
-
     private VBox eventVbox;
 
     Button bookEventButton;
 
-    CheckBox eventCheckbox;
+    private CheckBox eventCheckbox;
+
 
 
     private EventService eventService = new EventServiceImpl();
@@ -43,6 +46,11 @@ public class EventsController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+    }
+
+
+    public void isChecboxTicked() {
+
     }
 
 
@@ -127,9 +135,9 @@ public class EventsController implements Initializable {
     private HBox createHbox(Event event) {
         HBox hBox = new HBox();
 
-        CheckBox checkBox = new CheckBox();
-        checkBox.setSelected(false);
-        checkBox.setAlignment(Pos.CENTER_LEFT);
+        eventCheckbox = new CheckBox();
+        eventCheckbox.setSelected(false);
+        eventCheckbox.setAlignment(Pos.CENTER_LEFT);
 
 
         ImageView imageView = new ImageView();
@@ -171,7 +179,7 @@ public class EventsController implements Initializable {
         styleLabel(numberOfSeats, false);
 
 
-        hBox.getChildren().add(checkBox);
+        hBox.getChildren().add(eventCheckbox);
         hBox.getChildren().add(imageView);
         hBox.getChildren().add(title);
         hBox.getChildren().add(description);
@@ -258,9 +266,11 @@ public class EventsController implements Initializable {
         return localDateTime.format(dtf);
     }
 
+
+    public CheckBox getEventCheckbox() {
+        return eventCheckbox;
+    }
 }
-
-
 
 
 
