@@ -1,5 +1,6 @@
 package service;
 
+import entities.Booking;
 import entities.Entity;
 import entities.Event;
 import entities.User;
@@ -35,5 +36,24 @@ public class EventServiceImpl implements EventService {
     public boolean updateEvent(Event event) {
         String query = event.getUpdateQuery();
         return JDBC.update(query);
+    }
+
+    @Override
+    public Event getEventById(int id) {
+        if(!JDBC.isConnected()){
+            JDBC.createConnection();
+        }
+        String query = String.format("select * from %s where id = %s", DBTables.EVENT_TABLE,id);
+        return (Event) JDBC.get(query,Event.class.getName());
+    }
+
+    public boolean isEventAlreadyBooked(int eventId, int userId){
+        BookingService bookingService = new BookingServiceImpl();
+        Booking booking = bookingService.getValidBookingByEventIdAndUserId(eventId,userId);
+        if(booking==null){
+            return false;
+        }else{
+            return false;
+        }
     }
 }

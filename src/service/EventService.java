@@ -10,4 +10,8 @@ public interface EventService {
 
     boolean updateEvent(Event event);
 
+    Event getEventById(int id);
+
+    boolean isEventAlreadyBooked(int eventId, int userId);
+
 }
