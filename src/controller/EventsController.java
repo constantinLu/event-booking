@@ -316,7 +316,7 @@ public class EventsController {
         Label organiser = new Label();
         String oraniserName = null;
         try {
-            userService.getOrganiserName(eventEntity.getOrganiserId());
+            oraniserName = userService.getOrganiserName(eventEntity.getOrganiserId());
         } catch (Exception e) {
             System.out.println("Organiser is null");
             oraniserName = "Administrator";

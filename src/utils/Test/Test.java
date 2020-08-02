@@ -9,6 +9,7 @@ import java.util.Date;
 import java.util.List;
 
 import entities.Event;
+import entities.Roles;
 import entities.User;
 import networking.DBTables;
 import networking.JDBC;
@@ -20,16 +21,36 @@ import service.UserServiceImpl;
 public class Test {
     public static void main(String[] args) {
         JDBC.createConnection();
-        getUserById();
+getMyEvents();
+//        getAllUsers();
+//        updateUserRole();
+
+//        getUserById();
 //        getAllEvents();
 //        createEvent();
-//        createEvent();
 //        updateEvent();
+//        createEvent();
+//        createEvent();
 //        createEvent();
 //        printTable(DBTables.EVENT_TABLE, Event.class.getName());
 //        printTable(DBTables.USER_TABLE, Event.class.getName());
     }
 
+    public static void getMyEvents(){
+        EventService eventService = new EventServiceImpl();
+        List<Event> events = eventService.getEventsOrganisedByUser(2);
+        printResultList(events);
+    }
+    public static void getAllUsers(){
+        UserService userService = new UserServiceImpl();
+        List<User> users = userService.getAllUsers();
+        printResultList(users);
+    }
+
+    public static void updateUserRole(){
+        UserService userService = new UserServiceImpl();
+        userService.updateUserRole(2, Roles.ADMINISTRATOR);
+    }
     public static void getUserById() {
         UserService userService = new UserServiceImpl();
         User user = userService.getUserById(2);
