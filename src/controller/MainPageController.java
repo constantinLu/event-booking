@@ -56,6 +56,8 @@ public class MainPageController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         eventsController = new EventsController();
+        //TODO DELETE IF NOT NEEDED.
+        bookEventButton.setVisible(false);
     }
 
     public void initData(User user) {

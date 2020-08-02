@@ -90,8 +90,6 @@ public class Style {
             case 0:
                 button.setTextFill(Color.web("#FFFFFF"));
                 button.setFont(new Font("System Bold", 15));
-                button.setStyle("-fx-background-color: #febb02");
-                //button.setPrefWidth(60);
                 break;
             default:
                 break;

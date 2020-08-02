@@ -213,11 +213,13 @@ public class EventsController {
 
         Label online = new Label();
         online.setId("online");
-        online.setText(String.valueOf(eventEntity.isOnline()));
+
         styleLabel(online, false);
         if (eventEntity.isOnline()) {
+            online.setText(String.valueOf("YES"));
             online.setTextFill(Color.valueOf("green"));
         } else {
+            online.setText(String.valueOf("NO"));
             online.setTextFill(Color.valueOf("red"));
         }
 
@@ -234,7 +236,16 @@ public class EventsController {
         styleLabel(organiser, false);
 
         Button button = new Button();
-        button.setText("Book");
+        boolean isBooked = false;
+        if (isBooked) {
+            button.setText("Book");
+            button.setDisable(false);
+            button.setStyle("-fx-background-color: #febb02");
+        } else {
+            button.setText("Booked");
+            button.setDisable(true);
+            button.setStyle("-fx-background-color: #00b300");
+        }
         styleButton(button, 0);
         button.setOnAction(new EventHandler<ActionEvent>() {
             @Override
