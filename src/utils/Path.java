@@ -9,4 +9,6 @@ public class Path {
     public static final String MAIN_PAGE = "/userinterface/mainpage.fxml";
 
     public static final String HOME = "/userinterface/home.fxml";
+
+    public static final String CARD = "/userinterface/events.fxml";
 }

@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.effect.Blend?>
@@ -8,95 +13,89 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0"
-            prefWidth="1366.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="controller.MainPageController">
+
+<AnchorPane fx:id="mainAncorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainPageController">
     <children>
-        <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0"
-              prefWidth="200.0">
+        <VBox fx:id="navVbox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="200.0">
             <children>
-                <ImageView fitHeight="112.0" fitWidth="116.0" pickOnBounds="true" preserveRatio="true"
-                           VBox.vgrow="NEVER">
+                <ImageView fx:id="imageView" fitHeight="112.0" fitWidth="116.0" pickOnBounds="true" preserveRatio="true" VBox.vgrow="NEVER">
                     <image>
-                        <Image url="@../resources/images/user1.png"/>
+                        <Image url="@../resources/images/user1.png" />
                     </image>
                     <effect>
-                        <Blend/>
+                        <Blend />
                     </effect>
                     <VBox.margin>
-                        <Insets bottom="5.0" left="44.0" right="5.0" top="10.0"/>
+                        <Insets bottom="5.0" left="44.0" right="5.0" top="10.0" />
                     </VBox.margin>
                 </ImageView>
                 <Label fx:id="userField" alignment="CENTER" prefHeight="17.0" prefWidth="199.0">
                     <font>
-                        <Font name="System Bold" size="15.0"/>
+                        <Font name="System Bold" size="15.0" />
                     </font>
                 </Label>
-                <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-                        mnemonicParsing="false" onAction="#onLogin" prefHeight="100.0" prefWidth="200.0"
-                        style="-fx-background-color: transparent;" text="Add Event" textFill="#1397d5">
+                <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onEventAction" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: transparent;" text="Events" textFill="#1397d5">
                     <font>
-                        <Font name="Lucida Console" size="28.0"/>
+                        <Font name="Lucida Console" size="28.0" />
                     </font>
                 </Button>
-                <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-                        mnemonicParsing="false" onAction="#onLogin" prefHeight="100.0" prefWidth="200.0"
-                        style="-fx-background-color: transparent;" text="Booked" textFill="#1397d5">
+                <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onBookAction" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: transparent;" text="Booked" textFill="#1397d5">
                     <font>
-                        <Font name="Lucida Console" size="28.0"/>
+                        <Font name="Lucida Console" size="28.0" />
                     </font>
                 </Button>
-                <Button maxWidth="-Infinity" minHeight="100.0" minWidth="200.0" mnemonicParsing="false"
-                        onAction="#onLogin" prefHeight="100.0" prefWidth="200.0"
-                        style="-fx-background-color: transparent;" text="Events" textFill="#1397d5">
+                <Button maxWidth="-Infinity" minHeight="100.0" minWidth="200.0" mnemonicParsing="false" onAction="#onAddEventAction" onMouseClicked="#onAddEventAction" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: transparent;" text="Add Event" textFill="#1397d5">
                     <font>
-                        <Font name="Lucida Console" size="28.0"/>
+                        <Font name="Lucida Console" size="28.0" />
                     </font>
                 </Button>
-                <Button maxWidth="-Infinity" minHeight="100.0" minWidth="200.0" mnemonicParsing="false"
-                        onAction="#onEventsAction" prefHeight="100.0" prefWidth="200.0"
-                        style="-fx-background-color: transparent;" text="My Event" textFill="#1397d5">
+                <Button maxWidth="-Infinity" minHeight="100.0" minWidth="200.0" mnemonicParsing="false" onAction="#onShowMyCreatedEventsAction" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: transparent;" text="My Events" textFill="#1397d5">
                     <font>
-                        <Font name="Lucida Console" size="28.0"/>
+                        <Font name="Lucida Console" size="28.0" />
                     </font>
                 </Button>
-                <Button maxWidth="-Infinity" minHeight="100.0" minWidth="200.0" mnemonicParsing="false"
-                        onAction="#onLogin" prefHeight="121.0" prefWidth="200.0"
-                        style="-fx-background-color: transparent;" text="Admin" textFill="#1397d5">
+                <Button maxWidth="-Infinity" minHeight="100.0" minWidth="200.0" mnemonicParsing="false" onAction="#onShownAdminAction" prefHeight="121.0" prefWidth="200.0" style="-fx-background-color: transparent;" text="Admin" textFill="#1397d5">
                     <font>
-                        <Font name="Lucida Console" size="28.0"/>
+                        <Font name="Lucida Console" size="28.0" />
                     </font>
                 </Button>
             </children>
             <effect>
-                <ColorAdjust/>
+                <ColorAdjust />
             </effect>
         </VBox>
-        <VBox layoutX="204.0" layoutY="-11.0" prefHeight="731.0" prefWidth="1170.0">
+        <VBox fx:id="mainVbox" layoutX="204.0" prefHeight="720.0" prefWidth="1162.0" style="-fx-border-width: 0 0 0 2; -fx-border-color: #febb02;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="204.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
-                <StackPane prefHeight="11.0" prefWidth="1160.0">
+                <Pane fx:id="userDashboard" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="146.0" prefWidth="1160.0" snapToPixel="false" style="-fx-background-color: #1397d5; -fx-border-width: 0 0 0 0;">
                     <children>
-                        <Pane fx:id="pnlCustomer" prefHeight="200.0" prefWidth="200.0"/>
-                        <Pane fx:id="pnlOrders" prefHeight="673.0" prefWidth="862.0"/>
-                    </children>
-                </StackPane>
-                <Pane fx:id="pnlOverview" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-                      minWidth="-Infinity" prefHeight="146.0" prefWidth="1162.0" snapToPixel="false"
-                      style="-fx-background-color: #1397d5;">
-                    <children>
-                        <Label layoutX="901.0" layoutY="14.0" maxHeight="-Infinity" maxWidth="-Infinity"
-                               minHeight="-Infinity" minWidth="-Infinity" text="BOOKING MADE EASY" textFill="#e7e5e5">
+                        <Label layoutX="901.0" layoutY="14.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" text="BOOKING MADE EASY" textFill="#e7e5e5">
                             <font>
-                                <Font size="24.0"/>
+                                <Font size="24.0" />
                             </font>
                         </Label>
                         <ImageView fitHeight="134.0" fitWidth="144.0" layoutX="14.0" layoutY="6.0">
                             <image>
-                                <Image url="@../resources/logo_size_invert.jpg"/>
+                                <Image url="@../resources/logo_size_invert.jpg" />
                             </image>
                         </ImageView>
                     </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
                 </Pane>
+            <AnchorPane fx:id="dashboardAncorPane" prefHeight="568.0" prefWidth="1160.0" style="-fx-background-color: white; -fx-border-width: 0 0 0 0;">
+               <children>
+                  <ScrollPane fx:id="scrollEvents" fitToWidth="true" layoutY="-4.0" prefHeight="575.0" prefViewportHeight="530.0" prefViewportWidth="1160.0" prefWidth="1160.0" style="-fx-background-color: white;">
+                     <content>
+                        <VBox fx:id="eventVbox" layoutX="-1.0" layoutY="1.0" prefHeight="529.0" prefWidth="1158.0" style="-fx-background-color: white; -fx-border-width: 0 0 0 0;" />
+                     </content>
+                  </ScrollPane>
+                  <Button fx:id="bookEventButton" layoutX="1014.0" layoutY="533.0" mnemonicParsing="false" onAction="#onLogin" prefHeight="29.0" prefWidth="120.0" style="-fx-background-color: #febb02;" text="Book Event" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Button>
+               </children></AnchorPane>
             </children>
         </VBox>
     </children>
