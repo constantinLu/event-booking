@@ -1,5 +1,6 @@
 package service;
 
+import entities.Booking;
 import entities.Event;
 import java.util.List;
 
@@ -14,7 +15,9 @@ public interface EventService {
 
     List<Event> getEventsOrganisedByUser(int userId);
 
-    boolean isEventAlreadyBooked(int eventId, int userId);
+    List<Event> getBookedEvents(List<Booking> bookings);
+
+    boolean isEventBooked(int eventId, int userId);
 
     boolean bookEvent(Event event, int userId);
 

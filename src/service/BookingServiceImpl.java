@@ -2,7 +2,6 @@ package service;
 
 import entities.Booking;
 import entities.Entity;
-import entities.Event;
 import networking.DBTables;
 import networking.JDBC;
 
@@ -20,14 +19,16 @@ public class BookingServiceImpl implements BookingService {
     }
 
     @Override
-    public boolean cancelBooking(Booking booking) {
-        String query = String.format("update %s set cancel_date = '%s' where id=%s", DBTables.BOOKING_TABLE, LocalDateTime.now(), booking.getBookingId());
+    public boolean cancelBooking(int eventId, int userId) {
+        String query = String.format("update %s set cancel_date = '%s' where event_id=%s and user_id=%s", DBTables.BOOKING_TABLE, LocalDateTime.now(), eventId,userId);
         return JDBC.update(query);
 //        return false;
     }
 
-    public boolean updateBooking(Booking booking){
-        return JDBC.update(booking.getUpdateQuery());
+    public boolean activateCancelledBooking(Booking booking){
+        String query = String.format("UPDATE %s SET booking_date = '%s', cancel_date = null WHERE event_id = %s and user_id=%s", DBTables.BOOKING_TABLE, booking.getBookingDate(), booking.getEventId(),booking.getUserId());
+
+        return JDBC.update(query);
     }
 
     @Override
@@ -42,7 +43,7 @@ public class BookingServiceImpl implements BookingService {
 
     @Override
     public Booking getValidBookingByEventIdAndUserId(int eventId, int userId) {
-        String query = String.format("select * from %s where end_date is null and user_id=%s and event_id=%s",DBTables.BOOKING_TABLE,userId,eventId);
+        String query = String.format("select * from %s where cancel_date is null and user_id=%s and event_id=%s",DBTables.BOOKING_TABLE,userId,eventId);
         Booking booking = (Booking) JDBC.get(query, Booking.class.getName());
         return booking;
     }

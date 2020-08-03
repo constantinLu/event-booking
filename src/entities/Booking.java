@@ -22,7 +22,7 @@ public class Booking extends Entity<Booking>{
 
     @Override
     public String getUpdateQuery() {
-        return String.format("UPDATE %s SET booking_date = '%s', cancel_date = '%s' WHERE id = '%s'", DBTables.EVENT_TABLE, getBookingDate(), getCancelDate(), getBookingId());
+        return String.format("UPDATE %s SET booking_date = '%s', cancel_date = '%s' WHERE id = '%s'", DBTables.BOOKING_TABLE, getBookingDate(), getCancelDate(), getBookingId());
     }
 
     @Override

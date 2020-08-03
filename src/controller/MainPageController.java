@@ -47,10 +47,17 @@ public class MainPageController implements Initializable {
     @FXML
     VBox myEventsVbox;
 
+    @FXML
+    ScrollPane scrollBookedEvents;
+    @FXML
+    VBox bookedEventsVbox;
+
+
     //OTHER
     private EventsController eventsController;
 
     private MyEventsController myEventsController;
+    private BookedEventsController bookedEventsController;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -64,6 +71,8 @@ public class MainPageController implements Initializable {
 
         eventsController = new EventsController(loggedUser);
         myEventsController = new MyEventsController(loggedUser);
+        bookedEventsController = new BookedEventsController(loggedUser);
+
 //        dashboardImage.setVisible(true);
     }
 
@@ -99,6 +108,8 @@ public class MainPageController implements Initializable {
 
     @FXML
     public void onBookAction(ActionEvent actionEvent) {
+        openView(PageView.BOOKED_EVENTS);
+        bookedEventsController.getEvents(bookedEventsVbox);
     }
 
 
@@ -124,6 +135,9 @@ public class MainPageController implements Initializable {
                 scrollMyEvents.setVisible(true);
                 myEventsVbox.setVisible(true);
                 break;
+            case BOOKED_EVENTS:
+                scrollBookedEvents.setVisible(true);
+                bookedEventsVbox.setVisible(true);
         }
     }
 
@@ -139,5 +153,9 @@ public class MainPageController implements Initializable {
 
         scrollMyEvents.setVisible(false);
         myEventsVbox.getChildren().clear();
+
+        scrollBookedEvents.setVisible(false);
+        bookedEventsVbox.setVisible(false);
+        bookedEventsVbox.getChildren().clear();
     }
 }
