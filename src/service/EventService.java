@@ -16,4 +16,6 @@ public interface EventService {
 
     boolean isEventAlreadyBooked(int eventId, int userId);
 
+    boolean bookEvent(Event event, int userId);
+
 }

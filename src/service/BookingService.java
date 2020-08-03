@@ -9,5 +9,7 @@ public interface BookingService {
     boolean cancelBooking(Booking booking);
     List<Booking> getBookingsByUserId(int userId);
     Booking getValidBookingByEventIdAndUserId(int eventId, int userId);
+    Booking getBookingByEventIdAndUserId(int eventId, int userId);
+    boolean updateBooking(Booking booking);
 
 }

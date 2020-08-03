@@ -7,6 +7,8 @@ import entities.User;
 import networking.DBTables;
 import networking.JDBC;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -67,5 +69,21 @@ public class EventServiceImpl implements EventService {
         }).collect(Collectors.toList());
 
         return events;
+    }
+
+    public boolean bookEvent(Event event, int userId){
+        Booking booking = new Booking();
+        booking.setUserId(userId);
+        booking.setEventId(event.getEventId());
+        booking.setBookingDate(LocalDateTime.now());
+        booking.setCancelDate(null);
+
+        BookingService bookingService = new BookingServiceImpl();
+        Booking bookingEntity = bookingService.getBookingByEventIdAndUserId(event.getEventId(),userId);
+        if(bookingEntity == null){
+            return bookingService.addBooking(booking);
+        }else{
+            return bookingService.updateBooking(booking);
+        }
     }
 }
