@@ -15,14 +15,12 @@ public class BookingServiceImpl implements BookingService {
     public boolean addBooking(Booking booking) {
         String query = booking.getInsertQuery();
         return JDBC.insert(query);
-//        return false;
     }
 
     @Override
     public boolean cancelBooking(int eventId, int userId) {
         String query = String.format("update %s set cancel_date = '%s' where event_id=%s and user_id=%s", DBTables.BOOKING_TABLE, LocalDateTime.now(), eventId,userId);
         return JDBC.update(query);
-//        return false;
     }
 
     public boolean activateCancelledBooking(Booking booking){

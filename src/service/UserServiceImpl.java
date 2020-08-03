@@ -6,8 +6,6 @@ import entities.Roles;
 import entities.User;
 import networking.DBTables;
 import networking.JDBC;
-import utils.BooleanMapper;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;

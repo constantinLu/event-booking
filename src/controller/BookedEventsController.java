@@ -35,58 +35,6 @@ public class BookedEventsController {
         this.loggedUser = user;
     }
 
-    public void addEvents(VBox addEventVBox) {
-
-        Label label = new Label("Text");
-        addEventVBox.getChildren().add(label);
-        addEventVBox.setVisible(true);
-//        Event eventEntity = new Event();
-//        HBox titleHbox = new HBox();
-//
-//        Label titleLabel = new Label();
-//        titleLabel.setText("Title");
-//        styleLabel(titleLabel, false);
-//        TextField titleFiled = new TextField();
-//
-//        titleHbox.getChildren().addAll(titleLabel, titleFiled);
-//
-//        HBox descriptionHbox = new HBox();
-//        Label descriptionLabel = new Label();
-//        descriptionLabel.setText("Description");
-//        styleLabel(descriptionLabel, false);
-//        TextField descriptionField = new TextField();
-//        descriptionField.setOnAction(new EventHandler<ActionEvent>() {
-//            @Override
-//            public void handle(ActionEvent event) {
-//                eventEntity.setTitle(event.getTarget().toString());
-//            }
-//        });
-//
-//
-//        descriptionHbox.getChildren().addAll(descriptionLabel, descriptionField);
-//
-//
-//        addEventVBox.getChildren().addAll(titleHbox, descriptionHbox);
-//
-//
-//        //redirectPane(actionEvent, CARD);
-//
-//        eventEntity.setEventId(1);
-//        eventEntity.setLocation("Roman");
-//        eventEntity.setTitle("Teatru");
-//        eventEntity.setBookingAllowed(true);
-//        eventEntity.setOnline(true);
-//        eventEntity.setConstraints("10");
-//        eventEntity.setDescription("Testing an event");
-//        eventEntity.setStartDate(LocalDateTime.now());
-//        eventEntity.setEndDate(LocalDateTime.of(2020, 10, 21, 9, 15, 0));
-//        if (eventService.addEvent(eventEntity)) {
-//            //use a notification and a button
-//            System.out.println("Event created");
-//        }
-    }
-
-
     void getEvents(VBox eventVbox) {
         addHeader(eventVbox);
 
