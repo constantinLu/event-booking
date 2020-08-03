@@ -140,7 +140,7 @@ public class Event extends Entity<Event> {
         setLocation(object.get("location"));
         setStartDate(LocalDateTimeMapper.map(object.get("start_date")));
         setEndDate(LocalDateTimeMapper.map(object.get("end_date")));
-        setConstraints(object.get("limitations"));
+        setConstraints(object.get("constraints"));
         setBookingAllowed(BooleanMapper.map(object.get("is_booking_allowed")));
         setOrganiserId(Integer.valueOf(object.get("organiser_id")));
     }
