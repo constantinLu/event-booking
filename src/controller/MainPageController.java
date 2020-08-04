@@ -39,7 +39,7 @@ public class MainPageController implements Initializable {
 
     //ADD EVENT
     @FXML
-    private VBox addEventVBox;
+    private AnchorPane addEventAncorPane;
 
     @FXML
     ScrollPane scrollMyEvents;
@@ -90,7 +90,7 @@ public class MainPageController implements Initializable {
 
     public void onAddEventAction(ActionEvent actionEvent) {
         openView(PageView.ADD_EVENTS);
-        eventsController.addEvents(addEventVBox);
+        eventsController.addEvents(addEventAncorPane);
     }
 
 
@@ -129,7 +129,7 @@ public class MainPageController implements Initializable {
                 eventVbox.setVisible(true);
                 break;
             case ADD_EVENTS:
-                addEventVBox.setVisible(true);
+                addEventAncorPane.setVisible(true);
                 break;
             case My_EVENTS:
                 scrollMyEvents.setVisible(true);
@@ -148,8 +148,8 @@ public class MainPageController implements Initializable {
         eventVbox.getChildren().clear();
         eventVbox.setVisible(false);
 
-        addEventVBox.getChildren().clear();
-        addEventVBox.setVisible(false);
+        addEventAncorPane.getChildren().clear();
+        addEventAncorPane.setVisible(false);
 
         scrollMyEvents.setVisible(false);
         myEventsVbox.getChildren().clear();
