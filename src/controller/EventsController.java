@@ -11,7 +11,6 @@ import javafx.geometry.Insets;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -326,16 +325,22 @@ public class EventsController {
         styleLabel(organiser, false);
 
         Button button = new Button();
-        boolean isBooked = eventService.isEventBooked(eventEntity.getEventId(),loggedUser.getUserId());
-        setStyleButton(button,isBooked);
+        boolean isBooked = eventService.isEventAlreadyBooked(eventEntity.getEventId(),loggedUser.getUserId());
+        if (!isBooked) {
+            button.setText("Book");
+            button.setDisable(false);
+            button.setStyle("-fx-background-color: #febb02");
+        } else {
+            button.setText("Booked");
+            button.setDisable(true);
+            button.setStyle("-fx-background-color: #00b300");
+        }
         styleButton(button, 0);
         button.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 //TODO: ADD TO BOOKED EVENTS LIST
                 System.out.println(eventEntity.getEventId());
-                boolean isBooked = eventService.bookEvent(eventEntity,loggedUser.getUserId());
-                setStyleButton(button,isBooked);
             }
         });
 
@@ -353,18 +358,6 @@ public class EventsController {
                 button);
 
         return hBox;
-    }
-
-    private void setStyleButton(Button button, boolean isBooked){
-        if (!isBooked) {
-            button.setText("Book");
-            button.setDisable(false);
-            button.setStyle("-fx-background-color: #febb02");
-        } else {
-            button.setText("Booked");
-            button.setDisable(true);
-            button.setStyle("-fx-background-color: #00b300");
-        }
     }
 }
 
