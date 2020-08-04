@@ -96,29 +96,28 @@ public class MainPageController {
         eventsController.getEvents(eventVbox);
     }
 
-    public void onAddEventAction(ActionEvent actionEvent) {
-        openView(PageView.ADD_EVENTS);
-        //eventsController.addEvents(addEventAncorPane);
-    }
-
-
-    @FXML
-    public void onShowMyCreatedEventsAction(ActionEvent actionEvent) {
-        openView(PageView.My_EVENTS);
-        myEventsController.getEvents(myEventsVbox);
-
-    }
-
-    @FXML
-    public void onShownAdminAction(ActionEvent actionEvent) {
-        openView(PageView.ADMIN_VIEW);
-
-    }
-
     @FXML
     public void onBookAction(ActionEvent actionEvent) {
         openView(PageView.BOOKED_EVENTS);
         bookedEventsController.getEvents(bookedEventsVbox);
+    }
+
+    @FXML
+    public void onAddEventAction(ActionEvent actionEvent) {
+        openView(PageView.ADD_EVENTS);
+        addEventsController.addEvents(addPane);
+    }
+
+    @FXML
+    public void onMyCreatedEventsAction(ActionEvent actionEvent) {
+        openView(PageView.My_EVENTS);
+        myEventsController.getEvents(myEventsVbox);
+    }
+
+    @FXML
+    public void onAdminAction(ActionEvent actionEvent) {
+        openView(PageView.ADMIN_VIEW);
+        adminController.getUsers(adminVbox);
     }
 
 
@@ -177,5 +176,6 @@ public class MainPageController {
 
         scrollPaneAdmin.setVisible(false);
         adminVbox.setVisible(false);
+        adminVbox.getChildren().clear();
     }
 }

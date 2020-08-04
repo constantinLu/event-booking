@@ -70,6 +70,14 @@ public class User extends Entity<User>{
         return sb.toString();
     }
 
+    public Roles getRole() {
+        return role;
+    }
+
+    public void setRole(Roles role) {
+        this.role = role;
+    }
+
     public String getPassword() {
         return password;
     }

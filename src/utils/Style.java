@@ -97,6 +97,32 @@ public class Style {
         object.setMaxHeight(height);
     }
 
+    public static void styleLabelForAdmin(Node node, boolean isHeader) {
+        Label object = null;
+        if (node instanceof Label) {
+            object = (Label) node;
+        }
+        if (isHeader) {
+            object.setFont(new Font("Arial Bold", 16));
+            object.setTextFill(Color.web("#FFFFFF"));
+        } else {
+            object.setFont(new Font("Lucida Sans Demibold", 12));
+            object.setTextFill(Color.web("#000000"));
+        }
+
+        object.setAlignment(Pos.CENTER_LEFT);
+        int width = 150;
+        int height = 50;
+
+        object.setMinWidth(width);
+        object.setMaxWidth(width);
+        object.setPrefWidth(width);
+
+        object.setMinHeight(height);
+        object.setPrefHeight(height);
+        object.setMaxHeight(height);
+    }
+
 
     public static void styleText(Text text) {
         text.setFont(new Font("Lucida Sans Demibold", 12));

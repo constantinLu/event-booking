@@ -54,14 +54,14 @@
                     </font>
                 </Button>
                 <Button maxWidth="-Infinity" minHeight="100.0" minWidth="200.0" mnemonicParsing="false"
-                        onAction="#onShowMyCreatedEventsAction" prefHeight="100.0" prefWidth="200.0"
+                        onAction="#onMyCreatedEventsAction" prefHeight="100.0" prefWidth="200.0"
                         style="-fx-background-color: transparent;" text="My Events" textFill="#1397d5">
                     <font>
                         <Font name="Lucida Console" size="28.0"/>
                     </font>
                 </Button>
                 <Button maxWidth="-Infinity" minHeight="100.0" minWidth="200.0" mnemonicParsing="false"
-                        onAction="#onShownAdminAction" prefHeight="121.0" prefWidth="200.0"
+                        onAction="#onAdminAction" prefHeight="121.0" prefWidth="200.0"
                         style="-fx-background-color: transparent;" text="Admin" textFill="#1397d5">
                     <font>
                         <Font name="Lucida Console" size="28.0"/>

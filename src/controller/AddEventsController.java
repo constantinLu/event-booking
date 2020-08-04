@@ -1,26 +1,11 @@
 package controller;
 
-import entities.Event;
 import entities.User;
-import java.util.List;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.geometry.Insets;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Text;
+import javafx.scene.layout.Pane;
 import service.EventService;
 import service.EventServiceImpl;
 import service.UserService;
 import service.UserServiceImpl;
-import static utils.DateHelper.formatLocalDateTime;
-import static utils.Style.*;
 
 public class AddEventsController {
 
@@ -34,7 +19,7 @@ public class AddEventsController {
         this.loggedUser = loggedUser;
     }
 
-    public void addEvents(AnchorPane addEventVBox) {
+    public void addEvents(Pane addPane) {
 
 //        //obj to persist
 //        Event eventEntity = new Event();
