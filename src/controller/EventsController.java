@@ -19,6 +19,7 @@ import service.EventServiceImpl;
 import service.UserService;
 import service.UserServiceImpl;
 import static utils.DateHelper.formatLocalDateTime;
+import utils.Style;
 import static utils.Style.*;
 
 public class EventsController {
@@ -191,7 +192,7 @@ public class EventsController {
 
         Button button = new Button();
         boolean isBooked = eventService.isEventBooked(eventEntity.getEventId(), loggedUser.getUserId());
-        setStyleButton(button, isBooked);
+        Style.styleButton(button, isBooked);
         styleButton(button, 0);
         button.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -199,7 +200,7 @@ public class EventsController {
                 //TODO: ADD TO BOOKED EVENTS LIST
                 System.out.println(eventEntity.getEventId());
                 boolean isBooked = eventService.bookEvent(eventEntity, loggedUser.getUserId());
-                setStyleButton(button, isBooked);
+                Style.styleButton(button, isBooked);
             }
         });
 

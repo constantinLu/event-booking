@@ -1,13 +1,11 @@
 package entities;
 
 
+import java.util.HashMap;
 import networking.DBTables;
 import utils.RoleMapper;
 
-import javax.management.relation.Role;
-import java.util.HashMap;
-
-public class User extends Entity<User>{
+public class User extends Entity<User> {
     private int userId;
 
     String username;
@@ -17,33 +15,35 @@ public class User extends Entity<User>{
     String email;
     Roles role;
 
-    public User(){
+    public User() {
 
     }
 
-    User(Builder builder){
+    User(Builder builder) {
         this.username = builder.username;
         this.password = builder.password;
         this.firstName = builder.firstName;
-        this.lastName= builder.lastName;
+        this.lastName = builder.lastName;
         this.email = builder.email;
         this.role = builder.role;
     }
+
     @Override
     public User getObject() {
         return this;
-}
+    }
 
     @Override
     public String getUpdateQuery() {
         return null;
     }
+
     @Override
     public String getInsertQuery() {
         //    @Override
 //    public String getInsertQuery() {
         return String.format("INSERT INTO %s VALUES (null, '%s', '%s', '%s', '%s', '%s','%s')", DBTables.USER_TABLE,
-                 getFirstName(), getLastName(), getEmail(), getUsername(), getPassword(),Roles.STUDENT.name() );
+                getFirstName(), getLastName(), getEmail(), getUsername(), getPassword(), Roles.STUDENT.name());
 //    }
     }
 
@@ -65,7 +65,7 @@ public class User extends Entity<User>{
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("User Id: "). append(userId).append("\n");
+        sb.append("User Id: ").append(userId).append("\n");
         sb.append("Username:").append(username).append("\n");
         sb.append("FirstName:").append(firstName).append("\n");
         sb.append("Last Name").append(lastName).append("\n");
@@ -74,13 +74,6 @@ public class User extends Entity<User>{
         return sb.toString();
     }
 
-    public Roles getRole() {
-        return role;
-    }
-
-    public void setRole(Roles role) {
-        this.role = role;
-    }
 
     public String getPassword() {
         return password;
@@ -113,6 +106,7 @@ public class User extends Entity<User>{
     public String getFirstName() {
         return firstName;
     }
+
     public String getLastName() {
         return lastName;
     }
@@ -134,7 +128,7 @@ public class User extends Entity<User>{
     }
 
 
-    public static class Builder{
+    public static class Builder {
         private int userId;
 
         String username;
@@ -144,41 +138,42 @@ public class User extends Entity<User>{
         String email;
         Roles role;
 
-        public Builder(String username, String password){
+        public Builder(String username, String password) {
             this.username = username;
-            this.password= password;
+            this.password = password;
         }
 
-        public Builder withUsername(String username){
+        public Builder withUsername(String username) {
             this.username = username;
             return this;
         }
-        public Builder withPassword(String password){
+
+        public Builder withPassword(String password) {
             this.password = password;
             return this;
         }
 
-        public Builder withFirstName(String firstName){
+        public Builder withFirstName(String firstName) {
             this.firstName = firstName;
             return this;
         }
 
-        public Builder withLastName(String lastName){
-            this.lastName= lastName;
+        public Builder withLastName(String lastName) {
+            this.lastName = lastName;
             return this;
         }
 
-        public Builder withEmail(String email){
-            this.email= email;
+        public Builder withEmail(String email) {
+            this.email = email;
             return this;
         }
 
-        public Builder withRole(Roles role){
+        public Builder withRole(Roles role) {
             this.role = role;
             return this;
         }
 
-        public User createUser(){
+        public User createUser() {
             return new User(this);
         }
     }

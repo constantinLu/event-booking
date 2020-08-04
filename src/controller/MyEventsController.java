@@ -195,6 +195,7 @@ public class MyEventsController {
         button.setDisable(false);
         button.setStyle("-fx-background-color: #febb02");
 
+
         styleButton(button, 0);
         button.setOnAction(new EventHandler<ActionEvent>() {
             @Override

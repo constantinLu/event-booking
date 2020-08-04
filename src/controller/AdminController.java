@@ -1,11 +1,10 @@
 package controller;
 
+import entities.Roles;
 import static entities.Roles.*;
 import entities.User;
 import java.util.List;
 import javafx.collections.FXCollections;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
@@ -23,6 +22,8 @@ public class AdminController {
 
     private User loggedUser;
 
+    private Roles choiceBoxRoleValue;
+
     private UserService userService = new UserServiceImpl();
 
     public AdminController(User loggedUser) {
@@ -38,6 +39,7 @@ public class AdminController {
 
             HBox hbox = createHbox(userEntity);
             styleHBox(hbox, i);
+            hbox.setSpacing(27);
 
             adminVbox.getChildren().add(hbox);
             adminVbox.setSpacing(5);
@@ -138,27 +140,35 @@ public class AdminController {
         userName.setText(String.valueOf(userEntity.getUsername()));
         styleLabelForAdmin(userName, false);
 
+
         ChoiceBox roleChoicheBox = new ChoiceBox();
         roleChoicheBox.setItems(FXCollections.observableArrayList(
                 STUDENT, ADMINISTRATOR, EVENT_ORGANISER));
+
         if (userEntity.getRole() != null) {
-            roleChoicheBox.setValue(String.valueOf(userEntity.getRole().toString()));
+            if (roleChoicheBox.getItems().contains(userEntity.getRole())) {
+                roleChoicheBox.setValue(userEntity.getRole());
+                choiceBoxRoleValue = userEntity.getRole();
+            }
         } else {
             roleChoicheBox.setValue(String.valueOf(STUDENT));
+            choiceBoxRoleValue = STUDENT;
         }
-        //styleLabelForAdmin(roleChoicheBox, false);
-
-        Button editRoleButton = new Button();
-        editRoleButton.setText("Edit role");
-        editRoleButton.setDisable(false);
-        editRoleButton.setStyle("-fx-background-color: #febb02");
-
-        styleButton(editRoleButton, 0);
-        editRoleButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-            }
+        roleChoicheBox.setOnAction(event -> {
+            roleChoicheBox.setValue(roleChoicheBox.getSelectionModel().getSelectedItem());
+            choiceBoxRoleValue = (Roles) roleChoicheBox.getValue();
         });
+        styleChoiceBox(roleChoicheBox);
+
+
+        Button updateRoleButton = new Button();
+        updateRoleButton.setText("Update Role");
+        updateRoleButton.setDisable(false);
+        styleButton(updateRoleButton, 0);
+        updateRoleButton.setStyle("-fx-background-color: #febb02");
+
+        updateRoleButton.setOnAction(event ->
+                userService.updateUserRole(userEntity.getUserId(), choiceBoxRoleValue));
 
         hBox.getChildren().addAll(
                 imageView,
@@ -167,7 +177,7 @@ public class AdminController {
                 email,
                 userName,
                 roleChoicheBox,
-                editRoleButton);
+                updateRoleButton);
 
         return hBox;
     }

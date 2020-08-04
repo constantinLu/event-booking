@@ -4,6 +4,7 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
@@ -135,12 +136,25 @@ public class Style {
                 button.setTextFill(Color.web("#FFFFFF"));
                 button.setFont(new Font("System Bold", 15));
                 break;
+            case 1:
+
+                button.setTextFill(Color.web("#FFFFFF"));
+                button.setFont(new Font("System Bold", 15));
+                button.setAlignment(Pos.CENTER_LEFT);
+                int width = 100;
+                int height = 50;
+                button.setMinWidth(width);
+                button.setMaxWidth(width);
+                button.setPrefWidth(width);
+                button.setMinHeight(height);
+                button.setPrefHeight(height);
+                button.setMaxHeight(height);
             default:
                 break;
         }
     }
 
-    public static void setStyleButton(Button button, boolean isBooked) {
+    public static void styleButton(Button button, boolean isBooked) {
         if (!isBooked) {
             button.setText("Book");
             button.setDisable(false);
@@ -151,4 +165,13 @@ public class Style {
             button.setStyle("-fx-background-color: #00b300");
         }
     }
+
+    public static void styleChoiceBox(ChoiceBox choiceBox) {
+        choiceBox.setStyle("-fx-background-color: transparent");
+        choiceBox.setStyle("-fx-border-color: #1397d5");
+        choiceBox.setStyle("-fx-border-width: 2 2 2 2");
+
+    }
+
+
 }
