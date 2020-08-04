@@ -1,30 +1,25 @@
 package controller;
 
 import entities.User;
-import java.net.URL;
-import java.util.ResourceBundle;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
+import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import utils.PageView;
 
-public class MainPageController implements Initializable {
+public class MainPageController {
+
 
     //DASHBOARD
     @FXML
     private ImageView dashboardImage;
-
     @FXML
     Label userField;
-
     User loggedUser;
+
 
     //ALL EVENTS
     @FXML
@@ -33,24 +28,47 @@ public class MainPageController implements Initializable {
     ScrollPane scrollEvents;
     @FXML
     VBox eventVbox;
-    @FXML
-    Button bookEventButton;
 
 
     //ADD EVENT
     @FXML
-    private VBox addEventVBox;
+    public Pane addPane;
+    @FXML
+    public TextField addTitle;
+    @FXML
+    public TextField addDescription;
+    @FXML
+    public TextField addLocation;
+    @FXML
+    public ChoiceBox isOnlineDropDown;
+    @FXML
+    public DatePicker startDatePicker;
+    @FXML
+    public DatePicker endDatePicker;
+    @FXML
+    public TextField addSeats;
+    @FXML
+    public ChoiceBox isBookingAllowed;
 
+
+    //MY EVENTS
     @FXML
     ScrollPane scrollMyEvents;
-
     @FXML
     VBox myEventsVbox;
 
+
+    //BOOKED EVENTS
     @FXML
     ScrollPane scrollBookedEvents;
     @FXML
     VBox bookedEventsVbox;
+
+    //ADMIN
+    @FXML
+    public ScrollPane scrollPaneAdmin;
+    @FXML
+    public VBox adminVbox;
 
 
     //OTHER
@@ -59,11 +77,6 @@ public class MainPageController implements Initializable {
     private MyEventsController myEventsController;
     private BookedEventsController bookedEventsController;
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        //TODO DELETE IF NOT NEEDED.
-        bookEventButton.setVisible(false);
-    }
 
     public void initData(User user) {
         loggedUser = user;
@@ -90,9 +103,8 @@ public class MainPageController implements Initializable {
 
     public void onAddEventAction(ActionEvent actionEvent) {
         openView(PageView.ADD_EVENTS);
-        eventsController.addEvents(addEventVBox);
+        //eventsController.addEvents(addEventAncorPane);
     }
-
 
 
     @FXML
@@ -104,6 +116,8 @@ public class MainPageController implements Initializable {
 
     @FXML
     public void onShownAdminAction(ActionEvent actionEvent) {
+        openView(PageView.ADMIN_VIEW);
+
     }
 
     @FXML
@@ -111,7 +125,6 @@ public class MainPageController implements Initializable {
         openView(PageView.BOOKED_EVENTS);
         bookedEventsController.getEvents(bookedEventsVbox);
     }
-
 
 
     public void backHome(ActionEvent actionEvent) {
@@ -129,7 +142,8 @@ public class MainPageController implements Initializable {
                 eventVbox.setVisible(true);
                 break;
             case ADD_EVENTS:
-                addEventVBox.setVisible(true);
+                addPane.setVisible(true);
+                addTitle.setVisible(true);
                 break;
             case My_EVENTS:
                 scrollMyEvents.setVisible(true);
@@ -138,24 +152,35 @@ public class MainPageController implements Initializable {
             case BOOKED_EVENTS:
                 scrollBookedEvents.setVisible(true);
                 bookedEventsVbox.setVisible(true);
+                break;
+            case ADMIN_VIEW:
+                scrollPaneAdmin.setVisible(true);
+                adminVbox.setVisible(true);
+                break;
         }
     }
 
-    public void clearAll(){
+    private void clearAll() {
         dashboardImage.setVisible(false);
-        scrollEvents.setVisible(false);
 
+        scrollEvents.setVisible(false);
         eventVbox.getChildren().clear();
         eventVbox.setVisible(false);
 
-        addEventVBox.getChildren().clear();
-        addEventVBox.setVisible(false);
-
-        scrollMyEvents.setVisible(false);
-        myEventsVbox.getChildren().clear();
 
         scrollBookedEvents.setVisible(false);
         bookedEventsVbox.setVisible(false);
         bookedEventsVbox.getChildren().clear();
+
+
+        scrollMyEvents.setVisible(false);
+        myEventsVbox.getChildren().clear();
+
+
+        addPane.setVisible(false);
+
+
+        scrollPaneAdmin.setVisible(false);
+        adminVbox.setVisible(false);
     }
 }
