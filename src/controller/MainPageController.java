@@ -12,14 +12,12 @@ import utils.PageView;
 
 public class MainPageController {
 
-
     //DASHBOARD
     @FXML
     private ImageView dashboardImage;
     @FXML
     Label userField;
     User loggedUser;
-
 
     //ALL EVENTS
     @FXML
@@ -28,7 +26,6 @@ public class MainPageController {
     ScrollPane scrollEvents;
     @FXML
     VBox eventVbox;
-
 
     //ADD EVENT
     @FXML
@@ -50,13 +47,11 @@ public class MainPageController {
     @FXML
     public ChoiceBox isBookingAllowed;
 
-
     //MY EVENTS
     @FXML
     ScrollPane scrollMyEvents;
     @FXML
     VBox myEventsVbox;
-
 
     //BOOKED EVENTS
     @FXML
@@ -70,12 +65,12 @@ public class MainPageController {
     @FXML
     public VBox adminVbox;
 
-
-    //OTHER
+    //Controllers
     private EventsController eventsController;
-
-    private MyEventsController myEventsController;
     private BookedEventsController bookedEventsController;
+    private AddEventsController addEventsController;
+    private MyEventsController myEventsController;
+    private AdminController adminController;
 
 
     public void initData(User user) {
@@ -83,10 +78,10 @@ public class MainPageController {
         userField.setText(loggedUser.getFirstName() + " " + loggedUser.getLastName());
 
         eventsController = new EventsController(loggedUser);
-        myEventsController = new MyEventsController(loggedUser);
         bookedEventsController = new BookedEventsController(loggedUser);
-
-//        dashboardImage.setVisible(true);
+        addEventsController = new AddEventsController(loggedUser);
+        myEventsController = new MyEventsController(loggedUser);
+        adminController = new AdminController(loggedUser);
     }
 
     @FXML

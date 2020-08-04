@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<AnchorPane fx:id="mainAncorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+            prefHeight="720.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controller.MainPageController">
+    <children>
+        <VBox fx:id="navVbox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+              prefHeight="720.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+              AnchorPane.rightAnchor="1166.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <ImageView fx:id="imageView" fitHeight="112.0" fitWidth="116.0" opacity="0.4" pickOnBounds="true"
+                           VBox.vgrow="NEVER">
+                    <image>
+                        <Image url="@../resources/images/user1.png"/>
+                    </image>
+                    <effect>
+                        <Blend/>
+                    </effect>
+                    <VBox.margin>
+                        <Insets bottom="5.0" left="44.0" right="5.0" top="10.0"/>
+                    </VBox.margin>
+                </ImageView>
+                <Label fx:id="userField" alignment="CENTER" prefHeight="17.0" prefWidth="199.0">
+                    <font>
+                        <Font name="System Bold" size="15.0"/>
+                    </font>
+                </Label>
+                <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+                        mnemonicParsing="false" onAction="#onEventAction" prefHeight="100.0" prefWidth="200.0"
+                        style="-fx-background-color: transparent;" text="Events" textFill="#1397d5">
+                    <font>
+                        <Font name="Lucida Console" size="28.0"/>
+                    </font>
+                </Button>
+                <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+                        mnemonicParsing="false" onAction="#onBookAction" prefHeight="100.0" prefWidth="200.0"
+                        style="-fx-background-color: transparent;" text="Booked" textFill="#1397d5">
+                    <font>
+                        <Font name="Lucida Console" size="28.0"/>
+                    </font>
+                </Button>
+                <Button maxWidth="-Infinity" minHeight="100.0" minWidth="200.0" mnemonicParsing="false"
+                        onAction="#onAddEventAction" prefHeight="100.0" prefWidth="200.0"
+                        style="-fx-background-color: transparent;" text="Add Event" textFill="#1397d5">
+                    <font>
+                        <Font name="Lucida Console" size="28.0"/>
+                    </font>
+                </Button>
+                <Button maxWidth="-Infinity" minHeight="100.0" minWidth="200.0" mnemonicParsing="false"
+                        onAction="#onShowMyCreatedEventsAction" prefHeight="100.0" prefWidth="200.0"
+                        style="-fx-background-color: transparent;" text="My Events" textFill="#1397d5">
+                    <font>
+                        <Font name="Lucida Console" size="28.0"/>
+                    </font>
+                </Button>
+                <Button maxWidth="-Infinity" minHeight="100.0" minWidth="200.0" mnemonicParsing="false"
+                        onAction="#onShownAdminAction" prefHeight="121.0" prefWidth="200.0"
+                        style="-fx-background-color: transparent;" text="Admin" textFill="#1397d5">
+                    <font>
+                        <Font name="Lucida Console" size="28.0"/>
+                    </font>
+                </Button>
+            </children>
+            <effect>
+                <ColorAdjust/>
+            </effect>
+        </VBox>
+        <VBox fx:id="mainVbox" layoutX="204.0" prefHeight="720.0" prefWidth="1162.0"
+              style="-fx-border-width: 0 0 0 2; -fx-border-color: #febb02;" AnchorPane.bottomAnchor="0.0"
+              AnchorPane.leftAnchor="204.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <Pane fx:id="userDashboard" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+                      minWidth="-Infinity" prefHeight="146.0" prefWidth="1160.0" snapToPixel="false"
+                      style="-fx-background-color: #1397d5; -fx-border-width: 0 0 0 0;">
+                    <children>
+                        <Label layoutX="901.0" layoutY="14.0" maxHeight="-Infinity" maxWidth="-Infinity"
+                               minHeight="-Infinity" minWidth="-Infinity" text="BOOKING MADE EASY" textFill="#e7e5e5">
+                            <font>
+                                <Font size="24.0"/>
+                            </font>
+                        </Label>
+                        <ImageView fitHeight="134.0" fitWidth="144.0" layoutX="14.0" layoutY="6.0">
+                            <image>
+                                <Image url="@../resources/logo_size_invert.jpg"/>
+                            </image>
+                        </ImageView>
+                        <Hyperlink fx:id="homeButton" layoutX="1082.0" layoutY="99.0" onAction="#backHome" text="Home"
+                                   textFill="WHITE">
+                            <font>
+                                <Font name="System Bold" size="16.0"/>
+                            </font>
+                        </Hyperlink>
+                    </children>
+                    <VBox.margin>
+                        <Insets/>
+                    </VBox.margin>
+                </Pane>
+                <AnchorPane fx:id="dashboardAncorPane" prefHeight="568.0" prefWidth="1160.0"
+                            style="-fx-background-color: white; -fx-border-width: 0 0 0 0;">
+                    <children>
+                        <ScrollPane fx:id="scrollEvents" fitToWidth="true" layoutY="-4.0" prefHeight="570.0"
+                                    prefViewportHeight="530.0" prefViewportWidth="1160.0" prefWidth="1160.0"
+                                    style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0"
+                                    AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <content>
+                                <VBox fx:id="eventVbox" layoutX="-1.0" layoutY="1.0" prefHeight="570.0"
+                                      prefWidth="1158.0"
+                                      style="-fx-background-color: white; -fx-border-width: 0 0 0 0;"/>
+                            </content>
+                        </ScrollPane>
+                        <ScrollPane fx:id="scrollMyEvents" fitToWidth="true" layoutX="-8.0" prefHeight="570.0"
+                                    prefViewportHeight="530.0" prefViewportWidth="1160.0" prefWidth="1160.0"
+                                    style="-fx-background-color: white;" visible="false" AnchorPane.bottomAnchor="0.0"
+                                    AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <content>
+                                <VBox fx:id="myEventsVbox" layoutX="-1.0" layoutY="1.0" prefHeight="570.0"
+                                      prefWidth="1158.0"
+                                      style="-fx-background-color: white; -fx-border-width: 0 0 0 0;"/>
+                            </content>
+                        </ScrollPane>
+                        <ScrollPane fx:id="scrollBookedEvents" fitToWidth="true" layoutY="-4.0" prefHeight="570.0"
+                                    prefViewportHeight="530.0" prefViewportWidth="1160.0" prefWidth="1160.0"
+                                    style="-fx-background-color: white;" visible="false" AnchorPane.bottomAnchor="0.0"
+                                    AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <content>
+                                <VBox fx:id="bookedEventsVbox" layoutX="-1.0" layoutY="1.0" prefHeight="570.0"
+                                      prefWidth="1158.0"
+                                      style="-fx-background-color: white; -fx-border-width: 0 0 0 0;"/>
+                            </content>
+                        </ScrollPane>
+                        <Pane fx:id="addPane" prefHeight="575.0" prefWidth="1160.0" AnchorPane.bottomAnchor="0.0"
+                              AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <children>
+                                <DatePicker fx:id="startDatePicker" layoutX="782.0" layoutY="100.0"
+                                            promptText="Start Date"
+                                            style="-fx-background-color: transparent; -fx-border-color: #1397d5; -fx-border-width: 2 2 2 2;"
+                                            AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="100.0"/>
+                                <Label layoutX="80.0" layoutY="205.0" prefHeight="20.0" prefWidth="95.0" text="Online"
+                                       textFill="#1397d5" AnchorPane.leftAnchor="80.0">
+                                    <font>
+                                        <Font name="System Bold" size="14.0"/>
+                                    </font>
+                                </Label>
+                                <Label layoutX="650.0" layoutY="304.0" prefHeight="20.0" prefWidth="129.0"
+                                       text="Available seats" textFill="#1397d5" AnchorPane.leftAnchor="650.0">
+                                    <font>
+                                        <Font name="System Bold" size="14.0"/>
+                                    </font>
+                                </Label>
+                                <TextField fx:id="addTitle" layoutX="200.0" layoutY="100.0" prefHeight="27.0"
+                                           prefWidth="178.0" promptText="Title"
+                                           style="-fx-background-color: transparent; -fx-border-color: #1397d5; -fx-border-width: 0px 0px 2px 0px;"
+                                           AnchorPane.leftAnchor="200.0" AnchorPane.topAnchor="100.0"/>
+                                <Label layoutX="650.0" layoutY="104.0" prefHeight="20.0" prefWidth="95.0"
+                                       text="Start Date" textFill="#1397d5" AnchorPane.leftAnchor="650.0">
+                                    <font>
+                                        <Font name="System Bold" size="14.0"/>
+                                    </font>
+                                </Label>
+                                <TextField fx:id="addDescription" layoutX="200.0" layoutY="300.0" prefHeight="27.0"
+                                           prefWidth="178.0" promptText="Description"
+                                           style="-fx-background-color: transparent; -fx-border-color: #1397d5; -fx-border-width: 0px 0px 2px 0px;"
+                                           AnchorPane.leftAnchor="200.0" AnchorPane.topAnchor="300.0"/>
+                                <Label layoutX="80.0" layoutY="404.0" prefHeight="20.0" prefWidth="95.0" text="Location"
+                                       textFill="#1397d5" AnchorPane.leftAnchor="80.0">
+                                    <font>
+                                        <Font name="System Bold" size="14.0"/>
+                                    </font>
+                                </Label>
+                                <Label layoutX="650.0" layoutY="404.0" prefHeight="20.0" prefWidth="135.0"
+                                       text="Allow Booking" textFill="#1397d5" AnchorPane.leftAnchor="650.0">
+                                    <font>
+                                        <Font name="System Bold" size="14.0"/>
+                                    </font>
+                                </Label>
+                                <ChoiceBox fx:id="isOnlineDropDown" layoutX="200.0" layoutY="200.0" prefHeight="29.0"
+                                           prefWidth="178.0"
+                                           style="-fx-background-color: transparent; -fx-border-color: #1397d5; -fx-border-width: 2 2 2 2;"
+                                           AnchorPane.leftAnchor="200.0" AnchorPane.topAnchor="200.0"/>
+                                <Button fx:id="addEventButton" layoutX="985.0" layoutY="504.0" mnemonicParsing="false"
+                                        onAction="#onBookAction" prefHeight="29.0" prefWidth="120.0"
+                                        style="-fx-background-color: #febb02;" text="Add Event" textFill="WHITE">
+                                    <font>
+                                        <Font name="System Bold" size="15.0"/>
+                                    </font>
+                                </Button>
+                                <DatePicker fx:id="endDatePicker" layoutX="782.0" layoutY="200.0" promptText="End Date"
+                                            style="-fx-background-color: transparent; -fx-border-color: #1397d5; -fx-border-width: 2 2 2 2;"
+                                            AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="200.0"/>
+                                <TextField fx:id="addLocation" layoutX="200.0" layoutY="400.0" prefHeight="27.0"
+                                           prefWidth="178.0" promptText="Location"
+                                           style="-fx-background-color: transparent; -fx-border-color: #1397d5; -fx-border-width: 0px 0px 2px 0px;"
+                                           AnchorPane.leftAnchor="200.0" AnchorPane.topAnchor="400.0"/>
+                                <TextField fx:id="addSeats" layoutX="782.0" layoutY="300.0" prefHeight="27.0"
+                                           prefWidth="178.0" promptText="Number of seats"
+                                           style="-fx-background-color: transparent; -fx-border-color: #1397d5; -fx-border-width: 0px 0px 2px 0px;"
+                                           AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="300.0"/>
+                                <Label layoutX="1.0" layoutY="1.0" prefHeight="73.0" prefWidth="1158.0"
+                                       style="-fx-background-color: #febb02; -fx-padding: 10 300 10 400;"
+                                       text="CREATE EVENT" textFill="WHITE" AnchorPane.leftAnchor="1.0"
+                                       AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="1.0">
+                                    <font>
+                                        <Font name="System Bold" size="36.0"/>
+                                    </font>
+                                </Label>
+                                <ChoiceBox fx:id="isBookingAllowed" layoutX="782.0" layoutY="400.0" prefHeight="29.0"
+                                           prefWidth="178.0"
+                                           style="-fx-background-color: transparent; -fx-border-color: #1397d5; -fx-border-width: 2 2 2 2;"
+                                           AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="400.0"/>
+                                <Label layoutX="650.0" layoutY="205.0" prefHeight="20.0" prefWidth="95.0"
+                                       text="End Date" textFill="#1397d5" AnchorPane.leftAnchor="650.0">
+                                    <font>
+                                        <Font name="System Bold" size="14.0"/>
+                                    </font>
+                                </Label>
+                                <Label layoutX="80.0" layoutY="104.0" text="Title" textFill="#1397d5"
+                                       AnchorPane.leftAnchor="80.0">
+                                    <font>
+                                        <Font name="System Bold" size="14.0"/>
+                                    </font>
+                                </Label>
+                                <Label layoutX="80.0" layoutY="304.0" prefHeight="20.0" prefWidth="95.0"
+                                       text="Description" textFill="#1397d5" AnchorPane.leftAnchor="80.0">
+                                    <font>
+                                        <Font name="System Bold" size="14.0"/>
+                                    </font>
+                                </Label>
+                            </children>
+                        </Pane>
+                        <ScrollPane fx:id="scrollPaneAdmin" fitToWidth="true" prefHeight="570.0"
+                                    prefViewportHeight="530.0" prefViewportWidth="1160.0" prefWidth="1160.0"
+                                    style="-fx-background-color: white;">
+                            <content>
+                                <VBox fx:id="adminVbox" layoutX="-1.0" layoutY="1.0" prefHeight="570.0"
+                                      prefWidth="1158.0"
+                                      style="-fx-background-color: white; -fx-border-width: 0 0 0 0;"/>
+                            </content>
+                        </ScrollPane>
+                        <ImageView fx:id="dashboardImage" blendMode="SRC_ATOP" fitHeight="575.0" fitWidth="1160.0"
+                                   pickOnBounds="true" smooth="false" AnchorPane.bottomAnchor="0.0"
+                                   AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <image>
+                                <Image url="@../resources/images/event_booking.jpg"/>
+                            </image>
+                        </ImageView>
+
+                    </children>
+                </AnchorPane>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>

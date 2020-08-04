@@ -15,7 +15,7 @@ public class WriteLog {
     private static FileHandler handler = null;
     private final String path;
 
-    private WriteLog () {
+    private WriteLog() {
         instance = this;
         DateTimeFormatter f = DateTimeFormatter.ofPattern("yyyy-MM-dd HH-mm-ss");
         LocalDateTime now = LocalDateTime.now();
@@ -37,32 +37,31 @@ public class WriteLog {
     }
 
 
-   public static void addHandler (Logger logger) {
+    public static void addHandler(Logger logger) {
         if (instance != null && handler != null) {
             logger.addHandler(handler);
         }
-   }
+    }
 
-   private FileHandler fileHandler () {
+    private FileHandler fileHandler() {
         try {
             System.out.println(path);
             FileHandler mHandler = new FileHandler(path);
             SimpleFormatter formatter = new SimpleFormatter();
             mHandler.setFormatter(formatter);
             return mHandler;
-        }
-        catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
         return null;
-   }
+    }
 
-   public static void close () {
+    public static void close() {
         if (handler != null) handler.close();
-   }
+    }
 
 
-    private String buildPath () {
+    private String buildPath() {
         StringBuilder builder = new StringBuilder();
         builder.append("src/main/Logs/");
         builder.append(SESSION);

@@ -1,4 +1,4 @@
-package view;
+package alert;
 
 import utils.WriteLog;
 import java.time.LocalTime;

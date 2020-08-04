@@ -11,7 +11,6 @@ import java.util.logging.Logger;
 
 import entities.Entity;
 import utils.WriteLog;
-import view.NotificationPane;
 
 
 public class JDBC {
