@@ -1,5 +1,6 @@
 package controller;
 
+import entities.Booking;
 import entities.Event;
 import entities.User;
 import javafx.event.ActionEvent;
@@ -13,32 +14,33 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
-import service.EventService;
-import service.EventServiceImpl;
-import service.UserService;
-import service.UserServiceImpl;
+import service.*;
 
 import java.util.List;
 
 import static utils.DateHelper.formatLocalDateTime;
 import static utils.Style.*;
 
-public class MyEventsController {
+public class BookedEventsController {
 
     private EventService eventService = new EventServiceImpl();
 
     private UserService userService = new UserServiceImpl();
 
-    User loggedUser;
+    private BookingService bookingService = new BookingServiceImpl();
 
-    public MyEventsController(User user) {
+    private User loggedUser;
+
+    public BookedEventsController(User user) {
         this.loggedUser = user;
     }
 
     void getEvents(VBox eventVbox) {
         addHeader(eventVbox);
+
+        List<Booking> bookings = bookingService.getBookingsByUserId(loggedUser.getUserId());
         //get all events
-        List<Event> events = eventService.getEventsOrganisedByUser(loggedUser.getUserId());
+        List<Event> events = eventService.getBookedEvents(bookings);
         for (int i = 0; i < events.size(); i++) {
             Event eventEntity = events.get(i);
 
@@ -190,17 +192,17 @@ public class MyEventsController {
         styleLabel(organiser, false);
 
         Button button = new Button();
-        boolean isBooked = false;
+        boolean isBooked = eventService.isEventBooked(eventEntity.getEventId(),loggedUser.getUserId());
         button.setText("Edit event");
         button.setDisable(false);
         button.setStyle("-fx-background-color: #febb02");
-
+        setStyleButton(button, isBooked);
         styleButton(button, 0);
         button.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                //TODO: ADD TO BOOKED EVENTS LIST
-                System.out.println(eventEntity.getEventId());
+               Boolean isBooked = ! bookingService.cancelBooking(eventEntity.getEventId(),loggedUser.getUserId());
+               setStyleButton(button,isBooked);
             }
         });
 
@@ -218,6 +220,17 @@ public class MyEventsController {
                 button);
 
         return hBox;
+    }
+    private void setStyleButton(Button button, boolean isBooked){
+        if (isBooked) {
+            button.setText("Cancel Booking");
+            button.setDisable(false);
+            button.setStyle("-fx-background-color: #febb02");
+        } else {
+            button.setText("Cancelled");
+            button.setDisable(true);
+            button.setStyle("-fx-background-color: red");
+        }
     }
 }
 

@@ -1,5 +1,7 @@
 package entities;
 
+import networking.DBTables;
+import utils.BooleanMapper;
 import utils.LocalDateTimeMapper;
 
 import java.sql.Timestamp;
@@ -20,12 +22,14 @@ public class Booking extends Entity<Booking>{
 
     @Override
     public String getUpdateQuery() {
-        return null;
+        return String.format("UPDATE %s SET booking_date = '%s', cancel_date = '%s' WHERE id = '%s'", DBTables.BOOKING_TABLE, getBookingDate(), getCancelDate(), getBookingId());
     }
 
     @Override
     public String getInsertQuery() {
-        return null;
+        return String.format("INSERT INTO %s VALUES (null, '%s', null, '%s', '%s')", DBTables.BOOKING_TABLE,
+                getBookingDate(), getUserId(), getEventId());
+
     }
 
     @Override
