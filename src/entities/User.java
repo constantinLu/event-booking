@@ -2,6 +2,7 @@ package entities;
 
 
 import networking.DBTables;
+import utils.RoleMapper;
 
 import javax.management.relation.Role;
 import java.util.HashMap;
@@ -57,6 +58,8 @@ public class User extends Entity<User>{
         setEmail(object.get("email"));
         setFirstName(object.get("first_name"));
         setLastName(object.get("last_name"));
+        setRole(RoleMapper.map(object.get("role")));
+
     }
 
     @Override
@@ -67,6 +70,7 @@ public class User extends Entity<User>{
         sb.append("FirstName:").append(firstName).append("\n");
         sb.append("Last Name").append(lastName).append("\n");
         sb.append("Email:").append(email).append("\n");
+        sb.append("Role: ").append(role).append("\n");
         return sb.toString();
     }
 
@@ -76,6 +80,14 @@ public class User extends Entity<User>{
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public void setRole(Roles role) {
+        this.role = role;
+    }
+
+    public Roles getRole() {
+        return role;
     }
 
     public void setEmail(String email) {
