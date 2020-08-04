@@ -1,8 +1,15 @@
 package controller;
 
 import entities.User;
+import java.io.IOException;
+import java.net.URL;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -13,9 +20,7 @@ import utils.PageView;
 import utils.Path;
 import utils.Redirect;
 
-import java.io.IOException;
-
-public class MainPageController {
+public class MainPageController implements Initializable {
 
     //DASHBOARD
     @FXML
@@ -78,6 +83,14 @@ public class MainPageController {
     private AdminController adminController;
 
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        isOnlineDropDown.setItems(FXCollections.observableArrayList("YES", "NO"));
+        isOnlineDropDown.setValue("YES");
+        isBookingAllowed.setItems(FXCollections.observableArrayList("YES", "NO"));
+        isBookingAllowed.setValue("YES");
+    }
+
     public void initData(User user) {
         loggedUser = user;
         userField.setText(loggedUser.getFirstName() + " " + loggedUser.getLastName());
@@ -87,6 +100,7 @@ public class MainPageController {
         addEventsController = new AddEventsController(loggedUser);
         myEventsController = new MyEventsController(loggedUser);
         adminController = new AdminController(loggedUser);
+
     }
 
     @FXML
@@ -132,13 +146,13 @@ public class MainPageController {
 
     }
 
-    public void onLogOut(ActionEvent actionEvent){
+    public void onLogOut(ActionEvent actionEvent) {
 
-        loggedUser=null;
+        loggedUser = null;
         clearAll();
-        try{
+        try {
             new Redirect().redirectToLogin(actionEvent, Path.LOGIN);
-        }catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
         JDBC.Destroy();

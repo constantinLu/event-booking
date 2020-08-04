@@ -1,13 +1,23 @@
 package controller;
 
+import entities.Event;
 import entities.User;
+import java.net.URL;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.util.ResourceBundle;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import service.EventService;
 import service.EventServiceImpl;
 import service.UserService;
 import service.UserServiceImpl;
 
-public class AddEventsController {
+public class AddEventsController implements Initializable {
 
     private EventService eventService = new EventServiceImpl();
 
@@ -19,138 +29,94 @@ public class AddEventsController {
         this.loggedUser = loggedUser;
     }
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
+    }
+
     public void addEvents(Pane addPane) {
 
-//        //obj to persist
-//        Event eventEntity = new Event();
-//
-//        //Title
-//        HBox titleHbox = new HBox();
-//        Label titleLabel = new Label();
-//        titleLabel.setText("Title");
-//        styleLabel(titleLabel, false);
-//
-//        TextField titleFiled = new TextField();
-//        titleFiled.setOnMouseExited(event -> {
-//            System.out.println("Test title");
-//            eventEntity.setTitle(titleFiled.getText());
-//        });
-//        styleHBox(titleHbox, 1);
-//        titleHbox.getChildren().addAll(titleLabel, titleFiled);
-//
-//
-//        //Description
-//        HBox descriptionHbox = new HBox();
-//        Label descriptionLabel = new Label();
-//        descriptionLabel.setText("Description");
-//        styleLabel(descriptionLabel, false);
-//
-//        TextField descriptionField = new TextField();
-//        descriptionField.setOnMouseExited(event -> {
-//            System.out.println("Testing Description");
-//            eventEntity.setDescription(descriptionField.getText());
-//        });
-//        styleHBox(descriptionHbox, 0);
-//        descriptionHbox.getChildren().addAll(descriptionLabel, descriptionField);
-//
-//
-//        //Online
-//        HBox onlineHbox = new HBox();
-//        Label goOnlineLabel = new Label();
-//        goOnlineLabel.setText("Go online");
-//        styleLabel(goOnlineLabel, false);
-//
-//        final ComboBox onlineComboBox = new ComboBox();
-//        onlineComboBox.getItems().addAll("YES", "NO");
-//        onlineComboBox.setOnAction(event -> {
-//            System.out.println("Testing combobox");
-//            if (onlineComboBox.getSelectionModel().getSelectedItem().toString().equals("YES")) {
-//                eventEntity.setOnline(true);
-//            } else {
-//                eventEntity.setOnline(false);
-//
-//            }
-//        });
-//        styleHBox(onlineHbox, 1);
-//        onlineHbox.getChildren().addAll(goOnlineLabel, onlineComboBox);
-//
-//
-//        //Location
-//        HBox locationHbox = new HBox();
-//        Label locationLabel = new Label();
-//        locationLabel.setText("Location");
-//        styleLabel(locationLabel, false);
-//
-//        TextField locationField = new TextField();
-//        locationField.setOnMouseExited(event -> {
-//            System.out.println("Testing location");
-//            eventEntity.setLocation(locationField.getText());
-//        });
-//        styleHBox(locationHbox, 0);
-//        descriptionHbox.getChildren().addAll(locationLabel, locationField);
-//
-//
-//        //startDate
-//        HBox startDateHbox = new HBox();
-//        Label startDateLabel = new Label();
-//        startDateLabel.setText("Start Date");
-//        styleLabel(startDateLabel, false);
-//
-//        DatePicker startDatePicker = new DatePicker();
-//        startDatePicker.setOnAction(event -> {
-//            System.out.println("Test startDate");
-//            eventEntity.setStartDate(LocalDateTime.of(startDatePicker.getValue(), LocalTime.MIDNIGHT));
-//        });
-//        styleHBox(startDateHbox, 1);
-//        descriptionHbox.getChildren().addAll(startDateLabel, startDatePicker);
-//
-//
-//        //startDate
-//        HBox endDateHbox = new HBox();
-//        Label endDateLabel = new Label();
-//        endDateLabel.setText("End Date");
-//        styleLabel(endDateLabel, false);
-//
-//        DatePicker endDatePicker = new DatePicker();
-//        endDatePicker.setOnAction(event -> {
-//            System.out.println("Test endDate");
-//            eventEntity.setEndDate(LocalDateTime.of(endDatePicker.getValue(), LocalTime.MIDNIGHT));
-//        });
-//        styleHBox(endDateHbox, 0);
-//        descriptionHbox.getChildren().addAll(endDateLabel, endDatePicker);
-//
-//
-//        //Seats
-//        HBox seatsHbox = new HBox();
-//        Label seatsLabel = new Label();
-//        seatsLabel.setText("No. of Seats");
-//        styleLabel(seatsLabel, false);
-//
-//        TextField seatsFiled = new TextField();
-//        seatsFiled.setOnMouseExited(event -> eventEntity.setConstraints(seatsFiled.getText()));
-//
-//
-//        Button press = new Button("Add Event");
-//        styleButton(press, 0);
-//        press.setOnAction(event -> {
-//            System.out.println(eventEntity);
-//        });
-//
-//        styleHBox(seatsHbox, 1);
-//        seatsHbox.getChildren().addAll(seatsLabel, seatsFiled);
-//
-//
-//        addEventVBox.getChildren().addAll(titleHbox, descriptionHbox, onlineComboBox, locationHbox, startDateHbox,
-//                endDateHbox,
-//                seatsFiled,
-//                press);
-//        addEventVBox.setStyle("-fx-background-color: red");
+        Event addEvent = new Event();
+        addPane.getChildren().forEach(child ->
+        {
+            //for components
+            if (child.getId() != null) {
+                switch (child.getId()) {
+                    case "addTitle":
+                        child.setOnMouseExited(event ->
+                        {
+                            TextField titleTextField = (TextField) child;
+                            addEvent.setTitle(titleTextField.getText());
+                        });
+                        break;
+                    case "isOnlineDropDown":
+                        ChoiceBox onlineChoiceBox = (ChoiceBox) child;
+                        onlineChoiceBox.setOnAction(event -> {
+                            onlineChoiceBox.setValue(onlineChoiceBox.getSelectionModel().getSelectedItem());
+                            addEvent.setOnline(onlineChoiceBox.getValue() == "YES");
+                        });
+                        break;
 
+                    case "addDescription":
+                        child.setOnMouseExited(event ->
+                        {
+                            TextField titleTextField = (TextField) child;
+                            addEvent.setDescription(titleTextField.getText());
+                        });
+                        break;
 
-//        if (eventService.addEvent(eventEntity)) {
-//            //use a notification and a button
-//            System.out.println("Event created");
-//        }
+                    case "addLocation":
+                        child.setOnMouseExited(event ->
+                        {
+                            TextField locationTextField = (TextField) child;
+                            addEvent.setLocation(locationTextField.getText());
+                        });
+                        break;
+
+                    case "startDatePicker":
+                        DatePicker startDatePicker = (DatePicker) child;
+                        startDatePicker.setOnAction(event -> {
+                            addEvent.setStartDate(LocalDateTime.of(startDatePicker.getValue(), LocalTime.MIDNIGHT));
+                        });
+                        break;
+
+                    case "endDatePicker":
+                        DatePicker endDatePicker = (DatePicker) child;
+                        endDatePicker.setOnAction(event -> {
+                            addEvent.setEndDate(LocalDateTime.of(endDatePicker.getValue(), LocalTime.MIDNIGHT));
+                        });
+                        break;
+
+                    case "addSeats":
+                        child.setOnMouseExited(event ->
+                        {
+                            TextField seats = (TextField) child;
+                            addEvent.setConstraints(seats.getText());
+                        });
+                        break;
+                    case "isBookingAllowed":
+                        ChoiceBox bookingAllowed = (ChoiceBox) child;
+                        bookingAllowed.setOnAction(event -> {
+                            bookingAllowed.setValue(bookingAllowed.getSelectionModel().getSelectedItem());
+                            addEvent.setBookingAllowed(bookingAllowed.getValue() == "YES");
+                        });
+                        break;
+                    case "addEventButton":
+                        Button addEventButton = (Button) child;
+                        addEventButton.setOnAction(event ->
+                                {
+                                    addEvent.setOrganiserId(loggedUser.getUserId());
+                                    eventService.addEvent(addEvent);
+                                }
+                        );
+
+                }
+            }
+        });
+    }
+
+    private void clearValues() {
+
     }
 
 

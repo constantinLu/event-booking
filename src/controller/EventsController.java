@@ -3,8 +3,6 @@ package controller;
 import entities.Event;
 import entities.User;
 import java.util.List;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -194,14 +192,10 @@ public class EventsController {
         boolean isBooked = eventService.isEventBooked(eventEntity.getEventId(), loggedUser.getUserId());
         Style.styleButton(button, isBooked);
         styleButton(button, 0);
-        button.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                //TODO: ADD TO BOOKED EVENTS LIST
-                System.out.println(eventEntity.getEventId());
-                boolean isBooked = eventService.bookEvent(eventEntity, loggedUser.getUserId());
-                Style.styleButton(button, isBooked);
-            }
+        button.setOnAction(event -> {
+            System.out.println(eventEntity.getEventId());
+            boolean isBooked1 = eventService.bookEvent(eventEntity, loggedUser.getUserId());
+            Style.styleButton(button, isBooked1);
         });
 
 
