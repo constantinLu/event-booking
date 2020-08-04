@@ -36,4 +36,14 @@ public class Redirect {
         appStage.setScene(scene);
         appStage.show();
     }
+
+    public void redirectToLogin(ActionEvent actionEvent, String path) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation((getClass().getResource(path)));
+        Parent view = loader.load();
+        Scene scene = new Scene(view);
+        Stage appStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        appStage.setScene(scene);
+        appStage.show();
+    }
 }

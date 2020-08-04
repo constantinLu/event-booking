@@ -8,7 +8,12 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import networking.JDBC;
 import utils.PageView;
+import utils.Path;
+import utils.Redirect;
+
+import java.io.IOException;
 
 public class MainPageController {
 
@@ -124,6 +129,19 @@ public class MainPageController {
     public void backHome(ActionEvent actionEvent) {
         clearAll();
         dashboardImage.setVisible(true);
+
+    }
+
+    public void onLogOut(ActionEvent actionEvent){
+
+        loggedUser=null;
+        clearAll();
+        try{
+            new Redirect().redirectToLogin(actionEvent, Path.LOGIN);
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+        JDBC.Destroy();
 
     }
 

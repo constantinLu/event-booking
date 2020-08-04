@@ -21,8 +21,8 @@ import service.UserServiceImpl;
 public class Test {
     public static void main(String[] args) {
         JDBC.createConnection();
-getMyEvents();
-//        getAllUsers();
+//getMyEvents();
+        getAllUsers();
 //        updateUserRole();
 
 //        getUserById();

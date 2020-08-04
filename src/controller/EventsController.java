@@ -222,7 +222,3 @@ public class EventsController {
 
 
 }
-
-
-
-

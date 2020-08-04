@@ -19,7 +19,7 @@ public class JDBC {
     private static final Logger LOGGER = Logger.getLogger(JDBC.class.getName());
     private static Connection connection = null;
     private static JDBC instance = null;
-    private static final String connURL = "jdbc:mysql://(host=localhost,port=3306)/event_booking?user=booking&password=booking";
+    private static final String connURL = "jdbc:mysql://(host=localhost,port=3306)/event_booking?user=booking&password=booking&useSSL=false";
 
     private JDBC() {
         instance = this;
@@ -258,6 +258,8 @@ public class JDBC {
         LOGGER.log(Level.INFO, "Closing SQL Connection instance at: {0}\n", LocalTime.now());
             if (!connection.isClosed()) {
                 connection.close();
+                connection=null;
+                LOGGER.info("Connection closed");
             }
         }
         catch (SQLException e) {
