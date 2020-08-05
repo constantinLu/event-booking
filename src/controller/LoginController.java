@@ -2,9 +2,12 @@ package controller;
 
 import entities.User;
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.PasswordField;
@@ -15,7 +18,7 @@ import service.AuthenticationServiceImpl;
 import static utils.Path.*;
 import utils.Redirect;
 
-public class LoginController {
+public class LoginController implements Initializable {
 
     @FXML
     public PasswordField passwordField;
@@ -27,6 +30,11 @@ public class LoginController {
     private Boolean isUserLogged;
 
     AuthenticationService authenticationService = new AuthenticationServiceImpl();
+
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+    }
 
 
     public void login(Stage primaryStage) {
@@ -106,4 +114,5 @@ public class LoginController {
     public void setLoggedUser(User loggedUser) {
         this.loggedUser = loggedUser;
     }
+
 }

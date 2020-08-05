@@ -27,32 +27,35 @@
                         <Insets bottom="5.0" left="44.0" right="5.0" top="10.0" />
                     </VBox.margin>
                 </ImageView>
-                <Label fx:id="userField" alignment="CENTER" prefHeight="17.0" prefWidth="199.0">
+                <Label fx:id="userField" alignment="CENTER" lineSpacing="2.0" prefHeight="17.0" prefWidth="199.0">
                     <font>
                         <Font name="System Bold" size="15.0" />
                     </font>
                 </Label>
-                <Button contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onEventAction" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #090a0c,         linear-gradient(#1397d5 0%, #1384B1 20%, #126B89 100%),         linear-gradient(#1397d5, #1384B1),        radial-gradient(center 50% 0%, radius 100%, rgba(114,131,148,0.9), rgba(255,255,255,0)); -fx-background-insets: 1,2,1,1; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.30) , 5, 0.0 , 0 , 1 ); -fx-text-fill: linear-gradient(white, #d0d0d0);; -fx-padding: 10 20 10 20;" text="EVENTS" textFill="WHITE">
+                <Button alignment="CENTER" contentDisplay="CENTER" depthTest="ENABLE" lineSpacing="25.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onEventAction" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #090a0c,         linear-gradient(#1397d5 0%, #1384B1 20%, #126B89 100%),         linear-gradient(#1397d5, #1384B1),        radial-gradient(center 50% 0%, radius 100%, rgba(114,131,148,0.9), rgba(255,255,255,0)); -fx-background-insets: 1,2,1,1; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.30) , 5, 0.0 , 0 , 1 ); -fx-text-fill: linear-gradient(white, #d0d0d0); -fx-padding: 10 20 10 20;" text="EVENTS" textFill="WHITE">
+                    <font>
+                        <Font name="Lucida Console" size="28.0" />
+                    </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+                </Button>
+                <Button alignment="CENTER" contentDisplay="CENTER" depthTest="ENABLE" lineSpacing="25.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onBookAction" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #090a0c,         linear-gradient(#1397d5 0%, #1384B1 20%, #126B89 100%),         linear-gradient(#1397d5, #1384B1),        radial-gradient(center 50% 0%, radius 100%, rgba(114,131,148,0.9), rgba(255,255,255,0)); -fx-background-insets: 1,2,1,1; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.30) , 5, 0.0 , 0 , 1 ); -fx-text-fill: linear-gradient(white, #d0d0d0);; -fx-padding: 10 20 10 20;" text="BOOKED" textFill="WHITE">
                     <font>
                         <Font name="Lucida Console" size="28.0" />
                     </font>
                 </Button>
-                <Button contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onBookAction" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #090a0c,         linear-gradient(#1397d5 0%, #1384B1 20%, #126B89 100%),         linear-gradient(#1397d5, #1384B1),        radial-gradient(center 50% 0%, radius 100%, rgba(114,131,148,0.9), rgba(255,255,255,0)); -fx-background-insets: 1,2,1,1; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.30) , 5, 0.0 , 0 , 1 ); -fx-text-fill: linear-gradient(white, #d0d0d0);; -fx-padding: 10 20 10 20;" text="BOOKED" textFill="WHITE">
+                <Button alignment="CENTER" contentDisplay="CENTER" depthTest="ENABLE" lineSpacing="25.0" maxWidth="-Infinity" minHeight="100.0" minWidth="200.0" mnemonicParsing="false" onAction="#onAddEventAction" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #090a0c,         linear-gradient(#1397d5 0%, #1384B1 20%, #126B89 100%),         linear-gradient(#1397d5, #1384B1),        radial-gradient(center 50% 0%, radius 100%, rgba(114,131,148,0.9), rgba(255,255,255,0)); -fx-background-insets: 1,2,1,1; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.30) , 5, 0.0 , 0 , 1 ); -fx-text-fill: linear-gradient(white, #d0d0d0);; -fx-padding: 10 20 10 20;" text="ADD EVENT" textFill="WHITE">
                     <font>
                         <Font name="Lucida Console" size="28.0" />
                     </font>
                 </Button>
-                <Button contentDisplay="CENTER" maxWidth="-Infinity" minHeight="100.0" minWidth="200.0" mnemonicParsing="false" onAction="#onAddEventAction" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #090a0c,         linear-gradient(#1397d5 0%, #1384B1 20%, #126B89 100%),         linear-gradient(#1397d5, #1384B1),        radial-gradient(center 50% 0%, radius 100%, rgba(114,131,148,0.9), rgba(255,255,255,0)); -fx-background-insets: 1,2,1,1; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.30) , 5, 0.0 , 0 , 1 ); -fx-text-fill: linear-gradient(white, #d0d0d0);; -fx-padding: 10 20 10 20;" text="ADD EVENT" textFill="WHITE">
+                <Button alignment="CENTER" contentDisplay="CENTER" depthTest="ENABLE" lineSpacing="25.0" maxWidth="-Infinity" minHeight="100.0" minWidth="200.0" mnemonicParsing="false" onAction="#onMyCreatedEventsAction" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #090a0c,         linear-gradient(#1397d5 0%, #1384B1 20%, #126B89 100%),         linear-gradient(#1397d5, #1384B1),        radial-gradient(center 50% 0%, radius 100%, rgba(114,131,148,0.9), rgba(255,255,255,0)); -fx-background-insets: 1,2,1,1; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.30) , 5, 0.0 , 0 , 1 ); -fx-text-fill: linear-gradient(white, #d0d0d0);; -fx-padding: 10 20 10 20;" text="MY EVENTS" textFill="WHITE">
                     <font>
                         <Font name="Lucida Console" size="28.0" />
                     </font>
                 </Button>
-                <Button contentDisplay="CENTER" maxWidth="-Infinity" minHeight="100.0" minWidth="200.0" mnemonicParsing="false" onAction="#onMyCreatedEventsAction" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #090a0c,         linear-gradient(#1397d5 0%, #1384B1 20%, #126B89 100%),         linear-gradient(#1397d5, #1384B1),        radial-gradient(center 50% 0%, radius 100%, rgba(114,131,148,0.9), rgba(255,255,255,0)); -fx-background-insets: 1,2,1,1; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.30) , 5, 0.0 , 0 , 1 ); -fx-text-fill: linear-gradient(white, #d0d0d0);; -fx-padding: 10 20 10 20;" text="MY EVENTS" textFill="WHITE">
-                    <font>
-                        <Font name="Lucida Console" size="28.0" />
-                    </font>
-                </Button>
-                <Button contentDisplay="CENTER" lineSpacing="1.0" maxWidth="-Infinity" minHeight="99.0" minWidth="200.0" mnemonicParsing="false" onAction="#onAdminAction" prefHeight="99.0" prefWidth="200.0" style="-fx-background-color: #090a0c,         linear-gradient(#1397d5 0%, #1384B1 20%, #126B89 100%),         linear-gradient(#1397d5, #1384B1),        radial-gradient(center 50% 0%, radius 100%, rgba(114,131,148,0.9), rgba(255,255,255,0)); -fx-background-insets: 1,2,1,1; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.30) , 5, 0.0 , 0 , 1 ); -fx-text-fill: linear-gradient(white, #d0d0d0);; -fx-padding: 10 20 10 20;" text="ADMIN" textFill="WHITE">
+                <Button alignment="CENTER" contentDisplay="CENTER" depthTest="ENABLE" lineSpacing="25.0" maxWidth="-Infinity" minHeight="99.0" minWidth="200.0" mnemonicParsing="false" onAction="#onAdminAction" prefHeight="99.0" prefWidth="200.0" style="-fx-background-color: #090a0c,         linear-gradient(#1397d5 0%, #1384B1 20%, #126B89 100%),         linear-gradient(#1397d5, #1384B1),        radial-gradient(center 50% 0%, radius 100%, rgba(114,131,148,0.9), rgba(255,255,255,0)); -fx-background-insets: 1,2,1,1; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.30) , 5, 0.0 , 0 , 1 ); -fx-text-fill: linear-gradient(white, #d0d0d0);; -fx-padding: 10 20 10 20;" text="ADMIN" textFill="WHITE">
                     <font>
                         <Font name="Lucida Console" size="28.0" />
                     </font>
@@ -86,6 +89,15 @@
                         <Font name="System Bold" size="16.0" />
                      </font>
                   </Hyperlink>
+                  <Pane fx:id="errorPane" layoutX="287.0" layoutY="85.0" prefHeight="48.0" prefWidth="587.0">
+                     <children>
+                        <Text fx:id="errorCode" fill="WHITE" layoutX="12.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="563.0">
+                           <font>
+                              <Font name="Lucida Console" size="20.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </Pane>
                     </children>
                     <VBox.margin>
                         <Insets />

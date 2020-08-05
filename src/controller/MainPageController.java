@@ -1,5 +1,8 @@
 package controller;
 
+import alert.Alert;
+import alert.AlertColor;
+import alert.AlertPane;
 import connection.JdbcConnection;
 import entities.User;
 import java.io.IOException;
@@ -14,11 +17,12 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 import utils.PageView;
 import utils.Path;
 import utils.Redirect;
 
-public class MainPageController implements Initializable {
+public class MainPageController implements Alert, Initializable {
 
     //DASHBOARD
     @FXML
@@ -73,6 +77,12 @@ public class MainPageController implements Initializable {
     @FXML
     public VBox adminVbox;
 
+    //ALERS
+    @FXML
+    public Pane errorPane;
+    @FXML
+    public Text errorCode;
+
     //Controllers
     private EventsController eventsController;
     private BookedEventsController bookedEventsController;
@@ -87,6 +97,12 @@ public class MainPageController implements Initializable {
         isOnlineDropDown.setValue("YES");
         isBookingAllowed.setItems(FXCollections.observableArrayList("YES", "NO"));
         isBookingAllowed.setValue("YES");
+        initializeAlertPane();
+    }
+
+    @Override
+    public void initializeAlertPane() {
+        AlertPane.createInstance(errorPane, errorCode);
     }
 
     public void initData(User user) {

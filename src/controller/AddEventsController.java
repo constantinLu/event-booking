@@ -1,5 +1,8 @@
 package controller;
 
+import static alert.AlertColor.ERROR;
+import static alert.AlertColor.SUCCESS;
+import alert.AlertPane;
 import entities.Event;
 import entities.User;
 import java.net.URL;
@@ -7,7 +10,10 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import service.EventService;
 import service.EventServiceImpl;
@@ -112,29 +118,33 @@ public class AddEventsController implements Initializable {
                         addEventButton.setOnAction(event ->
                                 {
                                     addEvent.setOrganiserId(loggedUser.getUserId());
+                                    if (validateFields()) {
+                                        eventService.addEvent(addEvent);
+                                        titleTextField.setText("");
+                                        descriptionTextField.setText("");
+                                        locationTextField.setText("");
+                                        startDatePicker.setValue(null);
+                                        endDatePicker.setValue(null);
+                                        seats.setText("");
+                                        AlertPane.show("Event Added", SUCCESS);
+                                    } else {
+                                        AlertPane.show("All fields are required", ERROR);
 
-                                    eventService.addEvent(addEvent);
-                                    titleTextField.setText("");
-                                    descriptionTextField.setText("");
-                                    locationTextField.setText("");
-                                    startDatePicker.setValue(null);
-                                    endDatePicker.setValue(null);
-                                    seats.setText("");
-
-
+                                    }
                                 }
                         );
-
                 }
             }
         });
     }
 
-    private void clearValues() {
-
+    private boolean validateFields() {
+        if (titleTextField != null && descriptionTextField != null && locationTextField != null &&
+                startDatePicker.getValue() != null && endDatePicker.getValue() != null && seats != null) {
+            return true;
+        }
+        return false;
     }
-
-
 }
 
 
