@@ -1,6 +1,8 @@
 package utils;
 
+import controller.InfoController;
 import controller.MainPageController;
+import entities.Event;
 import entities.User;
 import java.io.IOException;
 import javafx.event.ActionEvent;
@@ -8,7 +10,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+
+import static utils.Path.EVENT_INFO;
 
 public class Redirect {
 
@@ -45,5 +50,21 @@ public class Redirect {
         Stage appStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         appStage.setScene(scene);
         appStage.show();
+    }
+
+    public void openInfoEventModal(ActionEvent actionEvent, String path, Event event) throws IOException {
+        Stage infoEventDialog = new Stage();
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation((getClass().getResource(path)));
+        Stage parentStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        Parent eventInfoPage = loader.load();
+        Scene eventInfoScene = new Scene(eventInfoPage);
+        infoEventDialog.setTitle("Event Information");
+        InfoController infoController = loader.getController();
+        infoController.initData(event);
+        infoEventDialog.setScene(eventInfoScene);
+        infoEventDialog.initOwner(parentStage);
+        infoEventDialog.initModality(Modality.APPLICATION_MODAL);
+        infoEventDialog.showAndWait();
     }
 }

@@ -9,4 +9,8 @@ public class BooleanMapper {
         return value.equals("y");
     }
 
+    public static String mapForUi(boolean value) {
+        return value ? "Yes" : "No";
+    }
+
 }

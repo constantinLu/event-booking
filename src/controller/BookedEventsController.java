@@ -15,7 +15,10 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import service.*;
+import utils.Path;
+import utils.Redirect;
 
+import java.io.IOException;
 import java.util.List;
 
 import static utils.DateHelper.formatLocalDateTime;
@@ -40,18 +43,20 @@ public class BookedEventsController {
 
         List<Booking> bookings = bookingService.getBookingsByUserId(loggedUser.getUserId());
         //get all events
-        List<Event> events = eventService.getBookedEvents(bookings);
-        for (int i = 0; i < events.size(); i++) {
-            Event eventEntity = events.get(i);
+        if(bookings.size()>0) {
+            List<Event> events = eventService.getBookedEvents(bookings);
+            for (int i = 0; i < events.size(); i++) {
+                Event eventEntity = events.get(i);
 
-            HBox hbox = createHbox(eventEntity);
-            styleHBox(hbox, i);
+                HBox hbox = createHbox(eventEntity);
+                styleHBox(hbox, i);
 
-            eventVbox.getChildren().add(hbox);
-            eventVbox.setSpacing(5);
-            eventVbox.setVisible(true);
-            VBox.setMargin(hbox, new Insets(5, 5, 5, 5));
-            eventVbox.setPadding(new Insets(10, 10, 10, 10));
+                eventVbox.getChildren().add(hbox);
+                eventVbox.setSpacing(5);
+                eventVbox.setVisible(true);
+                VBox.setMargin(hbox, new Insets(5, 5, 5, 5));
+                eventVbox.setPadding(new Insets(10, 10, 10, 10));
+            }
         }
     }
 
@@ -201,8 +206,13 @@ public class BookedEventsController {
         button.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-               Boolean isBooked = ! bookingService.cancelBooking(eventEntity.getEventId(),loggedUser.getUserId());
-               setStyleButton(button,isBooked);
+                try {
+                    new Redirect().openInfoEventModal(event, Path.EVENT_INFO,eventEntity);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+//               Boolean isBooked = ! bookingService.cancelBooking(eventEntity.getEventId(),loggedUser.getUserId());
+//               setStyleButton(button,isBooked);
             }
         });
 

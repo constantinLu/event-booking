@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.effect.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.InfoController">
+   <children>
+      <AnchorPane prefHeight="118.0" prefWidth="147.0" style="-fx-background-color: #1397d5;;">
+         <children>
+            <ImageView fitHeight="114.0" fitWidth="121.0" layoutX="18.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/logo_size_invert.jpg" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <Pane layoutY="119.0" prefHeight="282.0" prefWidth="147.0" style="-fx-background-color: #1397d5;">
+         <children>
+            <Text layoutX="50.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Event" wrappingWidth="46.18896484375" />
+            <Text fx:id="titleEventText" layoutX="36.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Title Event">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Text>
+            <Text layoutX="40.0" layoutY="147.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Starts on" />
+            <Text layoutX="39.0" layoutY="218.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ends on" />
+            <Text fx:id="startDateText" layoutX="36.0" layoutY="184.0" strokeType="OUTSIDE" strokeWidth="0.0" text="StartDate">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Text>
+            <Text fx:id="endDateText" layoutX="36.0" layoutY="250.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EndDate">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+      <ScrollPane layoutX="149.0" prefHeight="400.0" prefWidth="451.0">
+         <content>
+            <VBox prefHeight="400.0" prefWidth="442.0" spacing="15">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Description" />
+                  <TextFlow fx:id="descriptionTextFlow" prefHeight="104.0" prefWidth="410.0" />
+                  <HBox prefHeight="100.0" prefWidth="200.0" spacing="5">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Location: " />
+                        <Text fx:id="locationText" strokeType="OUTSIDE" strokeWidth="0.0" text="LocationText">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font></Text>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0" spacing="5">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Is Online" />
+                        <Text fx:id="isOnlineText" strokeType="OUTSIDE" strokeWidth="0.0" text="IsOnlineText">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font></Text>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0" spacing="5">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="No of seats" />
+                        <Text fx:id="noOfSeatsText" strokeType="OUTSIDE" strokeWidth="0.0" text="No of seats Text">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font></Text>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0" spacing="5">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Is Booking Allowed" />
+                        <Text fx:id="isBookingAllowedText" strokeType="OUTSIDE" strokeWidth="0.0" text="Is Booking Allowed Text">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font></Text>
+                     </children>
+                  </HBox>
+               </children>
+               <padding>
+                  <Insets bottom="20.0" left="30.0" right="2.0" top="60.0" />
+               </padding>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </VBox>
+         </content>
+      </ScrollPane>
+   </children>
+</Pane>
