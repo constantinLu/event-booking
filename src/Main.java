@@ -8,7 +8,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         LoginController controller = new LoginController();
-        controller.login(primaryStage);
+        controller.start(primaryStage);
     }
 
 

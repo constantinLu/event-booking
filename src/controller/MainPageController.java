@@ -1,7 +1,6 @@
 package controller;
 
 import alert.Alert;
-import alert.AlertColor;
 import alert.AlertPane;
 import connection.JdbcConnection;
 import entities.User;
@@ -23,6 +22,7 @@ import utils.Path;
 import utils.Redirect;
 
 public class MainPageController implements Alert, Initializable {
+
 
     //DASHBOARD
     @FXML
@@ -90,6 +90,13 @@ public class MainPageController implements Alert, Initializable {
     private MyEventsController myEventsController;
     private AdminController adminController;
 
+    //SIDEBAR
+    public Button eventButtonSideBar;
+    public Button bookedButtonSideBar;
+    public Button addEventButtonSideBar;
+    public Button myEventsButtonSideBar;
+    public Button adminButtonSideBar;
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -98,6 +105,7 @@ public class MainPageController implements Alert, Initializable {
         isBookingAllowed.setItems(FXCollections.observableArrayList("YES", "NO"));
         isBookingAllowed.setValue("YES");
         initializeAlertPane();
+
     }
 
     @Override
@@ -108,7 +116,7 @@ public class MainPageController implements Alert, Initializable {
     public void initData(User user) {
         loggedUser = user;
         userField.setText(loggedUser.getFirstName() + " " + loggedUser.getLastName());
-
+        renderAccesRights();
         eventsController = new EventsController(loggedUser);
         bookedEventsController = new BookedEventsController(loggedUser);
         addEventsController = new AddEventsController(loggedUser);
@@ -223,5 +231,24 @@ public class MainPageController implements Alert, Initializable {
         scrollPaneAdmin.setVisible(false);
         adminVbox.setVisible(false);
         adminVbox.getChildren().clear();
+    }
+
+    private void renderAccesRights() {
+        if (loggedUser != null) {
+            eventButtonSideBar.setVisible(true);
+            bookedButtonSideBar.setVisible(true);
+            addEventButtonSideBar.setVisible(true);
+            myEventsButtonSideBar.setVisible(true);
+            adminButtonSideBar.setVisible(true);
+            switch (loggedUser.getRole()) {
+                case STUDENT:
+                    addEventButtonSideBar.setVisible(false);
+                    myEventsButtonSideBar.setVisible(false);
+                    adminButtonSideBar.setVisible(false);
+                case EVENT_ORGANISER:
+                    adminButtonSideBar.setVisible(false);
+            }
+        }
+
     }
 }

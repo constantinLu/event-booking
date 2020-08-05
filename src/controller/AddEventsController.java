@@ -117,20 +117,22 @@ public class AddEventsController implements Initializable {
                         Button addEventButton = (Button) child;
                         addEventButton.setOnAction(event ->
                                 {
-                                    addEvent.setOrganiserId(loggedUser.getUserId());
-                                    if (validateFields()) {
-                                        eventService.addEvent(addEvent);
-                                        titleTextField.setText("");
-                                        descriptionTextField.setText("");
-                                        locationTextField.setText("");
-                                        startDatePicker.setValue(null);
-                                        endDatePicker.setValue(null);
-                                        seats.setText("");
-                                        AlertPane.show("Event Added", SUCCESS);
-                                    } else {
-                                        AlertPane.show("All fields are required", ERROR);
 
-                                    }
+                                    addEvent.setOrganiserId(loggedUser.getUserId());
+                                        if (validateFields(addEvent)) {
+                                            eventService.addEvent(addEvent);
+                                            titleTextField.setText("");
+                                            descriptionTextField.setText("");
+                                            locationTextField.setText("");
+                                            //TODO: THROWS ERROR WHEN SET TO NULL :-??
+                                            startDatePicker.setValue(null);
+                                            endDatePicker.setValue(null);
+                                            seats.setText("");
+                                            AlertPane.show("Event Added", SUCCESS);
+                                        } else {
+                                            AlertPane.show("All fields are required", ERROR);
+
+                                        }
                                 }
                         );
                 }
@@ -138,9 +140,9 @@ public class AddEventsController implements Initializable {
         });
     }
 
-    private boolean validateFields() {
-        if (titleTextField != null && descriptionTextField != null && locationTextField != null &&
-                startDatePicker.getValue() != null && endDatePicker.getValue() != null && seats != null) {
+    private boolean validateFields(Event event) {
+        if (event.getTitle() != null && event.getDescription() != null && event.getLocation() != null &&
+                event.getStartDate() != null && event.getEndDate() != null && event.getConstraints() != null) {
             return true;
         }
         return false;

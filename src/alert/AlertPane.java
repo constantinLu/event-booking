@@ -3,6 +3,7 @@ package alert;
 import java.util.Objects;
 import javafx.concurrent.Task;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 
@@ -18,7 +19,7 @@ public class AlertPane {
         instance = this;
     }
 
-    public static AlertPane getInstance() {
+    private static AlertPane getInstance() {
         return instance;
     }
 
@@ -38,12 +39,6 @@ public class AlertPane {
         } else {
             AlertPane.errorPane = pane;
             errorMessage = mTextField;
-        }
-    }
-
-    public static void removeInstance() {
-        if (instance != null) {
-            instance = null;
         }
     }
 
@@ -72,6 +67,9 @@ public class AlertPane {
             case NONE:
                 errorPane.setStyle("-fx-background-color: transparent");
                 break;
+            case FIELD_ERROR:
+                errorPane.setStyle("-fx-background-color: transparent");
+                errorMessage.setFill(Color.web("DC0D00"));
         }
         errorMessage.setTextAlignment(TextAlignment.CENTER);
         Task task = hideAlert();

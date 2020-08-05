@@ -6,5 +6,6 @@ public enum AlertColor {
     ERROR,
     WARNING,
     INFO,
-    NONE
+    NONE,
+    FIELD_ERROR,
 }

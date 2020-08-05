@@ -67,7 +67,7 @@
 //
 //
 //    public void loadLogin(Pane root, Controller controller) {
-//        loader(root, "../UI/login.fxml", false, null, controller, 600, 450, 600, 450);
+//        loader(root, "../UI/start.fxml", false, null, controller, 600, 450, 600, 450);
 //    }
 //
 //    public void loadRegister(Pane root, Controller controller) {
