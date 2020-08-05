@@ -7,27 +7,33 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import service.EventService;
 import service.EventServiceImpl;
-import service.UserService;
-import service.UserServiceImpl;
 
 public class AddEventsController implements Initializable {
 
     private EventService eventService = new EventServiceImpl();
-
-    private UserService userService = new UserServiceImpl();
 
     private User loggedUser;
 
     public AddEventsController(User loggedUser) {
         this.loggedUser = loggedUser;
     }
+
+    TextField titleTextField;
+
+    TextField descriptionTextField;
+
+    TextField locationTextField;
+
+    DatePicker startDatePicker;
+
+    DatePicker endDatePicker;
+
+    TextField seats;
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -45,7 +51,7 @@ public class AddEventsController implements Initializable {
                     case "addTitle":
                         child.setOnMouseExited(event ->
                         {
-                            TextField titleTextField = (TextField) child;
+                            titleTextField = (TextField) child;
                             addEvent.setTitle(titleTextField.getText());
                         });
                         break;
@@ -60,28 +66,28 @@ public class AddEventsController implements Initializable {
                     case "addDescription":
                         child.setOnMouseExited(event ->
                         {
-                            TextField titleTextField = (TextField) child;
-                            addEvent.setDescription(titleTextField.getText());
+                            descriptionTextField = (TextField) child;
+                            addEvent.setDescription(descriptionTextField.getText());
                         });
                         break;
 
                     case "addLocation":
                         child.setOnMouseExited(event ->
                         {
-                            TextField locationTextField = (TextField) child;
+                            locationTextField = (TextField) child;
                             addEvent.setLocation(locationTextField.getText());
                         });
                         break;
 
                     case "startDatePicker":
-                        DatePicker startDatePicker = (DatePicker) child;
+                        startDatePicker = (DatePicker) child;
                         startDatePicker.setOnAction(event -> {
                             addEvent.setStartDate(LocalDateTime.of(startDatePicker.getValue(), LocalTime.MIDNIGHT));
                         });
                         break;
 
                     case "endDatePicker":
-                        DatePicker endDatePicker = (DatePicker) child;
+                        endDatePicker = (DatePicker) child;
                         endDatePicker.setOnAction(event -> {
                             addEvent.setEndDate(LocalDateTime.of(endDatePicker.getValue(), LocalTime.MIDNIGHT));
                         });
@@ -90,7 +96,7 @@ public class AddEventsController implements Initializable {
                     case "addSeats":
                         child.setOnMouseExited(event ->
                         {
-                            TextField seats = (TextField) child;
+                            seats = (TextField) child;
                             addEvent.setConstraints(seats.getText());
                         });
                         break;
@@ -106,7 +112,16 @@ public class AddEventsController implements Initializable {
                         addEventButton.setOnAction(event ->
                                 {
                                     addEvent.setOrganiserId(loggedUser.getUserId());
+
                                     eventService.addEvent(addEvent);
+                                    titleTextField.setText("");
+                                    descriptionTextField.setText("");
+                                    locationTextField.setText("");
+                                    startDatePicker.setValue(null);
+                                    endDatePicker.setValue(null);
+                                    seats.setText("");
+
+
                                 }
                         );
 

@@ -1,6 +1,6 @@
 package utils;
 
-import alert.NotificationPane;
+import alert.AlertPane;
 import javafx.scene.control.TextField;
 
 public class Validators {
@@ -13,10 +13,10 @@ public class Validators {
         if (widget.length != 0) {
             for (T element : widget) {
                 if (element.getText().isEmpty()) {
-                    NotificationPane.show("Some fields are empty");
+                    AlertPane.show("Some fields are empty");
                     return false;
                 } else if (element.getText().length() < 4) {
-                    NotificationPane.show("Entry is too short");
+                    AlertPane.show("Entry is too short");
                     return false;
                 }
             }

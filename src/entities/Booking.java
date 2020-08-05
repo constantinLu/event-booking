@@ -1,15 +1,9 @@
 package entities;
 
-import networking.DBTables;
-import utils.BooleanMapper;
+import connection.Tables;
 import utils.LocalDateTimeMapper;
 
-import java.sql.Timestamp;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.HashMap;
 
 public class Booking extends Entity<Booking>{
@@ -22,12 +16,12 @@ public class Booking extends Entity<Booking>{
 
     @Override
     public String getUpdateQuery() {
-        return String.format("UPDATE %s SET booking_date = '%s', cancel_date = '%s' WHERE id = '%s'", DBTables.BOOKING_TABLE, getBookingDate(), getCancelDate(), getBookingId());
+        return String.format("UPDATE %s SET booking_date = '%s', cancel_date = '%s' WHERE id = '%s'", Tables.BOOKING_TABLE, getBookingDate(), getCancelDate(), getBookingId());
     }
 
     @Override
     public String getInsertQuery() {
-        return String.format("INSERT INTO %s VALUES (null, '%s', null, '%s', '%s')", DBTables.BOOKING_TABLE,
+        return String.format("INSERT INTO %s VALUES (null, '%s', null, '%s', '%s')", Tables.BOOKING_TABLE,
                 getBookingDate(), getUserId(), getEventId());
 
     }

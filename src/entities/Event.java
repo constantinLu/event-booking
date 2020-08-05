@@ -2,7 +2,7 @@ package entities;
 
 import java.time.LocalDateTime;
 import java.util.HashMap;
-import networking.DBTables;
+import connection.Tables;
 import utils.BooleanMapper;
 import utils.LocalDateTimeMapper;
 
@@ -120,14 +120,14 @@ public class Event extends Entity<Event> {
 
     @Override
     public String getInsertQuery() {
-        return String.format("INSERT INTO %s VALUES (null, '%s', '%s', '%s', '%s', '%s','%s','%s','%s','%s')", DBTables.EVENT_TABLE,
+        return String.format("INSERT INTO %s VALUES (null, '%s', '%s', '%s', '%s', '%s','%s','%s','%s','%s')", Tables.EVENT_TABLE,
                 getTitle(), getDescription(), BooleanMapper.map(isOnline()), getLocation(), getStartDate(), getEndDate(), getConstraints(), BooleanMapper.map(isBookingAllowed()), getOrganiserId());
     }
 
 
     @Override
     public String getUpdateQuery() {
-        return String.format("UPDATE %s SET title = '%s', description = '%s', is_online = '%s', location = '%s', start_date = '%s', end_date='%s', constraints = '%s', is_booking_allowed = '%s' WHERE id = '%s'", DBTables.EVENT_TABLE,
+        return String.format("UPDATE %s SET title = '%s', description = '%s', is_online = '%s', location = '%s', start_date = '%s', end_date='%s', constraints = '%s', is_booking_allowed = '%s' WHERE id = '%s'", Tables.EVENT_TABLE,
                 getTitle(), getDescription(), BooleanMapper.map(isOnline()), getLocation(), getStartDate(), getEndDate(), getConstraints(), BooleanMapper.map(isBookingAllowed()), getEventId());
     }
 

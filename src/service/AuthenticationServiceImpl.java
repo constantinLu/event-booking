@@ -1,26 +1,26 @@
 package service;
 
+import connection.JdbcConnection;
 import entities.User;
-import networking.DBTables;
-import networking.JDBC;
+import connection.Tables;
 
 public class AuthenticationServiceImpl implements AuthenticationService {
     @Override
     public User login(String username, String password) {
-        if(!JDBC.isConnected()){
-            JDBC.createConnection();
+        if(!JdbcConnection.isConnected()){
+            JdbcConnection.createConnection();
         }
-        String query= String.format("select * from %s where username='%s' and password ='%s' ", DBTables.USER_TABLE, username,password);
-        User user = (User) JDBC.get(query,User.class.getName());
+        String query= String.format("select * from %s where username='%s' and password ='%s' ", Tables.USER_TABLE, username,password);
+        User user = (User) JdbcConnection.get(query,User.class.getName());
         return user;
     }
 
     @Override
     public boolean register(User user) {
-        if(!JDBC.isConnected()){
-            JDBC.createConnection();
+        if(!JdbcConnection.isConnected()){
+            JdbcConnection.createConnection();
         }
         String query = user.getInsertQuery();
-        return JDBC.insert(query);
+        return JdbcConnection.insert(query);
     }
 }

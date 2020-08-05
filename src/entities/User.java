@@ -2,7 +2,7 @@ package entities;
 
 
 import java.util.HashMap;
-import networking.DBTables;
+import connection.Tables;
 import utils.RoleMapper;
 
 public class User extends Entity<User> {
@@ -42,7 +42,7 @@ public class User extends Entity<User> {
     public String getInsertQuery() {
         //    @Override
 //    public String getInsertQuery() {
-        return String.format("INSERT INTO %s VALUES (null, '%s', '%s', '%s', '%s', '%s','%s')", DBTables.USER_TABLE,
+        return String.format("INSERT INTO %s VALUES (null, '%s', '%s', '%s', '%s', '%s','%s')", Tables.USER_TABLE,
                 getFirstName(), getLastName(), getEmail(), getUsername(), getPassword(), Roles.STUDENT.name());
 //    }
     }

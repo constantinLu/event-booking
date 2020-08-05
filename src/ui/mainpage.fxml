@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.*?>
 <?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.effect.*?>
@@ -17,7 +18,7 @@
             <children>
                 <ImageView fx:id="imageView" fitHeight="112.0" fitWidth="116.0" opacity="0.4" pickOnBounds="true" VBox.vgrow="NEVER">
                     <image>
-                        <Image url="@../resources/images/user1.png" />
+                        <Image url="@../resources/images/user_avatar.png" />
                     </image>
                     <effect>
                         <Blend />
@@ -31,27 +32,27 @@
                         <Font name="System Bold" size="15.0" />
                     </font>
                 </Label>
-                <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onEventAction" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: transparent;" text="Events" textFill="#1397d5">
+                <Button contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onEventAction" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #090a0c,         linear-gradient(#1397d5 0%, #1384B1 20%, #126B89 100%),         linear-gradient(#1397d5, #1384B1),        radial-gradient(center 50% 0%, radius 100%, rgba(114,131,148,0.9), rgba(255,255,255,0)); -fx-background-insets: 1,2,1,1; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.30) , 5, 0.0 , 0 , 1 ); -fx-text-fill: linear-gradient(white, #d0d0d0);; -fx-padding: 10 20 10 20;" text="EVENTS" textFill="WHITE">
                     <font>
                         <Font name="Lucida Console" size="28.0" />
                     </font>
                 </Button>
-                <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onBookAction" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: transparent;" text="Booked" textFill="#1397d5">
+                <Button contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onBookAction" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #090a0c,         linear-gradient(#1397d5 0%, #1384B1 20%, #126B89 100%),         linear-gradient(#1397d5, #1384B1),        radial-gradient(center 50% 0%, radius 100%, rgba(114,131,148,0.9), rgba(255,255,255,0)); -fx-background-insets: 1,2,1,1; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.30) , 5, 0.0 , 0 , 1 ); -fx-text-fill: linear-gradient(white, #d0d0d0);; -fx-padding: 10 20 10 20;" text="BOOKED" textFill="WHITE">
                     <font>
                         <Font name="Lucida Console" size="28.0" />
                     </font>
                 </Button>
-                <Button maxWidth="-Infinity" minHeight="100.0" minWidth="200.0" mnemonicParsing="false" onAction="#onAddEventAction" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: transparent;" text="Add Event" textFill="#1397d5">
+                <Button contentDisplay="CENTER" maxWidth="-Infinity" minHeight="100.0" minWidth="200.0" mnemonicParsing="false" onAction="#onAddEventAction" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #090a0c,         linear-gradient(#1397d5 0%, #1384B1 20%, #126B89 100%),         linear-gradient(#1397d5, #1384B1),        radial-gradient(center 50% 0%, radius 100%, rgba(114,131,148,0.9), rgba(255,255,255,0)); -fx-background-insets: 1,2,1,1; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.30) , 5, 0.0 , 0 , 1 ); -fx-text-fill: linear-gradient(white, #d0d0d0);; -fx-padding: 10 20 10 20;" text="ADD EVENT" textFill="WHITE">
                     <font>
                         <Font name="Lucida Console" size="28.0" />
                     </font>
                 </Button>
-                <Button maxWidth="-Infinity" minHeight="100.0" minWidth="200.0" mnemonicParsing="false" onAction="#onMyCreatedEventsAction" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: transparent;" text="My Events" textFill="#1397d5">
+                <Button contentDisplay="CENTER" maxWidth="-Infinity" minHeight="100.0" minWidth="200.0" mnemonicParsing="false" onAction="#onMyCreatedEventsAction" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #090a0c,         linear-gradient(#1397d5 0%, #1384B1 20%, #126B89 100%),         linear-gradient(#1397d5, #1384B1),        radial-gradient(center 50% 0%, radius 100%, rgba(114,131,148,0.9), rgba(255,255,255,0)); -fx-background-insets: 1,2,1,1; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.30) , 5, 0.0 , 0 , 1 ); -fx-text-fill: linear-gradient(white, #d0d0d0);; -fx-padding: 10 20 10 20;" text="MY EVENTS" textFill="WHITE">
                     <font>
                         <Font name="Lucida Console" size="28.0" />
                     </font>
                 </Button>
-                <Button maxWidth="-Infinity" minHeight="100.0" minWidth="200.0" mnemonicParsing="false" onAction="#onAdminAction" prefHeight="121.0" prefWidth="200.0" style="-fx-background-color: transparent;" text="Admin" textFill="#1397d5">
+                <Button contentDisplay="CENTER" lineSpacing="1.0" maxWidth="-Infinity" minHeight="99.0" minWidth="200.0" mnemonicParsing="false" onAction="#onAdminAction" prefHeight="99.0" prefWidth="200.0" style="-fx-background-color: #090a0c,         linear-gradient(#1397d5 0%, #1384B1 20%, #126B89 100%),         linear-gradient(#1397d5, #1384B1),        radial-gradient(center 50% 0%, radius 100%, rgba(114,131,148,0.9), rgba(255,255,255,0)); -fx-background-insets: 1,2,1,1; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.30) , 5, 0.0 , 0 , 1 ); -fx-text-fill: linear-gradient(white, #d0d0d0);; -fx-padding: 10 20 10 20;" text="ADMIN" textFill="WHITE">
                     <font>
                         <Font name="Lucida Console" size="28.0" />
                     </font>

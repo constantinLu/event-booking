@@ -1,4 +1,4 @@
-package networking;
+package connection;
 
 import java.lang.reflect.InvocationTargetException;
 import java.sql.*;
@@ -13,26 +13,26 @@ import entities.Entity;
 import utils.WriteLog;
 
 
-public class JDBC {
+public class JdbcConnection {
 
     private static final int CONNECTION_TIMEOUT = 5;
-    private static final Logger LOGGER = Logger.getLogger(JDBC.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(JdbcConnection.class.getName());
     private static Connection connection = null;
-    private static JDBC instance = null;
+    private static JdbcConnection instance = null;
     private static final String connURL = "jdbc:mysql://(host=localhost,port=3306)/event_booking?user=booking&password=booking&useSSL=false";
 
-    private JDBC() {
+    private JdbcConnection() {
         instance = this;
         WriteLog.addHandler(LOGGER);
-        LOGGER.log(Level.INFO, "Creating JDBC instance from constructor at: {0}. Current instance is null: {1}; should be: true\n",
+        LOGGER.log(Level.INFO, "Creating JdbcConnection instance from constructor at: {0}. Current instance is null: {1}; should be: true\n",
                 new Object[]{LocalTime.now(), (instance == null)});
     }
 
-    public static JDBC getInstance() {
+    public static JdbcConnection getInstance() {
         if (instance == null) {
-            synchronized (JDBC.class) {
+            synchronized (JdbcConnection.class) {
                 if (instance == null) {
-                    return new JDBC();
+                    return new JdbcConnection();
                 }
             }
         }
@@ -42,7 +42,7 @@ public class JDBC {
     public static void createConnection() {
         if (connection == null) {
 //            new Thread(() -> {
-                LOGGER.log(Level.INFO, "Creating JDBC connection at: {0}\n", LocalTime.now());
+                LOGGER.log(Level.INFO, "Creating JdbcConnection connection at: {0}\n", LocalTime.now());
                 DriverManager.setLoginTimeout(CONNECTION_TIMEOUT);
                 try {
                     connection = DriverManager.getConnection(connURL);
@@ -58,7 +58,7 @@ public class JDBC {
     public static boolean isConnected() {
         LOGGER.log(Level.INFO, "Checking network connection at: {0}; result: {1}\n",
                 new Object[]{LocalTime.now(), (connection != null)});
-//        if (connection == null) NotificationPane.show("No network connection");
+//        if (connection == null) AlertPane.show("No network connection");
         return connection != null;
     }
 
@@ -249,7 +249,7 @@ public class JDBC {
     }
 
     public static void Destroy () {
-        LOGGER.log(Level.INFO, "Destroying JDBC instance at: {0}\n", LocalTime.now());
+        LOGGER.log(Level.INFO, "Destroying JdbcConnection instance at: {0}\n", LocalTime.now());
         if (instance != null) {
             instance = null;
         }

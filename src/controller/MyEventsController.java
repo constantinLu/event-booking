@@ -58,7 +58,7 @@ public class MyEventsController {
         HBox hBox = new HBox();
 
         ImageView imageViewLabel = new ImageView();
-        imageViewLabel.setImage(new Image(getClass().getResourceAsStream("/resources/images/eventIcon.png")));
+        imageViewLabel.setImage(new Image(getClass().getResourceAsStream("/resources/images/event.png")));
         imageViewLabel.setFitHeight(50);
         imageViewLabel.setFitWidth(50);
         imageViewLabel.setVisible(false);
@@ -128,7 +128,7 @@ public class MyEventsController {
         ImageView imageView = new ImageView();
         String image;
         if (true) { //change based of available seats.
-            image = "/resources/images/eventIcon.png";
+            image = "/resources/images/event.png";
         } else {
             image = "/resources/images/event_full.png";
         }

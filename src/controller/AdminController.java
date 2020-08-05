@@ -54,7 +54,7 @@ public class AdminController {
         HBox hBox = new HBox();
 
         ImageView imageViewLabel = new ImageView();
-        imageViewLabel.setImage(new Image(getClass().getResourceAsStream("/resources/images/eventIcon.png")));
+        imageViewLabel.setImage(new Image(getClass().getResourceAsStream("/resources/images/event.png")));
         imageViewLabel.setFitHeight(50);
         imageViewLabel.setFitWidth(50);
         imageViewLabel.setVisible(false);
@@ -114,10 +114,10 @@ public class AdminController {
                     image = "/resources/images/supervisor.png";
                     break;
                 default:
-                    image = "/resources/images/userPage.png";
+                    image = "/resources/images/user.png";
             }
         } else {
-            image = "/resources/images/userPage.png";
+            image = "/resources/images/user.png";
         }
         imageView.setImage(new Image(getClass().getResourceAsStream(image)));
         imageView.setFitHeight(50);

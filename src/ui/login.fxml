@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
@@ -39,9 +40,9 @@
                         <TextField fx:id="studentIdField" layoutX="101.0" layoutY="157.0" promptText="Student Id" style="-fx-background-color: transparent; -fx-border-color: #1397d5; -fx-border-width: 0px 0px 2px 0px;" />
                         <PasswordField fx:id="passwordField" layoutX="101.0" layoutY="224.0" promptText="Password" style="-fx-background-color: transparent; -fx-border-color: #1397d5; -fx-border-width: 0px 0px 2px 0px;" />
                         <Button layoutX="115.0" layoutY="292.0" mnemonicParsing="false" onAction="#onLogin" prefHeight="29.0" prefWidth="120.0" style="-fx-background-color: #1397d5;" text="Login" textFill="WHITE" />
-                        <Text fill="#1397d5" fontSmoothingType="LCD" layoutX="125.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User Login">
+                        <Text fill="#1397d5" fontSmoothingType="LCD" layoutX="155.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login">
                             <font>
-                                <Font name="System Bold" size="20.0" />
+                                <Font name="System Bold" size="15.0" />
                             </font>
                         </Text>
                         <Button layoutX="290.0" layoutY="14.0" mnemonicParsing="false" onAction="#onClose" style="-fx-background-color: transparent;" text="Close" textFill="#1397d5" textOverrun="CENTER_ELLIPSIS">
@@ -50,6 +51,14 @@
                             </font>
                         </Button>
                   <Hyperlink fx:id="registerLink" layoutX="70.0" layoutY="429.0" onAction="#redirectToRegister" text="Don`t have an account ?  Register Here" />
+                  <ImageView fitHeight="68.0" fitWidth="101.0" focusTraversable="true" layoutX="141.0" layoutY="39.0" opacity="0.32" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/images/login.png" />
+                     </image>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </ImageView>
                     </children>
                 </AnchorPane>
             </right>

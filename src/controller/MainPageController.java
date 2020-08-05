@@ -1,10 +1,9 @@
 package controller;
 
+import connection.JdbcConnection;
 import entities.User;
 import java.io.IOException;
 import java.net.URL;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
@@ -15,7 +14,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
-import networking.JDBC;
 import utils.PageView;
 import utils.Path;
 import utils.Redirect;
@@ -155,7 +153,7 @@ public class MainPageController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        JDBC.Destroy();
+        JdbcConnection.Destroy();
 
     }
 

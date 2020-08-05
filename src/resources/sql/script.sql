@@ -1,4 +1,4 @@
-create database event_booking;
+create connection event_booking;
 
 use event_booking;
 

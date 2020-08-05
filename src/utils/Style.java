@@ -169,7 +169,9 @@ public class Style {
     public static void styleChoiceBox(ChoiceBox choiceBox) {
         choiceBox.setStyle("-fx-background-color: transparent");
         choiceBox.setStyle("-fx-border-color: #1397d5");
+        choiceBox.setStyle("-fx-border-color: #1397d5");
         choiceBox.setStyle("-fx-border-width: 2 2 2 2");
+
 
     }
 

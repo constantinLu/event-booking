@@ -1,10 +1,10 @@
 package service;
 
+import connection.JdbcConnection;
 import entities.Booking;
 import entities.Entity;
 import entities.Event;
-import networking.DBTables;
-import networking.JDBC;
+import connection.Tables;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -14,11 +14,11 @@ import java.util.stream.Collectors;
 public class EventServiceImpl implements EventService {
     @Override
     public List<Event> getAllEvents() {
-        if(!JDBC.isConnected()){
-            JDBC.createConnection();
+        if(!JdbcConnection.isConnected()){
+            JdbcConnection.createConnection();
         }
-        String query= String.format("select * from %s ", DBTables.EVENT_TABLE);
-        ArrayList<Entity> eventList =  JDBC.getAll(query,Event.class.getName());
+        String query= String.format("select * from %s ", Tables.EVENT_TABLE);
+        ArrayList<Entity> eventList =  JdbcConnection.getAll(query,Event.class.getName());
         List<Event> events = eventList.stream().map(x->{
             return (Event)x;
         }).collect(Collectors.toList());
@@ -29,22 +29,22 @@ public class EventServiceImpl implements EventService {
     @Override
     public boolean addEvent(Event event) {
         String query = event.getInsertQuery();
-        return JDBC.insert(query);
+        return JdbcConnection.insert(query);
     }
 
     @Override
     public boolean updateEvent(Event event) {
         String query = event.getUpdateQuery();
-        return JDBC.update(query);
+        return JdbcConnection.update(query);
     }
 
     @Override
     public Event getEventById(int id) {
-        if(!JDBC.isConnected()){
-            JDBC.createConnection();
+        if(!JdbcConnection.isConnected()){
+            JdbcConnection.createConnection();
         }
-        String query = String.format("select * from %s where id = %s", DBTables.EVENT_TABLE,id);
-        return (Event) JDBC.get(query,Event.class.getName());
+        String query = String.format("select * from %s where id = %s", Tables.EVENT_TABLE,id);
+        return (Event) JdbcConnection.get(query,Event.class.getName());
     }
 
     public boolean isEventBooked(int eventId, int userId){
@@ -57,11 +57,11 @@ public class EventServiceImpl implements EventService {
         }
     }
     public List<Event> getEventsOrganisedByUser(int userId){
-        if(!JDBC.isConnected()){
-            JDBC.createConnection();
+        if(!JdbcConnection.isConnected()){
+            JdbcConnection.createConnection();
         }
-        String query= String.format("select * from %s where organiser_id = %s", DBTables.EVENT_TABLE, userId);
-        ArrayList<Entity> eventList =  JDBC.getAll(query,Event.class.getName());
+        String query= String.format("select * from %s where organiser_id = %s", Tables.EVENT_TABLE, userId);
+        ArrayList<Entity> eventList =  JdbcConnection.getAll(query,Event.class.getName());
         List<Event> events = eventList.stream().map(x->{
             return (Event)x;
         }).collect(Collectors.toList());
@@ -90,8 +90,8 @@ public class EventServiceImpl implements EventService {
         String ids = bookings.stream().map(x -> String.valueOf(x.getEventId())).reduce("", (s, r) -> s+r+",");
         ids=ids.substring(0,ids.length()-1);
         System.out.println("ids after stream: "+ ids);
-        String query = String.format("select * from %s where id in (%s)",DBTables.EVENT_TABLE,ids);
-        ArrayList<Entity> eventList = JDBC.getAll(query,Event.class.getName());
+        String query = String.format("select * from %s where id in (%s)", Tables.EVENT_TABLE,ids);
+        ArrayList<Entity> eventList = JdbcConnection.getAll(query,Event.class.getName());
         List<Event> events = eventList.stream().map(x->{
             return (Event)x;
         }).collect(Collectors.toList());
