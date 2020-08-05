@@ -21,4 +21,6 @@ public interface EventService {
 
     boolean bookEvent(Event event, int userId);
 
+    boolean removeEvent(int id);
+
 }

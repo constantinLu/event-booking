@@ -140,15 +140,7 @@ public class Style {
 
                 button.setTextFill(Color.web("#FFFFFF"));
                 button.setFont(new Font("System Bold", 15));
-                button.setAlignment(Pos.CENTER_LEFT);
-                int width = 100;
-                int height = 50;
-                button.setMinWidth(width);
-                button.setMaxWidth(width);
-                button.setPrefWidth(width);
-                button.setMinHeight(height);
-                button.setPrefHeight(height);
-                button.setMaxHeight(height);
+                button.setAlignment(Pos.CENTER_RIGHT);
             default:
                 break;
         }

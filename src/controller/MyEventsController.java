@@ -1,15 +1,24 @@
 package controller;
 
+import alert.Alert;
+import alert.AlertColor;
+import alert.AlertPane;
 import entities.Event;
 import entities.User;
+import java.net.URL;
+import java.util.List;
+import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
@@ -17,13 +26,15 @@ import service.EventService;
 import service.EventServiceImpl;
 import service.UserService;
 import service.UserServiceImpl;
-
-import java.util.List;
-
 import static utils.DateHelper.formatLocalDateTime;
 import static utils.Style.*;
 
-public class MyEventsController {
+public class MyEventsController implements Alert, Initializable {
+
+    @FXML
+    public Pane errorPane;
+    @FXML
+    public Text errorCode;
 
     private EventService eventService = new EventServiceImpl();
 
@@ -35,8 +46,21 @@ public class MyEventsController {
         this.loggedUser = user;
     }
 
+    private VBox myEventBox;
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        initializeAlertPane();
+    }
+
+    @Override
+    public void initializeAlertPane() {
+        AlertPane.createInstance(errorPane, errorCode);
+    }
+
     void getEvents(VBox eventVbox) {
-        addHeader(eventVbox);
+        myEventBox = eventVbox;
+        addHeader(myEventBox);
         //get all events
         List<Event> events = eventService.getEventsOrganisedByUser(loggedUser.getUserId());
         for (int i = 0; i < events.size(); i++) {
@@ -45,11 +69,11 @@ public class MyEventsController {
             HBox hbox = createHbox(eventEntity);
             styleHBox(hbox, i);
 
-            eventVbox.getChildren().add(hbox);
-            eventVbox.setSpacing(5);
-            eventVbox.setVisible(true);
+            myEventBox.getChildren().add(hbox);
+            myEventBox.setSpacing(5);
+            myEventBox.setVisible(true);
             VBox.setMargin(hbox, new Insets(5, 5, 5, 5));
-            eventVbox.setPadding(new Insets(10, 10, 10, 10));
+            myEventBox.setPadding(new Insets(10, 10, 10, 10));
         }
     }
 
@@ -100,10 +124,14 @@ public class MyEventsController {
         styleLabel(organiserLabel, true);
 
 
-        Label buttonLabel = new Label();
-        buttonLabel.setText("Edit Event");
-        styleLabel(buttonLabel, true);
+        Label editButtonLabel = new Label();
+        editButtonLabel.setText("Edit");
+        styleLabel(editButtonLabel, true);
 
+
+        Label deleteLabel = new Label();
+        deleteLabel.setText("Delete");
+        styleLabel(deleteLabel, true);
 
         hBox.getChildren().addAll(
                 imageViewLabel,
@@ -115,7 +143,8 @@ public class MyEventsController {
                 noOfSeatsLabel,
                 onlineLabel,
                 organiserLabel,
-                buttonLabel);
+                editButtonLabel,
+                deleteLabel);
 
         styleHBox(hBox, -1);
         vBox.getChildren().add(hBox);
@@ -189,19 +218,38 @@ public class MyEventsController {
         organiser.setText(oraniserName);
         styleLabel(organiser, false);
 
-        Button button = new Button();
-        boolean isBooked = false;
-        button.setText("Edit event");
-        button.setDisable(false);
-        button.setStyle("-fx-background-color: #febb02");
-
-
-        styleButton(button, 0);
-        button.setOnAction(new EventHandler<ActionEvent>() {
+        Button editButton = new Button();
+        editButton.setText("Edit");
+        editButton.setDisable(false);
+        editButton.setStyle("-fx-background-color: #febb02");
+        styleButton(editButton, 0);
+        editButton.setDisable(false);
+        editButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 //TODO: ADD TO BOOKED EVENTS LIST
                 System.out.println(eventEntity.getEventId());
+            }
+        });
+
+        Button deleteButton = new Button();
+        deleteButton.setText("Remove");
+        deleteButton.setDisable(false);
+        deleteButton.setStyle("-fx-background-color: #febb02");
+
+
+        styleButton(deleteButton, 1);
+        deleteButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                //TODO: ADD TO BOOKED EVENTS LIST
+                if (eventService.removeEvent(eventEntity.getEventId())) {
+                    AlertPane.show("Event deleted", AlertColor.SUCCESS);
+                    eventService.getEventsOrganisedByUser(loggedUser.getUserId());
+                    myEventBox.requestLayout();
+                } else {
+                    AlertPane.show("Error while deleting event", AlertColor.ERROR);
+                }
             }
         });
 
@@ -216,7 +264,8 @@ public class MyEventsController {
                 noOfSeats,
                 online,
                 organiser,
-                button);
+                editButton,
+                deleteButton);
 
         return hBox;
     }
