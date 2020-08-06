@@ -119,20 +119,20 @@ public class AddEventsController implements Initializable {
                                 {
 
                                     addEvent.setOrganiserId(loggedUser.getUserId());
-                                        if (validateFields(addEvent)) {
-                                            eventService.addEvent(addEvent);
-                                            titleTextField.setText("");
-                                            descriptionTextField.setText("");
-                                            locationTextField.setText("");
-                                            //TODO: THROWS ERROR WHEN SET TO NULL :-??
-                                            startDatePicker.setValue(null);
-                                            endDatePicker.setValue(null);
-                                            seats.setText("");
-                                            AlertPane.show("Event Added", SUCCESS);
-                                        } else {
-                                            AlertPane.show("All fields are required", ERROR);
+                                    if (validateFields(addEvent)) {
+                                        eventService.addEvent(addEvent);
+                                        titleTextField.setText("");
+                                        descriptionTextField.setText("");
+                                        locationTextField.setText("");
+                                        //TODO: THROWS ERROR WHEN SET TO NULL :-??
+                                        startDatePicker.setValue(null);
+                                        endDatePicker.setValue(null);
+                                        seats.setText("");
+                                        AlertPane.show("Event Added", SUCCESS);
+                                    } else {
+                                        AlertPane.show("All fields are required", ERROR);
 
-                                        }
+                                    }
                                 }
                         );
                 }

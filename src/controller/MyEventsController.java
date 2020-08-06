@@ -5,16 +5,17 @@ import alert.AlertColor;
 import alert.AlertPane;
 import entities.Event;
 import entities.User;
+import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
@@ -27,6 +28,8 @@ import service.EventServiceImpl;
 import service.UserService;
 import service.UserServiceImpl;
 import static utils.DateHelper.formatLocalDateTime;
+import utils.Path;
+import utils.Redirect;
 import static utils.Style.*;
 
 public class MyEventsController implements Alert, Initializable {
@@ -42,11 +45,20 @@ public class MyEventsController implements Alert, Initializable {
 
     User loggedUser;
 
+
     public MyEventsController(User user) {
         this.loggedUser = user;
     }
 
+    public MyEventsController(User user, ScrollPane pane, VBox box) {
+        this.loggedUser = user;
+        this.box = box;
+        this.pane = pane;
+    }
+
     private VBox myEventBox;
+    private VBox box;
+    private ScrollPane pane;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -124,14 +136,9 @@ public class MyEventsController implements Alert, Initializable {
         styleLabel(organiserLabel, true);
 
 
-        Label editButtonLabel = new Label();
-        editButtonLabel.setText("Edit");
-        styleLabel(editButtonLabel, true);
-
-
-        Label deleteLabel = new Label();
-        deleteLabel.setText("Delete");
-        styleLabel(deleteLabel, true);
+        Label viewDeleteLabel = new Label();
+        viewDeleteLabel.setText("View\\Delete");
+        styleLabel(viewDeleteLabel, true);
 
         hBox.getChildren().addAll(
                 imageViewLabel,
@@ -143,8 +150,7 @@ public class MyEventsController implements Alert, Initializable {
                 noOfSeatsLabel,
                 onlineLabel,
                 organiserLabel,
-                editButtonLabel,
-                deleteLabel);
+                viewDeleteLabel);
 
         styleHBox(hBox, -1);
         vBox.getChildren().add(hBox);
@@ -155,13 +161,7 @@ public class MyEventsController implements Alert, Initializable {
         HBox hBox = new HBox();
 
         ImageView imageView = new ImageView();
-        String image;
-        if (true) { //change based of available seats.
-            image = "/resources/images/event.png";
-        } else {
-            image = "/resources/images/event_full.png";
-        }
-        imageView.setImage(new Image(getClass().getResourceAsStream(image)));
+        imageView.setImage(new Image(getClass().getResourceAsStream("/resources/images/event.png")));
         imageView.setFitHeight(50);
         imageView.setFitWidth(50);
 
@@ -218,17 +218,25 @@ public class MyEventsController implements Alert, Initializable {
         organiser.setText(oraniserName);
         styleLabel(organiser, false);
 
-        Button editButton = new Button();
-        editButton.setText("Edit");
-        editButton.setDisable(false);
-        editButton.setStyle("-fx-background-color: #febb02");
-        styleButton(editButton, 0);
-        editButton.setDisable(false);
-        editButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                //TODO: ADD TO BOOKED EVENTS LIST
-                System.out.println(eventEntity.getEventId());
+
+        //VBOX
+        VBox buttons = new VBox();
+        buttons.setSpacing(5);
+        buttons.setAlignment(Pos.CENTER);
+
+        Button viewDetailsButton = new Button();
+        viewDetailsButton.setText("View Details");
+        viewDetailsButton.setDisable(false);
+        viewDetailsButton.setStyle("-fx-background-color: #febb02");
+        viewDetailsButton.setDisable(false);
+
+        styleButton(viewDetailsButton, 0);
+        viewDetailsButton.setOnAction(event -> {
+            //TODO: IMPLEMENT VIEW DETAILS
+            try {
+                new Redirect().openInfoEventModal(event, Path.EVENT_INFO, eventEntity);
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         });
 
@@ -236,22 +244,18 @@ public class MyEventsController implements Alert, Initializable {
         deleteButton.setText("Remove");
         deleteButton.setDisable(false);
         deleteButton.setStyle("-fx-background-color: #febb02");
-
-
+        viewDetailsButton.setDisable(false);
         styleButton(deleteButton, 1);
-        deleteButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                //TODO: ADD TO BOOKED EVENTS LIST
-                if (eventService.removeEvent(eventEntity.getEventId())) {
-                    AlertPane.show("Event deleted", AlertColor.SUCCESS);
-                    eventService.getEventsOrganisedByUser(loggedUser.getUserId());
-                    myEventBox.requestLayout();
-                } else {
-                    AlertPane.show("Error while deleting event", AlertColor.ERROR);
-                }
+
+        deleteButton.setOnAction(event -> {
+            if (eventService.removeEvent(eventEntity.getEventId())) {
+                //TODO: FIND HOW TO REFRESH THE PANE
+                AlertPane.show("Event deleted", AlertColor.SUCCESS);
+            } else {
+                AlertPane.show("Error while deleting event", AlertColor.ERROR);
             }
         });
+        buttons.getChildren().addAll(viewDetailsButton, deleteButton);
 
 
         hBox.getChildren().addAll(
@@ -264,8 +268,7 @@ public class MyEventsController implements Alert, Initializable {
                 noOfSeats,
                 online,
                 organiser,
-                editButton,
-                deleteButton);
+                buttons);
 
         return hBox;
     }

@@ -13,8 +13,6 @@ import javafx.scene.Scene;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-import static utils.Path.EVENT_INFO;
-
 public class Redirect {
 
     public void redirectToParent(ActionEvent actionEvent, String path) throws IOException {

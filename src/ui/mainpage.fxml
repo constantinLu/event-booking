@@ -60,6 +60,11 @@
                         <Font name="Lucida Console" size="28.0" />
                     </font>
                 </Button>
+            <Label fx:id="role" alignment="CENTER" lineSpacing="2.0" prefHeight="73.0" prefWidth="199.0" textFill="#1397d5">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
             </children>
             <effect>
                 <ColorAdjust />

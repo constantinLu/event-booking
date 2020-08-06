@@ -1,7 +1,6 @@
 package service;
 
 import connection.JdbcConnection;
-import connection.Tables;
 import static connection.Tables.EVENT_TABLE;
 import entities.Booking;
 import entities.Entity;

@@ -6,6 +6,7 @@ import entities.User;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -108,7 +109,7 @@ public class BookedEventsController {
 
 
         Label buttonLabel = new Label();
-        buttonLabel.setText("Edit Event");
+        buttonLabel.setText("View");
         styleLabel(buttonLabel, true);
 
 
@@ -196,26 +197,42 @@ public class BookedEventsController {
         organiser.setText(oraniserName);
         styleLabel(organiser, false);
 
-        Button button = new Button();
-        boolean isBooked = eventService.isEventBooked(eventEntity.getEventId(),loggedUser.getUserId());
-        button.setText("Edit event");
-        button.setDisable(false);
-        button.setStyle("-fx-background-color: #febb02");
-        setStyleButton(button, isBooked);
-        styleButton(button, 0);
-        button.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                try {
-                    new Redirect().openInfoEventModal(event, Path.EVENT_INFO,eventEntity);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-//               Boolean isBooked = ! bookingService.cancelBooking(eventEntity.getEventId(),loggedUser.getUserId());
-//               setStyleButton(button,isBooked);
+
+        //VBOX
+        VBox buttons = new VBox();
+        buttons.setSpacing(5);
+        buttons.setAlignment(Pos.CENTER);
+
+        Button viewDetailsButton = new Button();
+        viewDetailsButton.setText("View Details");
+        viewDetailsButton.setDisable(false);
+        viewDetailsButton.setStyle("-fx-background-color: #febb02");
+        viewDetailsButton.setDisable(false);
+
+        styleButton(viewDetailsButton, 0);
+        viewDetailsButton.setOnAction(event -> {
+            try {
+                new Redirect().openInfoEventModal(event, Path.EVENT_INFO,eventEntity);
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         });
 
+
+        Button isBookedButton = new Button();
+        boolean isBooked = eventService.isEventBooked(eventEntity.getEventId(),loggedUser.getUserId());
+        isBookedButton.setText("Edit event");
+        isBookedButton.setDisable(false);
+        isBookedButton.setStyle("-fx-background-color: #febb02");
+        setStyleButton(isBookedButton, isBooked);
+        styleButton(isBookedButton, 0);
+        isBookedButton.setOnAction(event -> {
+           Boolean isBooked1 = ! bookingService.cancelBooking(eventEntity.getEventId(),loggedUser.getUserId());
+           setStyleButton(isBookedButton , isBooked1);
+        });
+
+
+        buttons.getChildren().addAll(viewDetailsButton, isBookedButton);
 
         hBox.getChildren().addAll(
                 imageView,
@@ -227,13 +244,13 @@ public class BookedEventsController {
                 noOfSeats,
                 online,
                 organiser,
-                button);
+                buttons);
 
         return hBox;
     }
     private void setStyleButton(Button button, boolean isBooked){
         if (isBooked) {
-            button.setText("Cancel Booking");
+            button.setText("Cancel");
             button.setDisable(false);
             button.setStyle("-fx-background-color: #febb02");
         } else {

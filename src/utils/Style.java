@@ -13,21 +13,7 @@ import javafx.scene.text.Text;
 
 public class Style {
 
-    /**
-     * -fx-background-color: transparent
-     * -fx-border-color: red");
-     * -fx-border-width: 2 2 2 2");
-     * -fx-border-width
-     * -fx-border-color
-     * <p>
-     * if -1 is a header yellow
-     * if odd - white
-     * if even - grey
-     * if
-     *
-     * @param hbox
-     * @param value
-     */
+
     public static void styleHBox(HBox hbox, int value) {
         hbox.setSpacing(20);
         hbox.setAlignment(Pos.CENTER_LEFT);
@@ -163,9 +149,5 @@ public class Style {
         choiceBox.setStyle("-fx-border-color: #1397d5");
         choiceBox.setStyle("-fx-border-color: #1397d5");
         choiceBox.setStyle("-fx-border-width: 2 2 2 2");
-
-
     }
-
-
 }

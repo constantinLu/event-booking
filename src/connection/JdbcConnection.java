@@ -10,7 +10,7 @@ import java.util.logging.Logger;
 
 
 import entities.Entity;
-import utils.WriteLog;
+import utils.Log;
 
 
 public class JdbcConnection {
@@ -23,7 +23,7 @@ public class JdbcConnection {
 
     private JdbcConnection() {
         instance = this;
-        WriteLog.addHandler(LOGGER);
+        Log.addHandler(LOGGER);
         LOGGER.log(Level.INFO, "Creating JdbcConnection instance from constructor at: {0}. Current instance is null: {1}; should be: true\n",
                 new Object[]{LocalTime.now(), (instance == null)});
     }

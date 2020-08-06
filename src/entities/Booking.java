@@ -1,12 +1,11 @@
 package entities;
 
 import connection.Tables;
-import utils.LocalDateTimeMapper;
-
 import java.time.LocalDateTime;
 import java.util.HashMap;
+import utils.LocalDateTimeMapper;
 
-public class Booking extends Entity<Booking>{
+public class Booking extends Entity<Booking> {
     private int bookingId;
     private int userId;
     private int eventId;
@@ -33,11 +32,6 @@ public class Booking extends Entity<Booking>{
         setBookingDate(LocalDateTimeMapper.map(object.get("cancel_date")));
         setEventId(Integer.valueOf(object.get("event_id")));
         setUserId(Integer.valueOf(object.get("user_id")));
-    }
-
-    @Override
-    public Booking getObject() {
-        return this;
     }
 
     public int getEventId() {

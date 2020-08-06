@@ -1,6 +1,7 @@
 package controller;
 
 import entities.Event;
+import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,27 +14,22 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import utils.BooleanMapper;
 import utils.DateHelper;
-import utils.Path;
-
-import java.io.IOException;
-import java.util.Date;
-
 import static utils.Path.EVENT_INFO;
 
 public class InfoController {
-@FXML
+    @FXML
     TextFlow descriptionTextFlow;
-@FXML
+    @FXML
     Text startDateText;
-@FXML
+    @FXML
     Text endDateText;
-@FXML
+    @FXML
     Text titleEventText;
-@FXML
+    @FXML
     Text isBookingAllowedText;
-@FXML
+    @FXML
     Text isOnlineText;
-@FXML
+    @FXML
     Text locationText;
 
     public void showInfoController(ActionEvent actionEvent, Event event) throws IOException {
@@ -48,7 +44,7 @@ public class InfoController {
     }
 
     public void initData(Event event) {
-        Text text =new Text(event.getDescription());
+        Text text = new Text(event.getDescription());
         text.setStyle("-fx-font-weight: bold");
         descriptionTextFlow.getChildren().add(text);
 

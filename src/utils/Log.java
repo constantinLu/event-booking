@@ -7,15 +7,15 @@ import java.util.logging.FileHandler;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 
-public class WriteLog {
+public class Log {
 
-    private static WriteLog instance = null;
+    private static Log instance = null;
 
     private final String SESSION;
     private static FileHandler handler = null;
     private final String path;
 
-    private WriteLog() {
+    private Log() {
         instance = this;
         DateTimeFormatter f = DateTimeFormatter.ofPattern("yyyy-MM-dd HH-mm-ss");
         LocalDateTime now = LocalDateTime.now();
@@ -25,11 +25,11 @@ public class WriteLog {
     }
 
 
-    public static WriteLog of() {
+    public static Log of() {
         if (instance == null) {
-            synchronized (WriteLog.class) {
+            synchronized (Log.class) {
                 if (instance == null) {
-                    return new WriteLog();
+                    return new Log();
                 }
             }
         }

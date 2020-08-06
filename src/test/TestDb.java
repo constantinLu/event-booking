@@ -14,7 +14,7 @@ import service.EventServiceImpl;
 import service.UserService;
 import service.UserServiceImpl;
 
-public class Test {
+public class TestDb {
     public static void main(String[] args) {
         JdbcConnection.createConnection();
 //getMyEvents();

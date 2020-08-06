@@ -2,8 +2,10 @@ package controller;
 
 import entities.Event;
 import entities.User;
+import java.io.IOException;
 import java.util.List;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -17,6 +19,8 @@ import service.EventServiceImpl;
 import service.UserService;
 import service.UserServiceImpl;
 import static utils.DateHelper.formatLocalDateTime;
+import utils.Path;
+import utils.Redirect;
 import utils.Style;
 import static utils.Style.*;
 
@@ -100,7 +104,7 @@ public class EventsController {
 
 
         Label buttonLabel = new Label();
-        buttonLabel.setText("Book Event");
+        buttonLabel.setText("View\\Book");
         styleLabel(buttonLabel, true);
 
 
@@ -188,15 +192,40 @@ public class EventsController {
         organiser.setText(oraniserName);
         styleLabel(organiser, false);
 
-        Button button = new Button();
+
+        //VBOX
+        VBox buttons = new VBox();
+        buttons.setSpacing(5);
+        buttons.setAlignment(Pos.CENTER);
+
+        Button viewDetailsButton = new Button();
+        viewDetailsButton.setText("View Details");
+        viewDetailsButton.setDisable(false);
+        viewDetailsButton.setStyle("-fx-background-color: #febb02");
+        viewDetailsButton.setDisable(false);
+
+        styleButton(viewDetailsButton, 0);
+        viewDetailsButton.setOnAction(event -> {
+            //TODO: IMPLEMENT VIEW DETAILS
+            try {
+                new Redirect().openInfoEventModal(event, Path.EVENT_INFO,eventEntity);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+
+
+        Button bookButton = new Button();
         boolean isBooked = eventService.isEventBooked(eventEntity.getEventId(), loggedUser.getUserId());
-        Style.styleButton(button, isBooked);
-        styleButton(button, 0);
-        button.setOnAction(event -> {
+        Style.styleButton(bookButton, isBooked);
+        styleButton(bookButton, 0);
+        bookButton.setOnAction(event -> {
             System.out.println(eventEntity.getEventId());
             boolean isBooked1 = eventService.bookEvent(eventEntity, loggedUser.getUserId());
-            Style.styleButton(button, isBooked1);
+            Style.styleButton(bookButton, isBooked1);
         });
+
+        buttons.getChildren().addAll(viewDetailsButton, bookButton);
 
 
         hBox.getChildren().addAll(
@@ -209,7 +238,7 @@ public class EventsController {
                 noOfSeats,
                 online,
                 organiser,
-                button);
+                buttons);
 
         return hBox;
     }

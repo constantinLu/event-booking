@@ -12,5 +12,4 @@ public class BooleanMapper {
     public static String mapForUi(boolean value) {
         return value ? "Yes" : "No";
     }
-
 }

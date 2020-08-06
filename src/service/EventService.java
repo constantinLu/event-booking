@@ -1,8 +1,8 @@
 package service;
 
-import entities.Booking;
-import entities.Event;
-import java.util.List;
+        import entities.Booking;
+        import entities.Event;
+        import java.util.List;
 
 public interface EventService {
     List<Event> getAllEvents();

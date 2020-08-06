@@ -83,6 +83,9 @@ public class MainPageController implements Alert, Initializable {
     @FXML
     public Text errorCode;
 
+    @FXML
+    public Label role;
+
     //Controllers
     private EventsController eventsController;
     private BookedEventsController bookedEventsController;
@@ -115,12 +118,14 @@ public class MainPageController implements Alert, Initializable {
 
     public void initData(User user) {
         loggedUser = user;
+        role.setText(user.getRole().toString());
         userField.setText(loggedUser.getFirstName() + " " + loggedUser.getLastName());
         renderAccesRights();
         eventsController = new EventsController(loggedUser);
         bookedEventsController = new BookedEventsController(loggedUser);
         addEventsController = new AddEventsController(loggedUser);
-        myEventsController = new MyEventsController(loggedUser);
+        myEventsController = new MyEventsController(loggedUser, scrollMyEvents,
+                myEventsVbox);
         adminController = new AdminController(loggedUser);
 
     }

@@ -1,8 +1,8 @@
 package entities;
 
+import connection.Tables;
 import java.time.LocalDateTime;
 import java.util.HashMap;
-import connection.Tables;
 import utils.BooleanMapper;
 import utils.LocalDateTimeMapper;
 
@@ -11,13 +11,13 @@ public class Event extends Entity<Event> {
     private int eventId;
     private String title;
     private String description;
-    private boolean isOnline; //
+    private boolean isOnline;
     private String location;
     private LocalDateTime startDate;
     private LocalDateTime endDate;
     private String constraints;
-    private boolean isBookingAllowed; // if booking btn is allowed
-    private int organiserId; // userul care a creat
+    private boolean isBookingAllowed;
+    private int organiserId;
 
     public Event() {
     }
@@ -145,10 +145,6 @@ public class Event extends Entity<Event> {
         setOrganiserId(Integer.valueOf(object.get("organiser_id")));
     }
 
-    @Override
-    public Event getObject() {
-        return this;
-    }
 
     public void setEventId(int eventId) {
         this.eventId = eventId;
@@ -229,6 +225,5 @@ public class Event extends Entity<Event> {
     public boolean isBookingAllowed() {
         return isBookingAllowed;
     }
-
 }
 
