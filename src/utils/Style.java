@@ -150,4 +150,8 @@ public class Style {
         choiceBox.setStyle("-fx-border-color: #1397d5");
         choiceBox.setStyle("-fx-border-width: 2 2 2 2");
     }
+
+    public static void styleTextBasedOnBoolean(Text text, boolean value) {
+        text.setFill(value ? Color.GREEN : Color.RED);
+    }
 }

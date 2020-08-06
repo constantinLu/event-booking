@@ -19,6 +19,8 @@ import service.EventServiceImpl;
 import service.UserService;
 import service.UserServiceImpl;
 import static utils.DateHelper.formatLocalDateTime;
+
+import utils.BooleanMapper;
 import utils.Path;
 import utils.Redirect;
 import utils.Style;
@@ -172,11 +174,10 @@ public class EventsController {
         online.setId("online");
 
         styleLabel(online, false);
+        online.setText(BooleanMapper.mapForUi(eventEntity.isOnline()));
         if (eventEntity.isOnline()) {
-            online.setText(String.valueOf("YES"));
             online.setTextFill(Color.valueOf("green"));
         } else {
-            online.setText(String.valueOf("NO"));
             online.setTextFill(Color.valueOf("red"));
         }
 

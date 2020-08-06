@@ -62,6 +62,7 @@ public class Redirect {
         infoController.initData(event);
         infoEventDialog.setScene(eventInfoScene);
         infoEventDialog.initOwner(parentStage);
+        infoEventDialog.setResizable(false);
         infoEventDialog.initModality(Modality.APPLICATION_MODAL);
         infoEventDialog.showAndWait();
     }
