@@ -32,7 +32,6 @@ public class AdminController {
 
     public void getUsers(VBox adminVbox) {
         addHeader(adminVbox);
-        //get all events
         List<User> users = userService.getAllUsers();
         for (int i = 0; i < users.size(); i++) {
             User userEntity = users.get(i);

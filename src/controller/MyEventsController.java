@@ -137,7 +137,7 @@ public class MyEventsController implements Alert, Initializable {
 
 
         Label viewDeleteLabel = new Label();
-        viewDeleteLabel.setText("View\\Delete");
+        viewDeleteLabel.setText("    Actions  ");
         styleLabel(viewDeleteLabel, true);
 
         hBox.getChildren().addAll(

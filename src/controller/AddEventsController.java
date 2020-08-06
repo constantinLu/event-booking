@@ -51,7 +51,6 @@ public class AddEventsController implements Initializable {
         Event addEvent = new Event();
         addPane.getChildren().forEach(child ->
         {
-            //for components
             if (child.getId() != null) {
                 switch (child.getId()) {
                     case "addTitle":

@@ -109,7 +109,7 @@ public class BookedEventsController {
 
 
         Label buttonLabel = new Label();
-        buttonLabel.setText("View");
+        buttonLabel.setText("    Actions  ");
         styleLabel(buttonLabel, true);
 
 

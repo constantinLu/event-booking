@@ -104,7 +104,7 @@ public class EventsController {
 
 
         Label buttonLabel = new Label();
-        buttonLabel.setText("View\\Book");
+        buttonLabel.setText("    Actions  ");
         styleLabel(buttonLabel, true);
 
 
