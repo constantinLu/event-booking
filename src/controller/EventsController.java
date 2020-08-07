@@ -18,9 +18,8 @@ import service.EventService;
 import service.EventServiceImpl;
 import service.UserService;
 import service.UserServiceImpl;
-import static utils.DateHelper.formatLocalDateTime;
-
 import utils.BooleanMapper;
+import static utils.DateHelper.formatLocalDateTime;
 import utils.Path;
 import utils.Redirect;
 import utils.Style;
@@ -209,7 +208,7 @@ public class EventsController {
         viewDetailsButton.setOnAction(event -> {
             //TODO: IMPLEMENT VIEW DETAILS
             try {
-                new Redirect().openInfoEventModal(event, Path.EVENT_INFO,eventEntity);
+                new Redirect().openInfoEventModal(event, Path.EVENT_INFO, eventEntity);
             } catch (IOException e) {
                 e.printStackTrace();
             }

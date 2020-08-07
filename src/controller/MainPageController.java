@@ -156,7 +156,7 @@ public class MainPageController implements Alert, Initializable {
 
     @FXML
     public void onMyCreatedEventsAction(ActionEvent actionEvent) {
-        openView(PageView.My_EVENTS);
+        openView(PageView.MY_EVENTS);
         myEventsController.getEvents(myEventsVbox);
     }
 
@@ -198,7 +198,7 @@ public class MainPageController implements Alert, Initializable {
                 addPane.setVisible(true);
                 addTitle.setVisible(true);
                 break;
-            case My_EVENTS:
+            case MY_EVENTS:
                 scrollMyEvents.setVisible(true);
                 myEventsVbox.setVisible(true);
                 break;

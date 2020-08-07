@@ -28,10 +28,10 @@
       </AnchorPane>
       <Pane layoutY="119.0" prefHeight="294.0" prefWidth="147.0" style="-fx-background-color: #1397d5;">
          <children>
-            <Text layoutX="50.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Event" wrappingWidth="46.18896484375" />
+            <Text layoutX="56.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Event" wrappingWidth="46.18896484375" />
             <TextFlow layoutX="5.0" layoutY="59.0" prefHeight="65.0" prefWidth="138.0" textAlignment="CENTER">
                <children>
-                  <Text fx:id="titleEventText" strokeType="OUTSIDE" strokeWidth="0.0" text="Title Event">
+                  <Text fx:id="titleEventText" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Title Event">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
@@ -42,7 +42,7 @@
             <Text layoutX="44.0" layoutY="222.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ends on" />
             <TextFlow layoutX="1.0" layoutY="147.0" prefHeight="46.0" prefWidth="138.0" textAlignment="CENTER">
                <children>
-                  <Text fx:id="startDateText" strokeType="OUTSIDE" strokeWidth="0.0" text="StartDate">
+                  <Text fx:id="startDateText" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="StartDate">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
@@ -51,7 +51,7 @@
             </TextFlow>
             <TextFlow layoutX="7.0" layoutY="226.0" prefHeight="50.0" prefWidth="126.0" textAlignment="CENTER">
                <children>
-                  <Text fx:id="endDateText" strokeType="OUTSIDE" strokeWidth="0.0" text="EndDate" textAlignment="CENTER">
+                  <Text fx:id="endDateText" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="EndDate" textAlignment="CENTER">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
@@ -64,12 +64,21 @@
          <children>
             <VBox layoutX="14.0" layoutY="20.0" prefHeight="361.0" prefWidth="322.0" spacing="15">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Description" />
-                  <TextFlow fx:id="descriptionTextFlow" prefHeight="104.0" prefWidth="410.0" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Description:" wrappingWidth="76.251953125" />
+                  <TextFlow fx:id="descriptionTextFlow" prefHeight="104.0" prefWidth="410.0" style="-fx-text-fill: #1397d5;">
+                     <children>
+                        <Text fx:id="descriptionText" fill="#1397d5" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="275.853515625">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font></Text>
+                     </children></TextFlow>
                   <HBox prefHeight="100.0" prefWidth="200.0" spacing="5">
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Location: " />
-                        <Text fx:id="locationText" strokeType="OUTSIDE" strokeWidth="0.0" text="LocationText">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Location: ">
+                           <font>
+                              <Font size="13.0" />
+                           </font></Text>
+                        <Text fx:id="locationText" fill="#1397d5" strokeType="OUTSIDE" strokeWidth="0.0" text="LocationText">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
@@ -78,8 +87,11 @@
                   </HBox>
                   <HBox prefHeight="100.0" prefWidth="200.0" spacing="5">
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Is Online" />
-                        <Text fx:id="isOnlineText" strokeType="OUTSIDE" strokeWidth="0.0" text="IsOnlineText">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Is Online:" wrappingWidth="60.146484375">
+                           <font>
+                              <Font size="13.0" />
+                           </font></Text>
+                        <Text fx:id="isOnlineText" fill="#1397d5" strokeType="OUTSIDE" strokeWidth="0.0" text="IsOnlineText">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
@@ -88,8 +100,11 @@
                   </HBox>
                   <HBox prefHeight="100.0" prefWidth="200.0" spacing="5">
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="No of seats" />
-                        <Text fx:id="noOfSeatsText" strokeType="OUTSIDE" strokeWidth="0.0" text="No of seats Text">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="No of seats:" wrappingWidth="72.0">
+                           <font>
+                              <Font size="13.0" />
+                           </font></Text>
+                        <Text fx:id="noOfSeatsText" fill="#1397d5" strokeType="OUTSIDE" strokeWidth="0.0" text="No of seats Text">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
@@ -98,10 +113,13 @@
                   </HBox>
                   <HBox prefHeight="100.0" prefWidth="200.0" spacing="5">
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Is Booking Allowed" />
-                        <Text fx:id="isBookingAllowedText" strokeType="OUTSIDE" strokeWidth="0.0" text="Is Booking Allowed Text">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Is Booking Allowed:" wrappingWidth="120.55419921875">
                            <font>
-                              <Font name="System Bold" size="15.0" />
+                              <Font size="13.0" />
+                           </font></Text>
+                        <Text fx:id="isBookingAllowedText" fill="#1397d5" strokeType="OUTSIDE" strokeWidth="0.0" text="Is Booking Allowed Text" wrappingWidth="178.36474609375">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
                            </font>
                         </Text>
                      </children>

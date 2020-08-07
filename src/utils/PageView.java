@@ -5,6 +5,6 @@ public enum PageView {
     ALL_EVENTS,
     BOOKED_EVENTS,
     ADD_EVENTS,
-    My_EVENTS,
+    MY_EVENTS,
     ADMIN_VIEW
 }
