@@ -19,7 +19,7 @@ public class JdbcConnection {
     private static final Logger LOGGER = Logger.getLogger(JdbcConnection.class.getName());
     private static Connection connection = null;
     private static JdbcConnection instance = null;
-    private static final String connURL = "jdbc:mysql://(host=localhost,port=3306)/event_booking?user=booking&password=booking&useSSL=false";
+    private static final String connURL = "jdbc:mysql://(host=localhost,port=3306)/event_booking?serverTimezone=UTC&user=booking&password=booking&useSSL=false";
 
     private JdbcConnection() {
         instance = this;
