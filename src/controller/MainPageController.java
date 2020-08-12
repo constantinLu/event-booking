@@ -121,7 +121,7 @@ public class MainPageController implements Alert, Initializable {
         role.setText(user.getRole().toString());
         userField.setText(loggedUser.getFirstName() + " " + loggedUser.getLastName());
         renderAccesRights();
-        eventsController = new EventsController(loggedUser);
+        eventsController = new EventsController(eventVbox, loggedUser);
         bookedEventsController = new BookedEventsController(loggedUser);
         addEventsController = new AddEventsController(loggedUser);
         myEventsController = new MyEventsController(loggedUser, scrollMyEvents,

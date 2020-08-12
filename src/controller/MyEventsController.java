@@ -45,6 +45,10 @@ public class MyEventsController implements Alert, Initializable {
 
     User loggedUser;
 
+    private VBox myEventBox;
+    private VBox box;
+    private ScrollPane pane;
+
 
     public MyEventsController(User user) {
         this.loggedUser = user;
@@ -56,9 +60,6 @@ public class MyEventsController implements Alert, Initializable {
         this.pane = pane;
     }
 
-    private VBox myEventBox;
-    private VBox box;
-    private ScrollPane pane;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

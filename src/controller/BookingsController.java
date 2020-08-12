@@ -28,7 +28,7 @@ import utils.Redirect;
 import utils.Style;
 import static utils.Style.*;
 
-public class EventsController {
+public class BookingsController {
 
     private EventService eventService = new EventServiceImpl();
 
@@ -38,7 +38,7 @@ public class EventsController {
 
     private User loggedUser;
 
-    public EventsController(VBox eventVbox, User loggedUser) {
+    public BookingsController(VBox eventVbox, User loggedUser) {
         this.eventVbox = eventVbox;
         this.loggedUser = loggedUser;
     }

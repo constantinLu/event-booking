@@ -101,23 +101,4 @@ public class LoginController implements Alert, Initializable {
         }
     }
 
-
-        /*
-      //Scene scene = new Scene(root);
-        // primaryStage.initStyle(StageStyle.UNDECORATED);
-            Scene scene = new Scene(root);
-        primaryStage.initStyle(StageStyle.UNDECORATED);
-        primaryStage.setTitle("Event Booking");
-        primaryStage.setScene(scene);
-        root.setOnMousePressed(event -> {
-                xOffset = event.getSceneX();
-                yOffset = event.getSceneY();
-        });
-        root.setOnMouseDragged(event -> {
-            primaryStage.setX(event.getSceneX() - xOffset);
-            primaryStage.setY(event.getSceneY() - yOffset);
-        });
-     */
-
-
 }

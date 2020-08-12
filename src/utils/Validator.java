@@ -17,7 +17,7 @@ public class Validator {
             for (T node : widget) {
                 if (node.getText().isEmpty()) {
                     errors.put(false, "Some fields are empty");
-                } else if (node.getText().length() < 3) { //TODO: change this at the end
+                } else if (node.getText().length() < 0) { //TODO: change this at the end
                     errors.put(false, "Field text is too short");
                 } else if (node.getText().length() > 60) {
                     errors.put(false, "Field text is too long");

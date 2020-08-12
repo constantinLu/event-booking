@@ -51,4 +51,13 @@ public class BookingServiceImpl implements BookingService {
         Booking booking = (Booking) JdbcConnection.get(query, Booking.class.getName());
         return booking;
     }
+
+    public List<Booking> getAllBooking() {
+        String query = String.format("select * from %s;", Tables.BOOKING_TABLE);
+        ArrayList<Entity> bookingList = JdbcConnection.getAll(query, Booking.class.getName());
+        List<Booking> bookings = bookingList.stream().map(x -> {
+            return (Booking) x;
+        }).collect(Collectors.toList());
+        return bookings;
+    }
 }

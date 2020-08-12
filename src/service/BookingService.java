@@ -16,4 +16,6 @@ public interface BookingService {
 
     boolean activateCancelledBooking(Booking booking);
 
+    List<Booking> getAllBooking();
+
 }
