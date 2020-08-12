@@ -1,5 +1,6 @@
 package utils;
 
+import controller.BookingsController;
 import controller.InfoController;
 import controller.MainPageController;
 import entities.Event;
@@ -66,4 +67,30 @@ public class Redirect {
         infoEventDialog.initModality(Modality.APPLICATION_MODAL);
         infoEventDialog.showAndWait();
     }
+
+    public void redirectToMainPage(ActionEvent actionEvent, String path) throws IOException {
+        Stage infoEventDialog = new Stage();
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation((getClass().getResource(path)));
+        Stage parentStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        Parent eventInfoPage = loader.load();
+        Scene eventInfoScene = new Scene(eventInfoPage);
+        infoEventDialog.setTitle("Event Information");
+        BookingsController infoController = loader.getController();
+        infoEventDialog.setScene(eventInfoScene);
+        infoEventDialog.initOwner(parentStage);
+        infoEventDialog.setResizable(false);
+        infoEventDialog.initModality(Modality.APPLICATION_MODAL);
+        infoEventDialog.showAndWait();
+
+
+//        FXMLLoader loader = new FXMLLoader();
+//        loader.setLocation((getClass().getResource(path)));
+//        Parent view = loader.load();
+//        Scene scene = new Scene(view);
+//        Stage appStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+//        appStage.setScene(scene);
+//        appStage.show();
+    }
 }
+

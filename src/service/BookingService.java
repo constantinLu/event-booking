@@ -18,4 +18,6 @@ public interface BookingService {
 
     List<Booking> getAllBooking();
 
+    boolean deleteBooking(int bookingId);
+
 }

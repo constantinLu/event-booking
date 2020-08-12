@@ -24,7 +24,7 @@ import utils.Redirect;
 public class MainPageController implements Alert, Initializable {
 
 
-
+    public Hyperlink bookingsButton;
     //DASHBOARD
     @FXML
     private ImageView dashboardImage;
@@ -90,7 +90,6 @@ public class MainPageController implements Alert, Initializable {
     //Controllers
     private EventsController eventsController;
     private BookedEventsController bookedEventsController;
-    private BookingsController bookingsController;
     private AddEventsController addEventsController;
     private MyEventsController myEventsController;
     private AdminController adminController;
@@ -101,7 +100,6 @@ public class MainPageController implements Alert, Initializable {
     public Button addEventButtonSideBar;
     public Button myEventsButtonSideBar;
     public Button adminButtonSideBar;
-    public Button bookingButtonSideBar;
 
 
     @Override
@@ -126,7 +124,6 @@ public class MainPageController implements Alert, Initializable {
         renderAccesRights();
         eventsController = new EventsController(eventVbox, loggedUser);
         bookedEventsController = new BookedEventsController(loggedUser);
-        bookingsController = new BookingsController(loggedUser);
         addEventsController = new AddEventsController(loggedUser);
         myEventsController = new MyEventsController(loggedUser, scrollMyEvents, myEventsVbox);
         adminController = new AdminController(loggedUser);
@@ -169,9 +166,13 @@ public class MainPageController implements Alert, Initializable {
         adminController.getUsers(adminVbox);
     }
 
-    public void onBookingAction(ActionEvent actionEvent) {
-        openView(PageView.BOOKINGS);
-        bookedEventsController.getEvents(bookedEventsVbox);
+    @FXML
+    public void showBookings(ActionEvent actionEvent) {
+        try {
+            new Redirect().redirectToMainPage(actionEvent, Path.TEST);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 

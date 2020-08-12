@@ -1,65 +1,65 @@
 package controller;
 
-import alert.AlertColor;
+import alert.Alert;
+import static alert.AlertColor.ERROR;
 import alert.AlertPane;
 import entities.Booking;
 import entities.Event;
-import entities.Roles;
 import entities.User;
 import java.io.IOException;
+import java.net.URL;
 import java.util.List;
+import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import service.*;
-import utils.BooleanMapper;
-import static utils.DateHelper.formatLocalDateTime;
-import utils.Path;
+import static utils.Path.MAIN_PAGE;
 import utils.Redirect;
-import utils.Style;
 import static utils.Style.*;
 
-public class BookingsController {
+public class BookingsController implements Alert, Initializable {
 
+    @FXML
+    public Pane errorPane;
+    @FXML
+    public Text errorMessage;
 
-    private EventService eventService = new EventServiceImpl();
+    @FXML
+    VBox bookingsVbox;
 
     private UserService userService = new UserServiceImpl();
-
+    private EventService eventService = new EventServiceImpl();
     private BookingService bookingService = new BookingServiceImpl();
 
-    private User loggedUser;
 
-    public BookingsController(User user) {
-        this.loggedUser = user;
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        showData();
+        initializeAlertPane();
     }
 
-    void getEvents(VBox eventVbox) {
-        addHeader(eventVbox);
+    private void showData() {
+        List<Booking> bookings = bookingService.getAllBooking();
+        addHeader(bookingsVbox);
+        for (int i = 0; i < bookings.size(); i++) {
+            Booking bookingEntity = bookings.get(i);
 
-        List<Booking> bookings = bookingService.getBookingsByUserId(loggedUser.getUserId());
-        //get all events
-        if(bookings.size()>0) {
-            List<Event> events = eventService.getBookedEvents(bookings);
-            for (int i = 0; i < events.size(); i++) {
-                Event eventEntity = events.get(i);
+            HBox hbox = createHbox(bookingEntity);
+            styleHBox(hbox, i);
 
-                HBox hbox = createHbox(eventEntity);
-                styleHBox(hbox, i);
-
-                eventVbox.getChildren().add(hbox);
-                eventVbox.setSpacing(5);
-                eventVbox.setVisible(true);
-                VBox.setMargin(hbox, new Insets(5, 5, 5, 5));
-                eventVbox.setPadding(new Insets(10, 10, 10, 10));
-            }
+            bookingsVbox.getChildren().add(hbox);
+            bookingsVbox.setSpacing(20);
+            bookingsVbox.setVisible(true);
+            VBox.setMargin(hbox, new Insets(5, 5, 5, 5));
+            bookingsVbox.setPadding(new Insets(10, 10, 10, 10));
         }
     }
 
@@ -67,47 +67,18 @@ public class BookingsController {
     private void addHeader(VBox vBox) {
         HBox hBox = new HBox();
 
-        ImageView imageViewLabel = new ImageView();
-        imageViewLabel.setImage(new Image(getClass().getResourceAsStream("/resources/images/event.png")));
-        imageViewLabel.setFitHeight(50);
-        imageViewLabel.setFitWidth(50);
-        imageViewLabel.setVisible(false);
+        Label userName = new Label();
+        userName.setText("User");
+        styleLabel(userName, true);
 
+        Label booked = new Label();
+        booked.setText("booked");
+        styleLabel(booked, true);
+        booked.setVisible(false);
 
-        Label titleLabel = new Label();
-        titleLabel.setText("Event Title");
-        styleLabel(titleLabel, true);
-
-        Label descriptionLabel = new Label();
-        descriptionLabel.setText("Description");
-        styleLabel(descriptionLabel, true);
-
-        Label locationLabel = new Label();
-        locationLabel.setText("Location");
-        styleLabel(locationLabel, true);
-
-        Label startDateLabel = new Label();
-        startDateLabel.setText("Event starts");
-        styleLabel(startDateLabel, true);
-
-        Label endDateLabel = new Label();
-        endDateLabel.setText("Event ends");
-        styleLabel(endDateLabel, true);
-
-        Label noOfSeatsLabel = new Label();
-        noOfSeatsLabel.setId("noOfSeats");
-        noOfSeatsLabel.setText("Seats");
-        styleLabel(noOfSeatsLabel, true);
-
-
-        Label onlineLabel = new Label();
-        onlineLabel.setId("online");
-        onlineLabel.setText("Online");
-        styleLabel(onlineLabel, true);
-
-        Label organiserLabel = new Label();
-        organiserLabel.setText("Organiser");
-        styleLabel(organiserLabel, true);
+        Label event = new Label();
+        event.setText("Event");
+        styleLabel(event, true);
 
 
         Label buttonLabel = new Label();
@@ -116,15 +87,10 @@ public class BookingsController {
 
 
         hBox.getChildren().addAll(
-                imageViewLabel,
-                titleLabel,
-                descriptionLabel,
-                locationLabel,
-                startDateLabel,
-                endDateLabel,
-                noOfSeatsLabel,
-                onlineLabel,
-                organiserLabel,
+
+                userName,
+                booked,
+                event,
                 buttonLabel);
 
         styleHBox(hBox, -1);
@@ -132,137 +98,60 @@ public class BookingsController {
     }
 
 
-    private HBox createHbox(Event eventEntity) {
+    private HBox createHbox(Booking bookingEntity) {
         HBox hBox = new HBox();
 
-        ImageView imageView = new ImageView();
-        String image;
-        if (true) { //change based of available seats.
-            image = "/resources/images/event.png";
-        } else {
-            image = "/resources/images/event_full.png";
-        }
-        imageView.setImage(new Image(getClass().getResourceAsStream(image)));
-        imageView.setFitHeight(50);
-        imageView.setFitWidth(50);
+        Label userName = new Label();
+        User user = userService.getUserById(bookingEntity.getUserId());
+        userName.setText(user.getFirstName() + " " + user.getLastName());
+        styleLabel(userName, false);
+
+        Text booked = new Text();
+        booked.setText("booked");
+        styleText(booked);
+
+        Label eventName = new Label();
+        Event event = eventService.getEventById(bookingEntity.getEventId());
+        eventName.setText(event.getTitle());
+        styleLabel(eventName, false);
 
 
-        Label title = new Label();
-        title.setText(eventEntity.getTitle());
-        styleLabel(title, false);
+        Button deleteBooking = new Button();
+        deleteBooking.setText("Delete");
+        deleteBooking.setDisable(false);
+        deleteBooking.setStyle("-fx-background-color: #febb02");
+        deleteBooking.setDisable(false);
+        deleteBooking.setOnAction(eventAction -> {
+            bookingService.deleteBooking(bookingEntity.getBookingId());
+            bookingsVbox.getChildren().clear();
+            showData();
 
-        Text description = new Text();
-        description.setText(eventEntity.getDescription());
-        styleText(description);
-
-        Label location = new Label();
-        location.setText(eventEntity.getLocation());
-        styleLabel(location, false);
-
-        Label startDate = new Label();
-        startDate.setText(formatLocalDateTime(eventEntity.getStartDate()));
-        styleLabel(startDate, false);
-
-
-        Label endDate = new Label();
-        endDate.setText(formatLocalDateTime(eventEntity.getEndDate()));
-        styleLabel(endDate, false);
-
-
-        Label noOfSeats = new Label();
-        noOfSeats.setId("noOfSeats");
-        noOfSeats.setText(String.valueOf(eventEntity.getConstraints()));
-        styleLabel(noOfSeats, false);
-
-
-        Label online = new Label();
-        online.setId("online");
-
-        styleLabel(online, false);
-        if (eventEntity.isOnline()) {
-            online.setText(String.valueOf("YES"));
-            online.setTextFill(Color.valueOf("green"));
-        } else {
-            online.setText(String.valueOf("NO"));
-            online.setTextFill(Color.valueOf("red"));
-        }
-
-
-        Label organiser = new Label();
-        String oraniserName = null;
-        try {
-            oraniserName = userService.getOrganiserName(eventEntity.getOrganiserId());
-        } catch (Exception e) {
-            System.out.println("Organiser is null");
-            oraniserName = "Administrator";
-        }
-        organiser.setText(oraniserName);
-        styleLabel(organiser, false);
-
-
-        //VBOX
-        VBox buttons = new VBox();
-        buttons.setSpacing(5);
-        buttons.setAlignment(Pos.CENTER);
-
-        Button viewDetailsButton = new Button();
-        viewDetailsButton.setText("View Details");
-        viewDetailsButton.setDisable(false);
-        viewDetailsButton.setStyle("-fx-background-color: #febb02");
-        viewDetailsButton.setDisable(false);
-
-        styleButton(viewDetailsButton, 0);
-        viewDetailsButton.setOnAction(event -> {
-            try {
-                new Redirect().openInfoEventModal(event, Path.EVENT_INFO,eventEntity);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
         });
 
-
-        Button isBookedButton = new Button();
-        boolean isBooked = eventService.isEventBooked(eventEntity.getEventId(),loggedUser.getUserId());
-        isBookedButton.setText("Edit event");
-        isBookedButton.setDisable(false);
-        isBookedButton.setStyle("-fx-background-color: #febb02");
-        setStyleButton(isBookedButton, isBooked);
-        styleButton(isBookedButton, 0);
-        isBookedButton.setOnAction(event -> {
-            Boolean isBooked1 = ! bookingService.cancelBooking(eventEntity.getEventId(),loggedUser.getUserId());
-            setStyleButton(isBookedButton , isBooked1);
-        });
-
-
-        buttons.getChildren().addAll(viewDetailsButton, isBookedButton);
+        styleButton(deleteBooking, 0);
+        styleHBox(hBox, -1);
 
         hBox.getChildren().addAll(
-                imageView,
-                title,
-                description,
-                location,
-                startDate,
-                endDate,
-                noOfSeats,
-                online,
-                organiser,
-                buttons);
+                userName,
+                booked,
+                eventName,
+                deleteBooking);
 
         return hBox;
     }
-    private void setStyleButton(Button button, boolean isBooked){
-        if (isBooked) {
-            button.setText("Cancel");
-            button.setDisable(false);
-            button.setStyle("-fx-background-color: #febb02");
-        } else {
-            button.setText("Cancelled");
-            button.setDisable(true);
-            button.setStyle("-fx-background-color: red");
+
+
+    @Override
+    public void initializeAlertPane() {
+        AlertPane.createInstance(errorPane, errorMessage);
+    }
+
+    @FXML
+    public void backToDashBoard(ActionEvent actionEvent) {
+        try {
+            new Redirect().redirectToParent(actionEvent, MAIN_PAGE);
+        } catch (IOException e) {
+            AlertPane.show("Redirect failed", ERROR);
         }
     }
 }
-
-
-
-

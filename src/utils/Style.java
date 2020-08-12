@@ -34,9 +34,8 @@ public class Style {
      * style box for addEvent
      *
      * @param hbox
-     * @param value 1.0 - default color
      */
-    public static void styleHBox(HBox hbox, double value) {
+    public static void styleHBox(HBox hbox) {
         hbox.setSpacing(20);
         hbox.setAlignment(Pos.CENTER_LEFT);
         HBox.setMargin(hbox, new Insets(5, 20, 5, 5));
