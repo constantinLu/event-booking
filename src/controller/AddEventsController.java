@@ -10,10 +10,7 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import service.EventService;
 import service.EventServiceImpl;
@@ -54,7 +51,7 @@ public class AddEventsController implements Initializable {
             if (child.getId() != null) {
                 switch (child.getId()) {
                     case "addTitle":
-                        child.setOnMouseExited(event ->
+                        child.setOnKeyReleased(event ->
                         {
                             titleTextField = (TextField) child;
                             addEvent.setTitle(titleTextField.getText());
@@ -62,14 +59,15 @@ public class AddEventsController implements Initializable {
                         break;
                     case "isOnlineDropDown":
                         ChoiceBox onlineChoiceBox = (ChoiceBox) child;
+                        onlineChoiceBox.setValue(onlineChoiceBox.getSelectionModel().getSelectedItem());
+                        addEvent.setOnline(true);
                         onlineChoiceBox.setOnAction(event -> {
-                            onlineChoiceBox.setValue(onlineChoiceBox.getSelectionModel().getSelectedItem());
                             addEvent.setOnline(onlineChoiceBox.getValue() == "YES");
                         });
                         break;
 
                     case "addDescription":
-                        child.setOnMouseExited(event ->
+                        child.setOnKeyReleased(event ->
                         {
                             descriptionTextField = (TextField) child;
                             addEvent.setDescription(descriptionTextField.getText());
@@ -77,7 +75,7 @@ public class AddEventsController implements Initializable {
                         break;
 
                     case "addLocation":
-                        child.setOnMouseExited(event ->
+                        child.setOnKeyReleased(event ->
                         {
                             locationTextField = (TextField) child;
                             addEvent.setLocation(locationTextField.getText());
@@ -87,19 +85,23 @@ public class AddEventsController implements Initializable {
                     case "startDatePicker":
                         startDatePicker = (DatePicker) child;
                         startDatePicker.setOnAction(event -> {
-                            addEvent.setStartDate(LocalDateTime.of(startDatePicker.getValue(), LocalTime.MIDNIGHT));
+                            if (startDatePicker.getValue() != null) {
+                                addEvent.setStartDate(LocalDateTime.of(startDatePicker.getValue(), LocalTime.MIDNIGHT));
+                            }
                         });
                         break;
 
                     case "endDatePicker":
                         endDatePicker = (DatePicker) child;
                         endDatePicker.setOnAction(event -> {
-                            addEvent.setEndDate(LocalDateTime.of(endDatePicker.getValue(), LocalTime.MIDNIGHT));
+                            if (endDatePicker.getValue() != null) {
+                                addEvent.setEndDate(LocalDateTime.of(endDatePicker.getValue(), LocalTime.MIDNIGHT));
+                            }
                         });
                         break;
 
                     case "addSeats":
-                        child.setOnMouseExited(event ->
+                        child.setOnKeyReleased(event ->
                         {
                             seats = (TextField) child;
                             addEvent.setConstraints(seats.getText());
@@ -107,8 +109,9 @@ public class AddEventsController implements Initializable {
                         break;
                     case "isBookingAllowed":
                         ChoiceBox bookingAllowed = (ChoiceBox) child;
+                        bookingAllowed.setValue(bookingAllowed.getSelectionModel().getSelectedItem());
+                        addEvent.setBookingAllowed(true);
                         bookingAllowed.setOnAction(event -> {
-                            bookingAllowed.setValue(bookingAllowed.getSelectionModel().getSelectedItem());
                             addEvent.setBookingAllowed(bookingAllowed.getValue() == "YES");
                         });
                         break;

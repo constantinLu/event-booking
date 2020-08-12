@@ -36,6 +36,9 @@ public class InfoController {
     @FXML
     Text descriptionText;
 
+    @FXML
+    Text noOfSeatsText;
+
     public void showInfoController(ActionEvent actionEvent, Event event) throws IOException {
         Stage infoEventDialog = new Stage();
         Stage parentStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
@@ -54,6 +57,7 @@ public class InfoController {
         startDateText.setText(DateHelper.formatLocalDateTime(event.getStartDate()));
         endDateText.setText(DateHelper.formatLocalDateTime(event.getEndDate()));
         locationText.setText(event.getLocation());
+        noOfSeatsText.setText(event.getConstraints());
 
         isOnlineText.setText(BooleanMapper.mapForUi(event.isOnline()));
         Style.styleTextBasedOnBoolean(isOnlineText, event.isOnline());

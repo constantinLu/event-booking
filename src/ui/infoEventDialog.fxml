@@ -104,7 +104,7 @@
                            <font>
                               <Font size="13.0" />
                            </font></Text>
-                        <Text fx:id="noOfSeatsText" fill="#1397d5" strokeType="OUTSIDE" strokeWidth="0.0" text="No of seats Text">
+                        <Text fx:id="noOfSeatsText" fill="#1397d5" strokeType="OUTSIDE" strokeWidth="0.0">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
