@@ -69,28 +69,19 @@ public class Redirect {
     }
 
     public void redirectToMainPage(ActionEvent actionEvent, String path) throws IOException {
-        Stage infoEventDialog = new Stage();
+        Stage bookingDialog = new Stage();
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation((getClass().getResource(path)));
         Stage parentStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         Parent eventInfoPage = loader.load();
         Scene eventInfoScene = new Scene(eventInfoPage);
-        infoEventDialog.setTitle("Event Information");
-        BookingsController infoController = loader.getController();
-        infoEventDialog.setScene(eventInfoScene);
-        infoEventDialog.initOwner(parentStage);
-        infoEventDialog.setResizable(false);
-        infoEventDialog.initModality(Modality.APPLICATION_MODAL);
-        infoEventDialog.showAndWait();
-
-
-//        FXMLLoader loader = new FXMLLoader();
-//        loader.setLocation((getClass().getResource(path)));
-//        Parent view = loader.load();
-//        Scene scene = new Scene(view);
-//        Stage appStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-//        appStage.setScene(scene);
-//        appStage.show();
+        bookingDialog.setTitle("View Bokings");
+        BookingsController bookingsController = loader.getController();
+        bookingDialog.setScene(eventInfoScene);
+        bookingDialog.initOwner(parentStage);
+        bookingDialog.setResizable(false);
+        bookingDialog.initModality(Modality.APPLICATION_MODAL);
+        bookingDialog.showAndWait();
     }
 }
 

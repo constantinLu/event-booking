@@ -50,16 +50,18 @@ public class BookingsController implements Alert, Initializable {
         List<Booking> bookings = bookingService.getAllBooking();
         addHeader(bookingsVbox);
         for (int i = 0; i < bookings.size(); i++) {
-            Booking bookingEntity = bookings.get(i);
+            if (bookings.get(i).getCancelDate() == null) {
+                Booking bookingEntity = bookings.get(i);
 
-            HBox hbox = createHbox(bookingEntity);
-            styleHBox(hbox, i);
+                HBox hbox = createHbox(bookingEntity);
+                styleHBox(hbox, i);
 
-            bookingsVbox.getChildren().add(hbox);
-            bookingsVbox.setSpacing(20);
-            bookingsVbox.setVisible(true);
-            VBox.setMargin(hbox, new Insets(5, 5, 5, 5));
-            bookingsVbox.setPadding(new Insets(10, 10, 10, 10));
+                bookingsVbox.getChildren().add(hbox);
+                bookingsVbox.setSpacing(20);
+                bookingsVbox.setVisible(true);
+                VBox.setMargin(hbox, new Insets(5, 5, 5, 5));
+                bookingsVbox.setPadding(new Insets(10, 10, 10, 10));
+            }
         }
     }
 

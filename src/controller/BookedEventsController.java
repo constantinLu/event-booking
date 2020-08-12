@@ -228,6 +228,8 @@ public class BookedEventsController {
         styleButton(isBookedButton, 0);
         isBookedButton.setOnAction(event -> {
            Boolean isBooked1 = ! bookingService.cancelBooking(eventEntity.getEventId(),loggedUser.getUserId());
+           Booking currentBooking =  bookingService.getBookingByEventIdAndUserId(eventEntity.getEventId() , loggedUser.getUserId());
+           bookingService.deleteBooking(currentBooking.getBookingId());
            setStyleButton(isBookedButton , isBooked1);
         });
 

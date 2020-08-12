@@ -250,7 +250,6 @@ public class MyEventsController implements Alert, Initializable {
 
         deleteButton.setOnAction(event -> {
             if (eventService.removeEvent(eventEntity.getEventId())) {
-//                new Redirect().
                 myEventBox.getChildren().clear();
                 getEvents(myEventBox);
                 //TODO: FIND HOW TO REFRESH THE PANE

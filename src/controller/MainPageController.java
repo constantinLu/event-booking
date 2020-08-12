@@ -24,13 +24,15 @@ import utils.Redirect;
 public class MainPageController implements Alert, Initializable {
 
 
-    public Hyperlink bookingsButton;
+
     //DASHBOARD
     @FXML
     private ImageView dashboardImage;
     @FXML
     Label userField;
     User loggedUser;
+    @FXML
+    public Hyperlink bookingsButton;
 
     //ALL EVENTS
     @FXML
@@ -258,10 +260,12 @@ public class MainPageController implements Alert, Initializable {
             addEventButtonSideBar.setVisible(true);
             myEventsButtonSideBar.setVisible(true);
             adminButtonSideBar.setVisible(true);
+            bookingsButton.setVisible(true);
             switch (loggedUser.getRole()) {
                 case STUDENT:
                     addEventButtonSideBar.setVisible(false);
                     myEventsButtonSideBar.setVisible(false);
+                    bookingsButton.setVisible(false);
                     adminButtonSideBar.setVisible(false);
                 case EVENT_ORGANISER:
                     adminButtonSideBar.setVisible(false);
