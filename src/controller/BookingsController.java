@@ -2,6 +2,7 @@ package controller;
 
 import alert.AlertColor;
 import alert.AlertPane;
+import entities.Booking;
 import entities.Event;
 import entities.Roles;
 import entities.User;
@@ -17,10 +18,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
-import service.EventService;
-import service.EventServiceImpl;
-import service.UserService;
-import service.UserServiceImpl;
+import service.*;
 import utils.BooleanMapper;
 import static utils.DateHelper.formatLocalDateTime;
 import utils.Path;
@@ -30,34 +28,38 @@ import static utils.Style.*;
 
 public class BookingsController {
 
+
     private EventService eventService = new EventServiceImpl();
 
     private UserService userService = new UserServiceImpl();
 
-    private VBox eventVbox;
+    private BookingService bookingService = new BookingServiceImpl();
 
     private User loggedUser;
 
-    public BookingsController(VBox eventVbox, User loggedUser) {
-        this.eventVbox = eventVbox;
-        this.loggedUser = loggedUser;
+    public BookingsController(User user) {
+        this.loggedUser = user;
     }
 
     void getEvents(VBox eventVbox) {
         addHeader(eventVbox);
+
+        List<Booking> bookings = bookingService.getBookingsByUserId(loggedUser.getUserId());
         //get all events
-        List<Event> events = eventService.getAllEvents();
-        for (int i = 0; i < events.size(); i++) {
-            Event eventEntity = events.get(i);
+        if(bookings.size()>0) {
+            List<Event> events = eventService.getBookedEvents(bookings);
+            for (int i = 0; i < events.size(); i++) {
+                Event eventEntity = events.get(i);
 
-            HBox hbox = createHbox(eventEntity);
-            styleHBox(hbox, i);
+                HBox hbox = createHbox(eventEntity);
+                styleHBox(hbox, i);
 
-            eventVbox.getChildren().add(hbox);
-            eventVbox.setSpacing(5);
-            eventVbox.setVisible(true);
-            VBox.setMargin(hbox, new Insets(5, 5, 5, 5));
-            eventVbox.setPadding(new Insets(10, 10, 10, 10));
+                eventVbox.getChildren().add(hbox);
+                eventVbox.setSpacing(5);
+                eventVbox.setVisible(true);
+                VBox.setMargin(hbox, new Insets(5, 5, 5, 5));
+                eventVbox.setPadding(new Insets(10, 10, 10, 10));
+            }
         }
     }
 
@@ -177,10 +179,11 @@ public class BookingsController {
         online.setId("online");
 
         styleLabel(online, false);
-        online.setText(BooleanMapper.mapForUi(eventEntity.isOnline()));
         if (eventEntity.isOnline()) {
+            online.setText(String.valueOf("YES"));
             online.setTextFill(Color.valueOf("green"));
         } else {
+            online.setText(String.valueOf("NO"));
             online.setTextFill(Color.valueOf("red"));
         }
 
@@ -210,48 +213,28 @@ public class BookingsController {
 
         styleButton(viewDetailsButton, 0);
         viewDetailsButton.setOnAction(event -> {
-            //TODO: IMPLEMENT VIEW DETAILS
             try {
-                new Redirect().openInfoEventModal(event, Path.EVENT_INFO, eventEntity);
+                new Redirect().openInfoEventModal(event, Path.EVENT_INFO,eventEntity);
             } catch (IOException e) {
                 e.printStackTrace();
             }
         });
 
 
-        Button bookButton = new Button();
-        boolean isBooked = eventService.isEventBooked(eventEntity.getEventId(), loggedUser.getUserId());
-        Style.styleButton(bookButton, isBooked);
-        styleButton(bookButton, 0);
-        bookButton.setOnAction(event -> {
-            System.out.println(eventEntity.getEventId());
-            boolean isBooked1 = eventService.bookEvent(eventEntity, loggedUser.getUserId());
-            Style.styleButton(bookButton, isBooked1);
+        Button isBookedButton = new Button();
+        boolean isBooked = eventService.isEventBooked(eventEntity.getEventId(),loggedUser.getUserId());
+        isBookedButton.setText("Edit event");
+        isBookedButton.setDisable(false);
+        isBookedButton.setStyle("-fx-background-color: #febb02");
+        setStyleButton(isBookedButton, isBooked);
+        styleButton(isBookedButton, 0);
+        isBookedButton.setOnAction(event -> {
+            Boolean isBooked1 = ! bookingService.cancelBooking(eventEntity.getEventId(),loggedUser.getUserId());
+            setStyleButton(isBookedButton , isBooked1);
         });
 
-        if (loggedUser.getRole() == Roles.ADMINISTRATOR) {
-            Button deleteButton = new Button();
-            deleteButton.setText("Remove");
-            deleteButton.setDisable(false);
-            deleteButton.setStyle("-fx-background-color: #febb02");
-            viewDetailsButton.setDisable(false);
-            styleButton(deleteButton, 1);
 
-            deleteButton.setOnAction(event -> {
-                if (eventService.removeEvent(eventEntity.getEventId())) {
-                    eventVbox.getChildren().clear();
-                    getEvents(eventVbox);
-                    //TODO: FIND HOW TO REFRESH THE PANE
-                    AlertPane.show("Event deleted", AlertColor.SUCCESS);
-                } else {
-                    AlertPane.show("Error while deleting event", AlertColor.ERROR);
-                }
-            });
-            buttons.getChildren().addAll(viewDetailsButton, bookButton, deleteButton);
-        } else {
-            buttons.getChildren().addAll(viewDetailsButton, bookButton);
-        }
-
+        buttons.getChildren().addAll(viewDetailsButton, isBookedButton);
 
         hBox.getChildren().addAll(
                 imageView,
@@ -267,6 +250,19 @@ public class BookingsController {
 
         return hBox;
     }
-
-
+    private void setStyleButton(Button button, boolean isBooked){
+        if (isBooked) {
+            button.setText("Cancel");
+            button.setDisable(false);
+            button.setStyle("-fx-background-color: #febb02");
+        } else {
+            button.setText("Cancelled");
+            button.setDisable(true);
+            button.setStyle("-fx-background-color: red");
+        }
+    }
 }
+
+
+
+

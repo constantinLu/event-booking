@@ -24,6 +24,7 @@ import utils.Redirect;
 public class MainPageController implements Alert, Initializable {
 
 
+
     //DASHBOARD
     @FXML
     private ImageView dashboardImage;
@@ -89,6 +90,7 @@ public class MainPageController implements Alert, Initializable {
     //Controllers
     private EventsController eventsController;
     private BookedEventsController bookedEventsController;
+    private BookingsController bookingsController;
     private AddEventsController addEventsController;
     private MyEventsController myEventsController;
     private AdminController adminController;
@@ -99,6 +101,7 @@ public class MainPageController implements Alert, Initializable {
     public Button addEventButtonSideBar;
     public Button myEventsButtonSideBar;
     public Button adminButtonSideBar;
+    public Button bookingButtonSideBar;
 
 
     @Override
@@ -123,9 +126,9 @@ public class MainPageController implements Alert, Initializable {
         renderAccesRights();
         eventsController = new EventsController(eventVbox, loggedUser);
         bookedEventsController = new BookedEventsController(loggedUser);
+        bookingsController = new BookingsController(loggedUser);
         addEventsController = new AddEventsController(loggedUser);
-        myEventsController = new MyEventsController(loggedUser, scrollMyEvents,
-                myEventsVbox);
+        myEventsController = new MyEventsController(loggedUser, scrollMyEvents, myEventsVbox);
         adminController = new AdminController(loggedUser);
 
     }
@@ -166,6 +169,11 @@ public class MainPageController implements Alert, Initializable {
         adminController.getUsers(adminVbox);
     }
 
+    public void onBookingAction(ActionEvent actionEvent) {
+        openView(PageView.BOOKINGS);
+        bookedEventsController.getEvents(bookedEventsVbox);
+    }
+
 
     public void backHome(ActionEvent actionEvent) {
         clearAll();
@@ -203,6 +211,10 @@ public class MainPageController implements Alert, Initializable {
                 myEventsVbox.setVisible(true);
                 break;
             case BOOKED_EVENTS:
+                scrollBookedEvents.setVisible(true);
+                bookedEventsVbox.setVisible(true);
+                break;
+            case BOOKINGS:
                 scrollBookedEvents.setVisible(true);
                 bookedEventsVbox.setVisible(true);
                 break;
